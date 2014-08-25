@@ -2,8 +2,6 @@
 " remove all autocommands to prevent them from being loaded twice
 au!
 
-execute pathogen#infect()
-runtime! plugin/sensible.vim
 filetype plugin on
 
 let g:airline_powerline_fonts = 1
@@ -74,7 +72,6 @@ nmap <space> zz
 " always be in directory of currently edited file
 autocmd BufEnter * silent! lcd %:p:h
 
-colo solarized
 let g:solarized_contrast = "high"
 se bg=light
 
@@ -87,4 +84,9 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 set wildmenu
 set wildmode=list:longest,full
+
+" Options that can't be used without more configuration
+execute pathogen#infect()
+runtime! plugin/sensible.vim
+colo solarized
 

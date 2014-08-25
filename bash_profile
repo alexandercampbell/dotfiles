@@ -17,7 +17,7 @@ alias sl="ls"
 
 export PS1='[\w]\$ '
 
-if [[ ! $TERM =~ screen ]]; then
-	exec tmux
-fi
+#if [[ ! $TERM =~ screen ]]; then
+#	exec tmux
+#fi
 

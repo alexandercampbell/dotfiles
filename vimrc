@@ -85,3 +85,6 @@ hi Search cterm=NONE ctermbg=lightblue
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
+set wildmenu
+set wildmode=list:longest,full
+

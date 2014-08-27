@@ -83,7 +83,7 @@ autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 set wildmenu
-set wildmode=list:list
+set wildmode=list:longest
 
 " Options that can't be used without more configuration
 execute pathogen#infect()

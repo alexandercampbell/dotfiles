@@ -15,6 +15,8 @@ alias ll="ls -lh"
 alias la="ls -la"
 alias sl="ls"
 
+alias tmux="tmux -c $PWD"
+
 export PS1='[\w]\$ '
 
 #if [[ ! $TERM =~ screen ]]; then

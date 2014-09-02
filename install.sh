@@ -10,7 +10,7 @@ git clone https://github.com/bling/vim-airline ~/.vim/bundle/vim-airline
 git clone git://github.com/tpope/vim-sensible.git ~/.vim/bundle/vim-sensible
 
 # Set up symbolic links to configuration files
-ln -s tmux.conf ~/.tmux.conf
-ln -s vimrc ~/.vimrc
-ln -s bash_profile ~/.bash_profile
+ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
+ln -s ~/dotfiles/vimrc ~/.vimrc
+ln -s ~/dotfiles/bash_profile ~/.bash_profile
 

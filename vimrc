@@ -4,8 +4,8 @@ au!
 
 " Options that can't be used without more configuration
 execute pathogen#infect()
-runtime! plugin/sensible.vim
 colo solarized
+runtime! plugin/sensible.vim
 
 filetype plugin on
 
@@ -21,7 +21,6 @@ se laststatus=2
 let g:go_fmt_fail_silently = 1
 
 set hlsearch
-set incsearch
 
 set splitbelow
 set splitright
@@ -79,6 +78,7 @@ autocmd BufEnter * silent! lcd %:p:h
 
 let g:solarized_contrast = "high"
 se bg=light
+syn on
 
 " highlight searches with light blue instead of the default bright yellow
 hi Search cterm=NONE ctermbg=lightblue

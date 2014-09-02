@@ -2,6 +2,11 @@
 " remove all autocommands to prevent them from being loaded twice
 au!
 
+" Options that can't be used without more configuration
+execute pathogen#infect()
+runtime! plugin/sensible.vim
+colo solarized
+
 filetype plugin on
 
 let g:airline_powerline_fonts = 1
@@ -84,9 +89,4 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 set wildmenu
 set wildmode=list:longest
-
-" Options that can't be used without more configuration
-execute pathogen#infect()
-runtime! plugin/sensible.vim
-colo solarized
 

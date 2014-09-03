@@ -1,4 +1,9 @@
 
+# Include local bashrc if it exists
+if [ -f "$HOME/.bashrc_local" ]; then
+	. "$HOME/.bashrc_local"
+fi
+
 export GOPATH=~/workspace
 export GOROOT=/usr/local/go
 export EDITOR=vim

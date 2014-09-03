@@ -1,7 +1,7 @@
 
 # Include local bashrc if it exists
 if [ -f "$HOME/.bashrc_local" ]; then
-	. "$HOME/.bashrc_local"
+	source "$HOME/.bashrc_local"
 fi
 
 export GOPATH=~/workspace
@@ -13,9 +13,8 @@ export CLICOLOR=true
 export GREP_OPTIONS='--color=auto'
 
 export PATH=$PATH:$GOPATH/bin
-export GOMAXPROCS=8
+export GOMAXPROCS=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || sysctl -n hw.ncpu)
 
-alias ls="ls --color=auto"
 alias l="ls"
 alias ll="ls -lh"
 alias la="ls -la"

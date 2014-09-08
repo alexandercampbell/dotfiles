@@ -20,6 +20,8 @@ alias ll="ls -lh"
 alias la="ls -la"
 alias sl="ls"
 
+alias gocover="go test -coverprofile=c.out && go tool cover -html=c.out"
+
 export PS1='[\w]\$ '
 
 #if [[ ! $TERM =~ screen ]]; then

@@ -1,7 +1,9 @@
 
-# Include local bashrc if it exists
-if [ -f "$HOME/.bashrc_local" ]; then
-	source "$HOME/.bashrc_local"
+# Include local bash init script if it exists. This is for when the local
+# computer needs custom configuration that I don't want in my standard
+# dotfiles.
+if [ -f "$HOME/.bash_profile_local" ]; then
+	source "$HOME/.bash_profile_local"
 fi
 
 export GOPATH=~/workspace

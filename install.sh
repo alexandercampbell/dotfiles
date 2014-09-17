@@ -12,5 +12,5 @@ git clone git://github.com/tpope/vim-sensible.git ~/.vim/bundle/vim-sensible
 # Set up symbolic links to configuration files
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/vimrc ~/.vimrc
-ln -s ~/dotfiles/bashrc ~/.bashrc
+ln -s ~/dotfiles/bash_profile ~/.bash_profile
 

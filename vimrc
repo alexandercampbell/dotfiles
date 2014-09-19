@@ -2,12 +2,18 @@
 " remove all autocommands to prevent them from being loaded twice
 au!
 
-" Options that can't be used without more configuration
-execute pathogen#infect()
-colo solarized
-runtime! plugin/sensible.vim
+" Plugins list
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+Plugin 'tpope/vim-sensible'			" Sensible defaults
+Plugin 'tpope/vim-vinegar'			" Better file browser
+Plugin 'bling/vim-airline'			" Better status line
+Plugin 'fatih/vim-go'				" Go language support
+Plugin 'altercation/vim-colors-solarized'	" Solarized colorscheme
+call vundle#end()
 
-filetype plugin on
+filetype plugin indent on
 
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
@@ -76,6 +82,7 @@ nmap <space> zz
 autocmd BufEnter * silent! lcd %:p:h
 
 let g:solarized_contrast = "high"
+colo solarized
 se bg=light
 syn on
 

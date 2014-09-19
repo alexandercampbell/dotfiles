@@ -16,9 +16,6 @@ endif
 let g:airline_symbols.space = "\ua0"
 
 se timeoutlen=50
-se laststatus=2
-
-let g:go_fmt_fail_silently = 1
 
 set hlsearch
 
@@ -33,6 +30,8 @@ au FileType go nmap <F7> :!clear && go test -v -bench .<CR>
 au FileType go nmap <F8> :!clear && go build<CR>
 au FileType go nmap <F9> :!clear && go build -o vimtestmain.out && ./vimtestmain.out && rm vimtestmain.out<CR>
 au FileType go se tw=92
+let g:go_fmt_fail_silently = 1
+let g:go_fmt_command = "goimports"
 
 au FileType c map <F5> <C-C>:!clear && clang --analyze *.c<CR>
 au FileType haskell map <F9> <C-C>:!clear && ghc % -o vimtestmain.out && ./vimtestmain.out && rm vimtestmain.out<CR>

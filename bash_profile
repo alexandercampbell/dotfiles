@@ -30,3 +30,8 @@ export PS1='[\w]\$ '
 #	exec tmux
 #fi
 
+export TERM=screen-256color-bce
+
+alias open="xdg-open"
+alias more=less
+

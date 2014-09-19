@@ -81,7 +81,7 @@ se bg=light
 syn on
 
 " highlight searches with light blue instead of the default bright yellow
-hi Search cterm=NONE ctermbg=lightblue
+hi Search cterm=none ctermbg=lightblue
 
 " hide autocompletion window on movement
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
@@ -89,4 +89,6 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 set wildmenu
 set wildmode=list:longest
+
+se t_Co=16
 

@@ -60,19 +60,15 @@ set display+=lastline
 " faster custom keybindings. The important ones here are `q` and `w`. I
 " save/quit a LOT. The vim default of needing four keys to save the file
 " (shift-colon-w-return) is ridiculous and defeats the whole point of having a
-" modal editor. In normal mode, w should save.
-nmap ` :E<CR>
-nmap <Tab> <C-w>w
-nmap <S-Tab> <C-w><S-w>
+" modal editor. In normal mode, a single key should save.
 nmap q :q<CR>
 nmap w :w<CR>
+nmap <Tab> <C-w>w
+nmap <S-Tab> <C-w><S-w>
 nmap <space> zz
 map <C-c> <Esc>
 
-" enable mouse
-se mouse=a
-
-" no introductory message when starting vim
+" Hide introductory message when starting vim.
 se shm=I
 
 " jump to last edited position in file instead of always starting at the
@@ -88,7 +84,8 @@ se wm=0
 se cc=+1 " colorcolumn
 hi ColorColumn ctermbg=7 "non-pink colorcolumn
 
-" always be in directory of currently edited file
+" Always cd to the directory of the current buffer. Better for running
+" commandline stuff and editing adjacent files.
 autocmd BufEnter * silent! lcd %:p:h
 
 " Colorscheme. Solarized is the best I've found.
@@ -97,11 +94,10 @@ colo solarized
 se bg=light
 syn on
 
-" highlight searches with light blue instead of the default annoyingly-bright
-" yellow
+" Highlight searches with lightblue instead of annoyingly-bright yellow
 hi Search cterm=none ctermbg=lightblue
 
-" hide autocompletion window on movement
+" hide autocompletion window on cursor movement
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
@@ -131,7 +127,8 @@ au BufRead,BufNewFile *.yaml se ft=yaml
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Everything below this line was copied from vim-sensible. I don't need all of
-" it, but it can't hurt.
+" it, but it can't hurt. This is not all of vim-sensible, just the stuff I
+" haven't already covered above.
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

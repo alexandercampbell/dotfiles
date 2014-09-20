@@ -114,13 +114,13 @@ let g:go_fmt_fail_silently = 1
 let g:go_fmt_command = "goimports"
 
 " random autocommand/bindings for miscellaneous programming languages
-au FileType c map <F5> <C-C>:!clear && clang --analyze *.c<CR>
-au FileType haskell map <F9> <C-C>:!clear && ghc % -o vimtestmain.out && ./vimtestmain.out && rm vimtestmain.out<CR>
+au FileType c nmap <F5> :!clear && clang --analyze *.c<CR>
+au FileType haskell nmap <F9> :!clear && ghc % -o vimtestmain.out && ./vimtestmain.out && rm vimtestmain.out<CR>
+au FileType python nmap <F9> :!clear && python %<CR>
+au FileType lua nmap <F9> :!clear && ~/apps/love .<CR>
 au FileType yaml se ts=4 sw=4 et
 au FileType javascript se ts=4 sw=4 et
 au FileType python se ts=4 sw=4 et
-au FileType python map <F9> <C-C>:!clear && python %<CR>
-au FileType lua map <F9> <C-c>:!clear && ~/apps/love .<CR>
 au BufRead,BufNewFile *.md set ft=markdown tw=80
 au BufRead,BufNewFile *.yaml se ft=yaml
 

@@ -17,21 +17,15 @@ export GREP_OPTIONS='--color=auto'
 export PATH=$PATH:$GOPATH/bin
 export GOMAXPROCS=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || sysctl -n hw.ncpu)
 
+alias gocover="go test -coverprofile=c.out && go tool cover -html=c.out"
 alias l="ls"
 alias ll="ls -lh"
 alias la="ls -la"
 alias sl="ls"
-
-alias gocover="go test -coverprofile=c.out && go tool cover -html=c.out"
+alias open="xdg-open"
+alias more=less
 
 export PS1='[\w]\$ '
 
-#if [[ ! $TERM =~ screen ]]; then
-#	exec tmux
-#fi
-
 export TERM=screen-256color-bce
-
-alias open="xdg-open"
-alias more=less
 

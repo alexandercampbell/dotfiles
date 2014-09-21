@@ -14,6 +14,7 @@ Plugin 'tpope/vim-vinegar'			" Better file browser
 Plugin 'bling/vim-airline'			" Better status line
 Plugin 'fatih/vim-go'				" Go language support
 Plugin 'altercation/vim-colors-solarized'	" Solarized colorscheme
+Plugin 'tpope/vim-vividchalk'
 call vundle#end()
 
 " reenable filetype, syntax
@@ -25,6 +26,8 @@ se autoindent
 se backspace=indent,eol,start
 se complete-=i
 se smarttab
+
+se virtualedit=block
 
 " better status line (probably overriden by airline, but nice to have if
 " plugins aren't working for some reason)
@@ -67,6 +70,8 @@ nmap <Tab> <C-w>w
 nmap <S-Tab> <C-w><S-w>
 nmap <space> zz
 map <C-c> <Esc>
+vnoremap < <gv
+vnoremap > >gv
 
 " Hide introductory message when starting vim.
 se shm=I
@@ -76,6 +81,10 @@ se shm=I
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
   \| exe "normal! g'\"" | endif
 
+" Always cd to the directory of the current buffer. Better for running
+" commandline stuff and editing adjacent files.
+autocmd BufEnter * silent! lcd %:p:h
+
 " Line numbering, format options, color column, etc.
 se nu
 se fo+=c
@@ -84,14 +93,11 @@ se wm=0
 se cc=+1 " colorcolumn
 hi ColorColumn ctermbg=7 "non-pink colorcolumn
 
-" Always cd to the directory of the current buffer. Better for running
-" commandline stuff and editing adjacent files.
-autocmd BufEnter * silent! lcd %:p:h
-
 " Colorscheme. Solarized is the best I've found.
 let g:solarized_contrast = "high"
 colo solarized
 se bg=light
+se t_Co=256
 syn on
 
 " Highlight searches with lightblue instead of annoyingly-bright yellow
@@ -108,21 +114,25 @@ au FileType go nmap <F4> :!clear && go test -short<CR>
 au FileType go nmap <F6> :!clear && go test -v<CR>
 au FileType go nmap <F7> :!clear && go test -v -bench .<CR>
 au FileType go nmap <F8> :!clear && go build<CR>
-au FileType go nmap <F9> :!clear && go build -o vimtestmain.out && ./vimtestmain.out && rm vimtestmain.out<CR>
-au FileType go se tw=92
+au FileType go nmap <F9> :!clear; go build -o vimtestmain.out; ./vimtestmain.out; rm vimtestmain.out<CR>
+
+au FileType go se tw=80
 let g:go_fmt_fail_silently = 1
 let g:go_fmt_command = "goimports"
+
+" recognize file extensions as the correct filetypes
+au BufRead,BufNewFile *.md set ft=markdown tw=80
+au BufRead,BufNewFile *.yaml se ft=yaml
 
 " random autocommand/bindings for miscellaneous programming languages
 au FileType c nmap <F5> :!clear && clang --analyze *.c<CR>
 au FileType haskell nmap <F9> :!clear && ghc % -o vimtestmain.out && ./vimtestmain.out && rm vimtestmain.out<CR>
 au FileType python nmap <F9> :!clear && python %<CR>
 au FileType lua nmap <F9> :!clear && ~/apps/love .<CR>
+au FileType markdown nmap <F9> :!pandoc -o %.html % && xdg-open %.html<CR>
 au FileType yaml se ts=4 sw=4 et
 au FileType javascript se ts=4 sw=4 et
 au FileType python se ts=4 sw=4 et
-au BufRead,BufNewFile *.md set ft=markdown tw=80
-au BufRead,BufNewFile *.yaml se ft=yaml
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -165,11 +175,6 @@ if !empty(&viminfo)
   set viminfo^=!
 endif
 set sessionoptions-=options
-
-" Allow color schemes to do bright colors without forcing bold.
-if &t_Co == 8 && $TERM !~# '^linux'
-  set t_Co=16
-endif
 
 " Load matchit.vim, but only if the user hasn't installed a newer version.
 if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''

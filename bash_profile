@@ -1,11 +1,4 @@
 
-# Include local bash init script if it exists. This is for when the local
-# computer needs custom configuration that I don't want in my standard
-# dotfiles.
-if [ -f "$HOME/.bash_profile_local" ]; then
-	source "$HOME/.bash_profile_local"
-fi
-
 export GOPATH=~/workspace
 export GOROOT=/usr/local/go
 export EDITOR=vim
@@ -28,4 +21,11 @@ alias more=less
 export PS1='[\w]\$ '
 
 export TERM=screen-256color-bce
+
+# Include local bash init script if it exists. This is for when the local
+# computer needs custom configuration that I don't want in my standard
+# dotfiles.
+if [ -f "$HOME/.bash_profile_local" ]; then
+	source "$HOME/.bash_profile_local"
+fi
 

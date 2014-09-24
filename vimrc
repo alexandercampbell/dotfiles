@@ -65,6 +65,9 @@ endif
 se splitbelow
 se splitright
 
+" clear background in terminal so that colorschemes work without glitching
+se t_ut=
+
 " wildmenu completion
 set wildmenu
 set wildmode=list:longest

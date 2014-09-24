@@ -6,16 +6,33 @@ au!
 se nocompatible
 filetype off
 
-" plugins
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                  plugins
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+
+" Basic plugins
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-vinegar'			" Better file browser
-Plugin 'bling/vim-airline'			" Better status line
 Plugin 'fatih/vim-go'				" Go language support
-Plugin 'altercation/vim-colors-solarized'	" Solarized colorscheme
+Plugin 'tpope/vim-fugitive'                     " git plugin
+Plugin 'itchyny/lightline.vim'                  " Best status line
+
+" Colorschemes
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-vividchalk'
+Plugin 'wombat256.vim'
+Plugin 'Lokaltog/vim-distinguished'
+Plugin 'morhetz/gruvbox'
+Plugin 'noahfrederick/vim-hemisu'
+Plugin 'reedes/vim-colors-pencil'
+
 call vundle#end()
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
 
 " reenable filetype, syntax
 filetype plugin indent on
@@ -31,6 +48,7 @@ se virtualedit=block
 
 " better status line (probably overriden by airline, but nice to have if
 " plugins aren't working for some reason)
+let g:lightline = {'colorscheme': 'default'}
 set laststatus=2
 set ruler
 set showcmd
@@ -69,6 +87,7 @@ nmap w :w<CR>
 nmap <Tab> <C-w>w
 nmap <S-Tab> <C-w><S-w>
 nmap <space> zz
+nmap ` :E<CR>
 map <C-c> <Esc>
 vnoremap < <gv
 vnoremap > >gv
@@ -98,10 +117,12 @@ let g:solarized_contrast = "high"
 colo solarized
 se bg=light
 se t_Co=256
-syn on
 
 " Highlight searches with lightblue instead of annoyingly-bright yellow
 hi Search cterm=none ctermbg=lightblue
+
+" Don't join together lines with two spaces after each period.
+se nojoinspaces
 
 " hide autocompletion window on cursor movement
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif

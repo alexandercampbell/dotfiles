@@ -20,7 +20,7 @@ alias more=less
 
 export PS1='[\w]\$ '
 
-export TERM=screen-256color-bce
+export TERM=xterm-256color
 
 # Include local bash init script if it exists. This is for when the local
 # computer needs custom configuration that I don't want in my standard

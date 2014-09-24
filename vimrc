@@ -46,12 +46,12 @@ se smarttab
 
 se virtualedit=block
 
-" better status line (probably overriden by airline, but nice to have if
-" plugins aren't working for some reason)
-let g:lightline = {'colorscheme': 'default'}
+" status line improvements (probably overriden by my status line plugin, but
+" nice to have if plugins aren't working for some reason)
 set laststatus=2
 set ruler
 set showcmd
+let g:lightline = {'colorscheme': 'wombat'}
 
 " highlight/incremental search
 se hlsearch incsearch

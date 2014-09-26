@@ -3,7 +3,6 @@ export GOPATH=~/workspace
 export GOROOT=/usr/local/go
 export EDITOR=vim
 
-export PS1='[\w] \$ '
 export CLICOLOR=true
 export GREP_OPTIONS='--color=auto'
 

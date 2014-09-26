@@ -1,4 +1,7 @@
 
+" Set this to 1 to use only options that can be set without plugins.
+let portable_mode=0
+
 " remove all autocommands to prevent them from being loaded twice
 au!
 
@@ -10,28 +13,29 @@ filetype off
 "                                  plugins
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+if portable_mode == 0
+  set rtp+=~/.vim/bundle/Vundle.vim
+  call vundle#begin()
 
-" Basic plugins
-Plugin 'gmarik/Vundle.vim'
-Plugin 'tpope/vim-vinegar'			" Better file browser
-Plugin 'fatih/vim-go'				" Go language support
-Plugin 'tpope/vim-fugitive'                     " git plugin
-Plugin 'itchyny/lightline.vim'                  " Best status line
+  " Basic plugins
+  Plugin 'gmarik/Vundle.vim'
+  Plugin 'tpope/vim-vinegar'          " Better file browser
+  Plugin 'fatih/vim-go'               " Go language support
+  Plugin 'tpope/vim-fugitive'         " git plugin
+  Plugin 'itchyny/lightline.vim'      " Best status line
 
-" Colorschemes
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'tpope/vim-vividchalk'
-Plugin 'wombat256.vim'
-Plugin 'Lokaltog/vim-distinguished'
-Plugin 'morhetz/gruvbox'
-Plugin 'noahfrederick/vim-hemisu'
-Plugin 'reedes/vim-colors-pencil'
+  " Colorschemes
+  Plugin 'altercation/vim-colors-solarized'
+  Plugin 'tpope/vim-vividchalk'
+  Plugin 'wombat256.vim'
+  Plugin 'Lokaltog/vim-distinguished'
+  Plugin 'morhetz/gruvbox'
+  Plugin 'noahfrederick/vim-hemisu'
+  Plugin 'reedes/vim-colors-pencil'
 
-call vundle#end()
+  call vundle#end()
+endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 
 
 " reenable filetype, syntax
@@ -95,6 +99,13 @@ map <C-c> <Esc>
 vnoremap < <gv
 vnoremap > >gv
 
+" In portable mode, open the file explorer with `-`. The reason this is
+" conditionally specified is because `-` is bound to the vim-vinegar plugin in
+" non-portable mode.
+if portable_mode
+  nmap - :E<CR>
+end
+
 " Hide introductory message when starting vim.
 se shm=I
 
@@ -116,10 +127,15 @@ se cc=+1 " colorcolumn
 hi ColorColumn ctermbg=7 "non-pink colorcolumn
 
 " Colorscheme. Solarized is the best I've found.
-let g:solarized_contrast = "high"
-colo solarized
-se bg=light
-se t_Co=256
+if portable_mode == 0
+  se bg=light
+  se t_Co=256
+  let g:solarized_contrast = "high"
+  colo solarized
+else
+  se t_Co=8
+  colo slate
+endif
 
 " Highlight searches with lightblue instead of annoyingly-bright yellow
 hi Search cterm=none ctermbg=lightblue

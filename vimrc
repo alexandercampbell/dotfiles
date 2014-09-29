@@ -21,6 +21,7 @@ if portable_mode == 0
   Plugin 'gmarik/Vundle.vim'
   Plugin 'tpope/vim-vinegar'          " Better file browser
   Plugin 'fatih/vim-go'               " Go language support
+  Plugin 'wting/rust.vim'             " Rust language support
   Plugin 'tpope/vim-fugitive'         " git plugin
   Plugin 'itchyny/lightline.vim'      " Best status line
 
@@ -144,6 +145,12 @@ se nojoinspaces
 " hide autocompletion window on cursor movement
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+" rust programming bindings
+au FileType rust nmap <F4> :!clear && cargo test<CR>
+au FileType rust nmap <F5> :!clear && cargo test<CR>
+au FileType rust nmap <F6> :!clear && cargo test --verbose<CR>
+au FileType rust nmap <F9> :!clear && cargo run<CR>
 
 " random bindings for Go programming
 au FileType go nmap <F5> :!clear && go test<CR>

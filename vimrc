@@ -96,8 +96,6 @@ nmap <S-Tab> <C-w><S-w>
 nmap <space> zz
 nmap ` :E<CR>
 map <C-c> <Esc>
-vnoremap < <gv
-vnoremap > >gv
 
 " In portable mode, open the file explorer with `-`. The reason this is
 " conditionally specified is because `-` is bound to the vim-vinegar plugin in

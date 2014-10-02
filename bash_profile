@@ -14,8 +14,10 @@ alias l="ls"
 alias ll="ls -lh"
 alias la="ls -la"
 alias sl="ls"
+
 alias open="xdg-open"
 alias more=less
+alias info="info --vi-keys"
 
 export PS1='[\w]\$ '
 

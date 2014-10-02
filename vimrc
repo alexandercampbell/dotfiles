@@ -19,11 +19,13 @@ if portable_mode == 0
 
   " Basic plugins
   Plugin 'gmarik/Vundle.vim'
-  Plugin 'tpope/vim-vinegar'          " Better file browser
-  Plugin 'fatih/vim-go'               " Go language support
-  Plugin 'wting/rust.vim'             " Rust language support
-  Plugin 'tpope/vim-fugitive'         " git plugin
-  Plugin 'itchyny/lightline.vim'      " Best status line
+  Plugin 'tpope/vim-vinegar'              " Better file browser
+  Plugin 'fatih/vim-go'                   " Go language support
+  Plugin 'wting/rust.vim'                 " Rust language support
+  Plugin 'tpope/vim-fugitive'             " git plugin
+  Plugin 'itchyny/lightline.vim'          " Best status line
+  Plugin 'kien/ctrlp.vim'                 " Fuzzy file matching
+  Plugin 'kien/rainbow_parentheses.vim'   " Rainbow parens
 
   " Colorschemes
   Plugin 'altercation/vim-colors-solarized'
@@ -35,6 +37,15 @@ if portable_mode == 0
   Plugin 'reedes/vim-colors-pencil'
 
   call vundle#end()
+
+  " Plugin configurations
+  let g:solarized_contrast = "high"
+  let g:lightline = {'colorscheme': 'wombat'}
+
+  au VimEnter * RainbowParenthesesToggle
+  au Syntax * RainbowParenthesesLoadRound
+  au Syntax * RainbowParenthesesLoadSquare
+  au Syntax * RainbowParenthesesLoadBraces
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -56,7 +67,6 @@ se virtualedit=block
 set laststatus=2
 set ruler
 set showcmd
-let g:lightline = {'colorscheme': 'wombat'}
 
 " highlight/incremental search
 se hlsearch incsearch
@@ -129,7 +139,6 @@ hi ColorColumn ctermbg=7 "non-pink colorcolumn
 if portable_mode == 0
   se bg=light
   se t_Co=256
-  let g:solarized_contrast = "high"
   colo solarized
 else
   se t_Co=8

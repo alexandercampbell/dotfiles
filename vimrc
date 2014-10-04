@@ -26,6 +26,7 @@ if portable_mode == 0
   Plugin 'itchyny/lightline.vim'          " Best status line
   Plugin 'kien/ctrlp.vim'                 " Fuzzy file matching
   Plugin 'kien/rainbow_parentheses.vim'   " Rainbow parens
+  Plugin 'scrooloose/syntastic'
 
   " Colorschemes
   Plugin 'altercation/vim-colors-solarized'
@@ -35,6 +36,7 @@ if portable_mode == 0
   Plugin 'morhetz/gruvbox'
   Plugin 'noahfrederick/vim-hemisu'
   Plugin 'reedes/vim-colors-pencil'
+  Plugin 'jnurmine/Zenburn'
 
   call vundle#end()
 
@@ -105,7 +107,7 @@ nmap w :w<CR>
 nmap <Tab> <C-w>w
 nmap <S-Tab> <C-w><S-w>
 nmap <space> zz
-nmap ` :E<CR>
+nmap ` :Explore<CR>
 map <C-c> <Esc>
 
 " In portable mode, open the file explorer with `-`. The reason this is
@@ -133,13 +135,14 @@ se fo+=c
 se fo-=t
 se wm=0
 se cc=+1 " colorcolumn
+se cul " highlight line containing the cursor
 hi ColorColumn ctermbg=7 "non-pink colorcolumn
 
 " Colorscheme. Solarized is the best I've found.
 if portable_mode == 0
-  se bg=light
   se t_Co=256
-  colo solarized
+  se bg=light
+  colo zenburn
 else
   se t_Co=8
   colo slate
@@ -155,13 +158,17 @@ se nojoinspaces
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
+" Automatically save on buffer change
+se autowriteall
+
 " rust programming bindings
 au FileType rust nmap <F4> :!clear && cargo test<CR>
 au FileType rust nmap <F5> :!clear && cargo test<CR>
 au FileType rust nmap <F6> :!clear && cargo test --verbose<CR>
 au FileType rust nmap <F9> :!clear && cargo run<CR>
 
-" random bindings for Go programming
+" Random bindings for Go programming. Some of these are duplicates. This is
+" intentional.
 au FileType go nmap <F5> :!clear && go test<CR>
 au FileType go nmap <F3> :!clear && go test -short<CR>
 au FileType go nmap <F4> :!clear && go test -short<CR>
@@ -181,6 +188,7 @@ au BufRead,BufNewFile *.yaml se ft=yaml
 " random autocommand/bindings for miscellaneous programming languages
 au FileType c nmap <F5> :!clear && clang --analyze *.c<CR>
 au FileType haskell nmap <F9> :!clear && ghc % -o vimtestmain.out && ./vimtestmain.out && rm vimtestmain.out<CR>
+au FileType python nmap <F5> :!clear && python %<CR>
 au FileType python nmap <F9> :!clear && python %<CR>
 au FileType lua nmap <F9> :!clear && ~/apps/love .<CR>
 au FileType markdown nmap <F9> :!pandoc -o %.html % && xdg-open %.html<CR>

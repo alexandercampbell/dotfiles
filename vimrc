@@ -138,10 +138,10 @@ se cc=+1 " colorcolumn
 se cul " highlight line containing the cursor
 hi ColorColumn ctermbg=7 "non-pink colorcolumn
 
-" Colorscheme. Solarized is the best I've found.
+" Color-related settings
 if portable_mode == 0
   se t_Co=256
-  se bg=light
+  se bg=dark
   colo zenburn
 else
   se t_Co=8
@@ -197,6 +197,9 @@ au FileType python nmap <buffer> <F5> :!clear && python %<CR>
 au FileType python nmap <buffer> <F9> :!clear && python %<CR>
 au FileType lua nmap <buffer> <F9> :!clear && ~/apps/love .<CR>
 au FileType markdown nmap <buffer> <F9> :!pandoc -o %.html % && xdg-open %.html<CR>
+
+" spellchecking in markdown files
+au FileType markdown setl spell spelllang=en_us
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

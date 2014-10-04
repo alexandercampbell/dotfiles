@@ -162,20 +162,20 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 se autowriteall
 
 " rust programming bindings
-au FileType rust nmap <F4> :!clear && cargo test<CR>
-au FileType rust nmap <F5> :!clear && cargo test<CR>
-au FileType rust nmap <F6> :!clear && cargo test --verbose<CR>
-au FileType rust nmap <F9> :!clear && cargo run<CR>
+au FileType rust nmap <buffer> <F4> :!clear && cargo test<CR>
+au FileType rust nmap <buffer> <F5> :!clear && cargo test<CR>
+au FileType rust nmap <buffer> <F6> :!clear && cargo test --verbose<CR>
+au FileType rust nmap <buffer> <F9> :!clear && cargo run<CR>
 
 " Random bindings for Go programming. Some of these are duplicates. This is
 " intentional.
-au FileType go nmap <F5> :!clear && go test<CR>
-au FileType go nmap <F3> :!clear && go test -short<CR>
-au FileType go nmap <F4> :!clear && go test -short<CR>
-au FileType go nmap <F6> :!clear && go test -v<CR>
-au FileType go nmap <F7> :!clear && go test -v -bench .<CR>
-au FileType go nmap <F8> :!clear && go build<CR>
-au FileType go nmap <F9> :!clear; go build -o vimtestmain.out; ./vimtestmain.out; rm vimtestmain.out<CR>
+au FileType go nmap <buffer> <F5> :!clear && go test<CR>
+au FileType go nmap <buffer> <F3> :!clear && go test -short<CR>
+au FileType go nmap <buffer> <F4> :!clear && go test -short<CR>
+au FileType go nmap <buffer> <F6> :!clear && go test -v<CR>
+au FileType go nmap <buffer> <F7> :!clear && go test -v -bench .<CR>
+au FileType go nmap <buffer> <F8> :!clear && go build<CR>
+au FileType go nmap <buffer> <F9> :!clear; go build -o vimtestmain.out; ./vimtestmain.out; rm vimtestmain.out<CR>
 
 au FileType go se tw=80
 let g:go_fmt_fail_silently = 1
@@ -185,16 +185,18 @@ let g:go_fmt_command = "goimports"
 au BufRead,BufNewFile *.md set ft=markdown tw=80
 au BufRead,BufNewFile *.yaml se ft=yaml
 
-" random autocommand/bindings for miscellaneous programming languages
-au FileType c nmap <F5> :!clear && clang --analyze *.c<CR>
-au FileType haskell nmap <F9> :!clear && ghc % -o vimtestmain.out && ./vimtestmain.out && rm vimtestmain.out<CR>
-au FileType python nmap <F5> :!clear && python %<CR>
-au FileType python nmap <F9> :!clear && python %<CR>
-au FileType lua nmap <F9> :!clear && ~/apps/love .<CR>
-au FileType markdown nmap <F9> :!pandoc -o %.html % && xdg-open %.html<CR>
+" Use the canonically accepted tab sizes for yaml, js, and python
 au FileType yaml se ts=4 sw=4 et
 au FileType javascript se ts=4 sw=4 et
 au FileType python se ts=4 sw=4 et
+
+" random autocommand bindings for miscellaneous programming languages
+au FileType c nmap <buffer> <F5> :!clear && clang --analyze *.c<CR>
+au FileType haskell nmap <buffer> <F9> :!clear && ghc % -o vimtestmain.out && ./vimtestmain.out && rm vimtestmain.out<CR>
+au FileType python nmap <buffer> <F5> :!clear && python %<CR>
+au FileType python nmap <buffer> <F9> :!clear && python %<CR>
+au FileType lua nmap <buffer> <F9> :!clear && ~/apps/love .<CR>
+au FileType markdown nmap <buffer> <F9> :!pandoc -o %.html % && xdg-open %.html<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -130,15 +130,6 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 " commandline stuff and editing adjacent files.
 autocmd BufEnter * silent! lcd %:p:h
 
-" Line numbering, format options, color column, etc.
-se nu
-se fo+=c
-se fo-=t
-se wm=0
-se cc=+1 " colorcolumn
-se cul " highlight line containing the cursor
-hi ColorColumn ctermbg=7 "non-pink colorcolumn
-
 " Color-related settings
 if portable_mode == 0
   se t_Co=256
@@ -148,6 +139,20 @@ else
   se t_Co=8
   colo slate
 endif
+
+" Line numbering, format options, color column, etc.
+se nu
+se fo+=c
+se fo-=t
+se wm=0
+" highlight line containing the cursor
+se cul
+" Highlight selection as black on white instead of whatever the colorscheme
+" does by default.
+hi Visual ctermbg=white ctermfg=black
+" colorcolum
+se cc=+1
+hi ColorColumn ctermbg=black
 
 " Highlight searches with lightblue instead of annoyingly-bright yellow
 hi Search cterm=none ctermbg=lightblue

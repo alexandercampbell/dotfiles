@@ -25,7 +25,6 @@ if portable_mode == 0
   Plugin 'tpope/vim-fugitive'             " git plugin
   Plugin 'itchyny/lightline.vim'          " Best status line
   Plugin 'kien/ctrlp.vim'                 " Fuzzy file matching
-  Plugin 'kien/rainbow_parentheses.vim'   " Rainbow parens
   Plugin 'scrooloose/syntastic'
   Plugin 'bronson/vim-trailing-whitespace'
 
@@ -44,11 +43,6 @@ if portable_mode == 0
   " Plugin configurations
   let g:solarized_contrast = "high"
   let g:lightline = {'colorscheme': 'wombat'}
-
-  au VimEnter * RainbowParenthesesToggle
-  au Syntax * RainbowParenthesesLoadRound
-  au Syntax * RainbowParenthesesLoadSquare
-  au Syntax * RainbowParenthesesLoadBraces
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

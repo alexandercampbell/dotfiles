@@ -192,8 +192,11 @@ au FileType yaml se ts=4 sw=4 et
 au FileType javascript se ts=4 sw=4 et
 au FileType python se ts=4 sw=4 et
 
+" Automatically regenerate ctag file on save of a C file.
+au BufWritePost *.c,*.h sil !ctags -R
+
 " random autocommand bindings for miscellaneous programming languages
-au FileType c nmap <buffer> <F5> :!clear && clang --analyze *.c<CR>
+au FileType c nmap <buffer> <F5> :!clear && clang --analyze *.c *.h<CR>
 au FileType c nmap <buffer> <F9> :make<CR>
 au FileType haskell nmap <buffer> <F9> :!clear && ghc % -o vimtestmain.out && ./vimtestmain.out && rm vimtestmain.out<CR>
 au FileType python nmap <buffer> <F5> :!clear && python %<CR>

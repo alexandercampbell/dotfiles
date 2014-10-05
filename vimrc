@@ -27,6 +27,7 @@ if portable_mode == 0
   Plugin 'kien/ctrlp.vim'                 " Fuzzy file matching
   Plugin 'kien/rainbow_parentheses.vim'   " Rainbow parens
   Plugin 'scrooloose/syntastic'
+  Plugin 'bronson/vim-trailing-whitespace'
 
   " Colorschemes
   Plugin 'altercation/vim-colors-solarized'

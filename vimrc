@@ -145,6 +145,7 @@ se nu
 se fo+=c
 se fo-=t
 se wm=0
+se tw=80
 " highlight line containing the cursor
 se cul
 " Highlight selection as black on white instead of whatever the colorscheme
@@ -183,13 +184,14 @@ au FileType go nmap <buffer> <F7> :!clear && go test -v -bench .<CR>
 au FileType go nmap <buffer> <F8> :!clear && go build<CR>
 au FileType go nmap <buffer> <F9> :!clear; go build -o vimtestmain.out; ./vimtestmain.out; rm vimtestmain.out<CR>
 
-au FileType go se tw=80
 let g:go_fmt_fail_silently = 1
 let g:go_fmt_command = "goimports"
 
 " recognize file extensions as the correct filetypes
-au BufRead,BufNewFile *.md set ft=markdown tw=80
+au BufRead,BufNewFile *.md set ft=markdown
 au BufRead,BufNewFile *.yaml se ft=yaml
+" header files are marked as C++ by default
+au BufRead,BufNewFile *.h se ft=c
 
 " Use the canonically accepted tab sizes for yaml, js, and python
 au FileType yaml se ts=4 sw=4 et
@@ -198,6 +200,7 @@ au FileType python se ts=4 sw=4 et
 
 " random autocommand bindings for miscellaneous programming languages
 au FileType c nmap <buffer> <F5> :!clear && clang --analyze *.c<CR>
+au FileType c nmap <buffer> <F9> :make<CR>
 au FileType haskell nmap <buffer> <F9> :!clear && ghc % -o vimtestmain.out && ./vimtestmain.out && rm vimtestmain.out<CR>
 au FileType python nmap <buffer> <F5> :!clear && python %<CR>
 au FileType python nmap <buffer> <F9> :!clear && python %<CR>

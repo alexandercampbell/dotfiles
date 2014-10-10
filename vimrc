@@ -19,14 +19,16 @@ if portable_mode == 0
 
   " Basic plugins
   Plugin 'gmarik/Vundle.vim'
-  Plugin 'tpope/vim-vinegar'              " Better file browser
-  Plugin 'fatih/vim-go'                   " Go language support
-  Plugin 'wting/rust.vim'                 " Rust language support
-  Plugin 'tpope/vim-fugitive'             " git plugin
-  Plugin 'itchyny/lightline.vim'          " Best status line
-  Plugin 'kien/ctrlp.vim'                 " Fuzzy file matching
-  Plugin 'scrooloose/syntastic'
-  Plugin 'bronson/vim-trailing-whitespace'
+  Plugin 'tpope/vim-vinegar'               " Better file browser
+  Plugin 'fatih/vim-go'                    " Go language support
+  Plugin 'wting/rust.vim'                  " Rust language support
+  Plugin 'tpope/vim-fugitive'              " git plugin
+  Plugin 'itchyny/lightline.vim'           " Best status line
+  Plugin 'kien/ctrlp.vim'                  " Fuzzy file matching
+  Plugin 'scrooloose/syntastic'            " Syntax checking (10/10 would check)
+  Plugin 'tpope/vim-unimpaired'            " Jump through error list with ]l
+  Plugin 'rest.vim'                        " Support for REStructured Text
+  Plugin 'bronson/vim-trailing-whitespace' " Highlight trailing whitespace
 
   " Colorschemes
   Plugin 'altercation/vim-colors-solarized'
@@ -43,6 +45,7 @@ if portable_mode == 0
   " Plugin configurations
   let g:solarized_contrast = "high"
   let g:lightline = {'colorscheme': 'wombat'}
+  let g:syntastic_always_populate_loc_list = 1
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -184,6 +187,8 @@ let g:go_fmt_command = "goimports"
 " recognize file extensions as the correct filetypes
 au BufRead,BufNewFile *.md set ft=markdown
 au BufRead,BufNewFile *.yaml se ft=yaml
+" restructured text
+au BufRead,BufNewFile *.rst se ft=rest
 " header files are marked as C++ by default
 au BufRead,BufNewFile *.h se ft=c
 
@@ -191,6 +196,7 @@ au BufRead,BufNewFile *.h se ft=c
 au FileType yaml se ts=4 sw=4 et
 au FileType javascript se ts=4 sw=4 et
 au FileType python se ts=4 sw=4 et
+au FileType rest se tw=92
 
 " Automatically regenerate ctag file on save of a C file.
 au BufWritePost *.c,*.h sil !ctags -R

@@ -207,7 +207,8 @@ au FileType c nmap <buffer> <F9> :make<CR>
 au FileType haskell nmap <buffer> <F9> :!clear && ghc % -o vimtestmain.out && ./vimtestmain.out && rm vimtestmain.out<CR>
 au FileType python nmap <buffer> <F5> :!clear && python %<CR>
 au FileType python nmap <buffer> <F9> :!clear && python %<CR>
-au FileType lua nmap <buffer> <F9> :!clear && ~/apps/love .<CR>
+au FileType lua nmap <buffer> <F5> :!clear && love . --test<CR>
+au FileType lua nmap <buffer> <F9> :!clear && love .<CR>
 au FileType markdown nmap <buffer> <F9> :!pandoc -o %.html % && xdg-open %.html<CR>
 
 " spellchecking in markdown files

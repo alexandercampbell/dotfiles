@@ -138,18 +138,18 @@ else
 endif
 
 " Line numbering, format options, color column, etc.
-se nu
-se fo+=c
-se fo-=t
-se wm=0
-se tw=80
+se number
+se formatoptions+=c
+se formatoptions-=t
+se wrapmargin=0
+se textwidth=80
 " highlight line containing the cursor
-se cul
+se cursorline
 " Highlight selection as black on white instead of whatever the colorscheme
 " does by default.
 hi Visual ctermbg=white ctermfg=black
 " colorcolum
-se cc=+1
+se colorcolumn=+1
 hi ColorColumn ctermbg=black
 
 " Highlight searches with lightblue instead of annoyingly-bright yellow
@@ -161,9 +161,6 @@ se nojoinspaces
 " hide autocompletion window on cursor movement
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-
-" Automatically save on buffer change
-se autowriteall
 
 " rust programming bindings
 au FileType rust nmap <buffer> <F4> :!clear && cargo test<CR>

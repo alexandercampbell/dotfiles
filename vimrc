@@ -196,10 +196,10 @@ au BufRead,BufNewFile *.rst se ft=rest
 au BufRead,BufNewFile *.h se ft=c
 
 " Use the canonically accepted tab sizes for yaml, js, and python
-au FileType yaml se ts=4 sw=4 et
-au FileType javascript se ts=4 sw=4 et
-au FileType python se ts=4 sw=4 et
-au FileType rest se tw=92
+au FileType yaml setl ts=4 sw=4 et
+au FileType javascript setl ts=4 sw=4 et
+au FileType python setl ts=4 sw=4 et
+au FileType rest setl tw=92
 
 " Automatically regenerate ctag file on save of a C file.
 au BufWritePost *.c,*.h sil !ctags -R
@@ -207,7 +207,6 @@ au BufWritePost *.c,*.h sil !ctags -R
 " random autocommand bindings for miscellaneous programming languages
 au FileType c nmap <buffer> <F5> :!clear && clang --analyze *.c *.h<CR>
 au FileType c nmap <buffer> <F9> :make<CR>
-au FileType haskell nmap <buffer> <F9> :!clear && ghc % -o vimtestmain.out && ./vimtestmain.out && rm vimtestmain.out<CR>
 au FileType python nmap <buffer> <F5> :!clear && python %<CR>
 au FileType python nmap <buffer> <F9> :!clear && python %<CR>
 au FileType lua nmap <buffer> <F5> :!clear && love . --test<CR>
@@ -216,6 +215,7 @@ au FileType markdown nmap <buffer> <F9> :!pandoc -o %.html % && xdg-open %.html<
 
 " spellchecking in markdown files
 au FileType markdown setl spell spelllang=en_us
+au FileType markdown setl formatoptions+=a
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

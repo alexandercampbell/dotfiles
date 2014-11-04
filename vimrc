@@ -227,7 +227,6 @@ au FileType markdown nmap <buffer> <F9> :!pandoc -o %.html % && xdg-open %.html<
 
 " spellchecking in markdown files
 au FileType markdown setl spell spelllang=en_us
-au FileType markdown setl formatoptions+=a
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

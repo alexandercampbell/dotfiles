@@ -49,6 +49,12 @@ if portable_mode == 0
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" gui options
+se guifont=Consolas\ 11
+se guioptions-=m
+se guioptions-=T
+se guioptions-=r
+se guioptions-=L
 
 " reenable filetype, syntax
 filetype plugin indent on

@@ -25,10 +25,11 @@ if portable_mode == 0
   Plugin 'tpope/vim-fugitive'              " git plugin
   Plugin 'itchyny/lightline.vim'           " Best status line
   Plugin 'kien/ctrlp.vim'                  " Fuzzy file matching
-  Plugin 'scrooloose/syntastic'            " Syntax checking (10/10 would check)
+  "Plugin 'scrooloose/syntastic'            " Syntax checking (10/10 would check)
   Plugin 'tpope/vim-unimpaired'            " Jump through error list with ]l
   Plugin 'rest.vim'                        " Support for REStructured Text
   Plugin 'bronson/vim-trailing-whitespace' " Highlight trailing whitespace
+  Plugin 'haya14busa/incsearch.vim'        " Consistent n/N direction
 
   " Colorschemes
   Plugin 'altercation/vim-colors-solarized'
@@ -39,13 +40,29 @@ if portable_mode == 0
   Plugin 'noahfrederick/vim-hemisu'
   Plugin 'reedes/vim-colors-pencil'
   Plugin 'jnurmine/Zenburn'
+  Plugin 'zenorocha/dracula-theme'
+  Plugin 'chriskempson/base16-vim'
 
   call vundle#end()
 
   " Plugin configurations
-  let g:solarized_contrast = "high"
   let g:lightline = {'colorscheme': 'wombat'}
   let g:syntastic_always_populate_loc_list = 1
+  let g:go_fmt_fail_silently = 1
+  let g:go_fmt_command = "goimports"
+  let g:ctrlp_match_window_reversed = 0
+
+  " Better incsearch plugin configuration
+  let g:incsearch#auto_nohlsearch = 1
+  let g:incsearch#consistent_n_direction = 1
+  map n  <Plug>(incsearch-nohl-n)
+  map N  <Plug>(incsearch-nohl-N)
+  map *  <Plug>(incsearch-nohl-*)
+  map #  <Plug>(incsearch-nohl-#)
+  map g* <Plug>(incsearch-nohl-g*)
+  map g# <Plug>(incsearch-nohl-g#)
+  map /  <Plug>(incsearch-forward)
+  map ?  <Plug>(incsearch-backward)
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -111,7 +128,6 @@ nmap w :w<CR>
 nmap <Tab> <C-w>w
 nmap <S-Tab> <C-w><S-w>
 nmap <space> zz
-nmap ` :Explore<CR>
 map <C-c> <Esc>
 
 " In portable mode, open the file explorer with `-`. The reason this is
@@ -136,7 +152,6 @@ autocmd BufEnter * silent! lcd %:p:h
 " Color-related settings
 if portable_mode == 0
   se t_Co=256
-  se bg=dark
   colo zenburn
 else
   se t_Co=8
@@ -182,10 +197,7 @@ au FileType go nmap <buffer> <F4> :!clear && go test -short<CR>
 au FileType go nmap <buffer> <F6> :!clear && go test -v<CR>
 au FileType go nmap <buffer> <F7> :!clear && go test -v -bench .<CR>
 au FileType go nmap <buffer> <F8> :!clear && go build<CR>
-au FileType go nmap <buffer> <F9> :!clear; go build -o vimtestmain.out; ./vimtestmain.out; rm vimtestmain.out<CR>
-
-let g:go_fmt_fail_silently = 1
-let g:go_fmt_command = "goimports"
+au FileType go nmap <buffer> <F9> :!clear; go build -o vimmain.out; ./vimmain.out; rm vimmain.out<CR>
 
 " recognize file extensions as the correct filetypes
 au BufRead,BufNewFile *.md set ft=markdown

@@ -46,7 +46,7 @@ if portable_mode == 0
   call vundle#end()
 
   " Plugin configurations
-  let g:lightline = {'colorscheme': 'wombat'}
+  let g:lightline = {'colorscheme': 'jellybeans'}
   let g:syntastic_always_populate_loc_list = 1
   let g:go_fmt_fail_silently = 1
   let g:go_fmt_command = "goimports"
@@ -163,6 +163,7 @@ se number
 se formatoptions+=c
 se formatoptions-=t
 se wrapmargin=0
+se linebreak
 se textwidth=80
 " highlight line containing the cursor
 se cursorline

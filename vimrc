@@ -23,7 +23,6 @@ if portable_mode == 0
   Plugin 'fatih/vim-go'                    " Go language support
   Plugin 'wting/rust.vim'                  " Rust language support
   Plugin 'tpope/vim-fugitive'              " git plugin
-  Plugin 'itchyny/lightline.vim'           " Best status line
   Plugin 'kien/ctrlp.vim'                  " Fuzzy file matching
   "Plugin 'scrooloose/syntastic'            " Syntax checking (10/10 would check)
   Plugin 'tpope/vim-unimpaired'            " Jump through error list with ]l
@@ -46,14 +45,12 @@ if portable_mode == 0
   call vundle#end()
 
   " Plugin configurations
-  let g:lightline = {'colorscheme': 'jellybeans'}
   let g:syntastic_always_populate_loc_list = 1
   let g:go_fmt_fail_silently = 1
   let g:go_fmt_command = "goimports"
   let g:ctrlp_match_window_reversed = 0
 
   " Better incsearch plugin configuration
-  let g:incsearch#auto_nohlsearch = 1
   let g:incsearch#consistent_n_direction = 1
   map n  <Plug>(incsearch-nohl-n)
   map N  <Plug>(incsearch-nohl-N)
@@ -125,6 +122,7 @@ set display+=lastline
 " modal editor. In normal mode, a single key should save.
 nmap q :q<CR>
 nmap w :w<CR>
+nmap D Vd
 nmap <Tab> <C-w>w
 nmap <S-Tab> <C-w><S-w>
 nmap <space> zz

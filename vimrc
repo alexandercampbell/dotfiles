@@ -220,8 +220,8 @@ au BufWritePost *.c,*.h sil !ctags -R
 " random autocommand bindings for miscellaneous programming languages
 au FileType c nmap <buffer> <F5> :!clear && clang --analyze *.c *.h<CR>
 au FileType c nmap <buffer> <F9> :make<CR>
-au FileType python nmap <buffer> <F5> :!clear && python %<CR>
-au FileType python nmap <buffer> <F9> :!clear && python %<CR>
+au FileType python nmap <buffer> <F5> :!clear && python3 %<CR>
+au FileType python nmap <buffer> <F9> :!clear && python3 %<CR>
 au FileType lua nmap <buffer> <F5> :!clear && love . --test<CR>
 au FileType lua nmap <buffer> <F9> :!clear && love .<CR>
 au FileType markdown nmap <buffer> <F9> :!pandoc -o %.html % && xdg-open %.html<CR>

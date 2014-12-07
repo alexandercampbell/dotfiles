@@ -29,6 +29,8 @@ if portable_mode == 0
   Plugin 'rest.vim'                        " Support for REStructured Text
   Plugin 'bronson/vim-trailing-whitespace' " Highlight trailing whitespace
   Plugin 'haya14busa/incsearch.vim'        " Consistent n/N direction
+  Plugin 'AutoComplPop'                    " Autocompletion as I type
+  Plugin 'jeroenbourgois/vim-actionscript' " Actionscript support
 
   " Colorschemes
   Plugin 'altercation/vim-colors-solarized'
@@ -48,7 +50,6 @@ if portable_mode == 0
   let g:syntastic_always_populate_loc_list = 1
   let g:go_fmt_fail_silently = 1
   let g:go_fmt_command = "goimports"
-  let g:ctrlp_match_window_reversed = 0
 
   " Better incsearch plugin configuration
   let g:incsearch#consistent_n_direction = 1

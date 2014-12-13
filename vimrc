@@ -112,16 +112,23 @@ if !&sidescrolloff
 endif
 set display+=lastline
 
+" Leader stuff
+let mapleader = "\\"
+nmap <leader>l :CtrlP<CR>
+
 " faster custom keybindings. The important ones here are `q` and `w`. I
 " save/quit a LOT. The vim default of needing four keys to save the file
 " (shift-colon-w-return) is ridiculous and defeats the whole point of having a
 " modal editor. In normal mode, a single key should save.
-nmap q :q<CR>
-nmap w :w<CR>
-nmap D Vd
-nmap <Tab> <C-w>w
-nmap <S-Tab> <C-w><S-w>
-nmap <space> zz
+noremap q :q<CR>
+noremap w :w<CR>
+noremap D Vd
+noremap <Tab> <C-w>w
+noremap <S-Tab> <C-w><S-w>
+noremap <space> zz
+noremap <C-g> 1<C-g>
+noremap B ^
+noremap E $
 map <C-c> <Esc>
 
 " In portable mode, open the file explorer with `-`. The reason this is
@@ -132,7 +139,7 @@ if portable_mode
 end
 
 " Hide introductory message when starting vim.
-se shm=I
+se shm=aI
 
 " jump to last edited position in file instead of always starting at the
 " top line, leftmost column

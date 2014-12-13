@@ -31,6 +31,7 @@ if portable_mode == 0
   Plugin 'haya14busa/incsearch.vim'        " Consistent n/N direction
   Plugin 'AutoComplPop'                    " Autocompletion as I type
   Plugin 'jeroenbourgois/vim-actionscript' " Actionscript support
+  Plugin 'dart-lang/dart-vim-plugin'       " Dart plugin
 
   " Colorschemes
   Plugin 'altercation/vim-colors-solarized'
@@ -43,6 +44,7 @@ if portable_mode == 0
   Plugin 'jnurmine/Zenburn'
   Plugin 'zenorocha/dracula-theme'
   Plugin 'chriskempson/base16-vim'
+  Plugin 'sjl/badwolf'
 
   call vundle#end()
 

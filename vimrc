@@ -66,13 +66,6 @@ if portable_mode == 0
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" gui options
-se guifont=Consolas\ 11
-se guioptions-=m
-se guioptions-=T
-se guioptions-=r
-se guioptions-=L
-
 " reenable filetype, syntax
 filetype plugin indent on
 syntax enable
@@ -232,6 +225,12 @@ au FileType html nmap <buffer> <F9> :!clear && xdg-open %<CR>
 " spellchecking in markdown files
 au FileType markdown setl spell spelllang=en_us
 
+" gui options
+se guifont=Consolas\ 11
+se guioptions-=m
+se guioptions-=T
+se guioptions-=r
+se guioptions-=L
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Everything below this line was copied from vim-sensible. I don't need all of

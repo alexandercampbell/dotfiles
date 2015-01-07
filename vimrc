@@ -186,10 +186,12 @@ autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " rust programming bindings
-au FileType rust nmap <buffer> <F4> :!clear && cargo test<CR>
-au FileType rust nmap <buffer> <F5> :!clear && cargo test<CR>
-au FileType rust nmap <buffer> <F6> :!clear && cargo test --verbose<CR>
-au FileType rust nmap <buffer> <F9> :!clear && cargo run<CR>
+" The `cargo clean` is on here so that the source is recompiled each time, to
+" make sure we get compiler warnings.
+au FileType rust nmap <buffer> <F4> :!clear && cargo clean && cargo build && cargo test<CR>
+au FileType rust nmap <buffer> <F5> :!clear && cargo clean && cargo build && cargo test<CR>
+au FileType rust nmap <buffer> <F6> :!clear && cargo clean && cargo build && cargo test --verbose<CR>
+au FileType rust nmap <buffer> <F9> :!clear && cargo clean && cargo build && cargo run<CR>
 
 " Random bindings for Go programming. Some of these are duplicates. This is
 " intentional.
@@ -216,9 +218,6 @@ au FileType html setl ts=4 sw=4 et
 au FileType python setl ts=4 sw=4 et
 au FileType rest setl tw=92
 
-" Automatically regenerate ctag file on save of a C file.
-au BufWritePost *.c,*.h sil !ctags -R
-
 " random autocommand bindings for miscellaneous programming languages
 au FileType c nmap <buffer> <F5> :!clear && clang --analyze *.c *.h<CR>
 au FileType c nmap <buffer> <F9> :make<CR>
@@ -228,9 +227,6 @@ au FileType lua nmap <buffer> <F5> :!clear && love . --test<CR>
 au FileType lua nmap <buffer> <F9> :!clear && love .<CR>
 au FileType markdown nmap <buffer> <F9> :!pandoc -o %.html % && xdg-open %.html<CR>
 au FileType html nmap <buffer> <F9> :!clear && xdg-open %<CR>
-
-" spellchecking in markdown files
-au FileType markdown setl spell spelllang=en_us
 
 " gui options
 se guifont=Consolas\ 11

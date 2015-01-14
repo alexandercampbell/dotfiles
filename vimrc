@@ -32,6 +32,7 @@ if portable_mode == 0
   Plugin 'AutoComplPop'                    " Autocompletion as I type
   Plugin 'jeroenbourgois/vim-actionscript' " Actionscript support
   Plugin 'dart-lang/dart-vim-plugin'       " Dart plugin
+  Plugin 'jiangmiao/auto-pairs'            " Auto-close brackets
 
   " Colorschemes
   Plugin 'altercation/vim-colors-solarized'
@@ -171,7 +172,7 @@ se cursorline
 " Highlight selection as black on white instead of whatever the colorscheme
 " does by default.
 hi Visual ctermbg=white ctermfg=black
-" colorcolum
+" colorcolumn
 se colorcolumn=+1
 hi ColorColumn ctermbg=black
 
@@ -188,10 +189,10 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 " rust programming bindings
 " The `cargo clean` is on here so that the source is recompiled each time, to
 " make sure we get compiler warnings.
-au FileType rust nmap <buffer> <F4> :!clear && cargo clean && cargo build && cargo test<CR>
-au FileType rust nmap <buffer> <F5> :!clear && cargo clean && cargo build && cargo test<CR>
-au FileType rust nmap <buffer> <F6> :!clear && cargo clean && cargo build && cargo test --verbose<CR>
-au FileType rust nmap <buffer> <F9> :!clear && cargo clean && cargo build && cargo run<CR>
+au FileType rust nmap <buffer> <F4> :!clear && cargo test<CR>
+au FileType rust nmap <buffer> <F5> :!clear && cargo test<CR>
+au FileType rust nmap <buffer> <F6> :!clear && cargo test --verbose<CR>
+au FileType rust nmap <buffer> <F9> :!clear && cargo run<CR>
 
 " Random bindings for Go programming. Some of these are duplicates. This is
 " intentional.

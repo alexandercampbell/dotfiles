@@ -49,6 +49,7 @@ plugins=(git)
 
 # User configuration
 
+export TERM=xterm-256color
 export SAVEHIST=50000
 
 export GREP_OPTIONS='--color=auto'

@@ -102,7 +102,7 @@ se t_ut=
 
 " wildmenu completion
 set wildmenu
-set wildmode=list:longest
+set wildmode=longest,list,full
 
 " keep context around the edge of the screen when the cursor is moving
 if !&scrolloff
@@ -123,7 +123,7 @@ nmap <leader>l :CtrlP<CR>
 " modal editor. In normal mode, a single key should save.
 noremap q :q<CR>
 noremap w :w<CR>
-noremap D Vd
+noremap D S<Esc>
 noremap <Tab> <C-w>w
 noremap <S-Tab> <C-w><S-w>
 noremap <space> zz

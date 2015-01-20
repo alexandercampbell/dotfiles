@@ -49,8 +49,13 @@ plugins=(git)
 
 # User configuration
 
+# zsh vim keys instead of emacs
+bindkey -v
+
 export TERM=xterm-256color
 export SAVEHIST=50000
+
+unsetopt share_history
 
 export GREP_OPTIONS='--color=auto'
 export GOPATH=~/workspace

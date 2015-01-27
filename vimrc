@@ -32,7 +32,6 @@ if portable_mode == 0
   Plugin 'AutoComplPop'                    " Autocompletion as I type
   Plugin 'jeroenbourgois/vim-actionscript' " Actionscript support
   Plugin 'dart-lang/dart-vim-plugin'       " Dart plugin
-  Plugin 'jiangmiao/auto-pairs'            " Auto-close brackets
 
   " Colorschemes
   Plugin 'altercation/vim-colors-solarized'
@@ -53,6 +52,10 @@ if portable_mode == 0
   let g:syntastic_always_populate_loc_list = 1
   let g:go_fmt_fail_silently = 1
   let g:go_fmt_command = "goimports"
+
+  " CTRL-P: ignore things that aren't tracked by git
+  " Thanks to https://github.com/kien/ctrlp.vim/issues/174#issuecomment-49747252
+  let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
   " Better incsearch plugin configuration
   let g:incsearch#consistent_n_direction = 1

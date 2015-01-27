@@ -47,7 +47,11 @@ HIST_STAMPS="yyyy-mm-dd"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
+source $ZSH/oh-my-zsh.sh
+
 # User configuration
+export EDITOR=vim
+export VISUAL=vim
 
 # zsh vim keys instead of emacs
 bindkey -v
@@ -63,6 +67,8 @@ export GOROOT=/usr/local/go
 export PATH=$PATH:$GOPATH/bin
 
 export GOMAXPROCS=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || sysctl -n hw.ncpu)
+
+alias ls="ls --color=tty --group-directories-first"
 
 alias l="ls"
 alias ll="ls -lh"
@@ -80,7 +86,4 @@ alias info="info --vi-keys"
 if [ -f "$HOME/.zshrc_local" ]; then
 	source "$HOME/.zshrc_local"
 fi
-
-
-source $ZSH/oh-my-zsh.sh
 

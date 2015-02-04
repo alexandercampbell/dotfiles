@@ -32,6 +32,7 @@ if portable_mode == 0
   Plugin 'AutoComplPop'                    " Autocompletion as I type
   Plugin 'jeroenbourgois/vim-actionscript' " Actionscript support
   Plugin 'dart-lang/dart-vim-plugin'       " Dart plugin
+  Plugin 'cespare/vim-toml'                " TOML syntax highlighting
 
   " Colorschemes
   Plugin 'altercation/vim-colors-solarized'
@@ -106,6 +107,7 @@ se t_ut=
 " wildmenu completion
 set wildmenu
 set wildmode=longest,list,full
+set wildignorecase
 
 " keep context around the edge of the screen when the cursor is moving
 if !&scrolloff
@@ -156,7 +158,6 @@ autocmd BufEnter * silent! lcd %:p:h
 
 " Color-related settings
 if portable_mode == 0
-  se t_Co=256
   colo zenburn
 else
   se t_Co=8
@@ -192,10 +193,10 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 " rust programming bindings
 " The `cargo clean` is on here so that the source is recompiled each time, to
 " make sure we get compiler warnings.
-au FileType rust nmap <buffer> <F4> :!clear && cargo build && cargo test<CR>
-au FileType rust nmap <buffer> <F5> :!clear && cargo build && cargo test<CR>
-au FileType rust nmap <buffer> <F6> :!clear && cargo build && cargo test --verbose<CR>
-au FileType rust nmap <buffer> <F9> :!clear && cargo build && cargo run<CR>
+au FileType rust nmap <buffer> <F4> :!clear && cargo test<CR>
+au FileType rust nmap <buffer> <F5> :!clear && cargo test<CR>
+au FileType rust nmap <buffer> <F6> :!clear && cargo test --verbose<CR>
+au FileType rust nmap <buffer> <F9> :!clear && cargo run<CR>
 
 " Random bindings for Go programming. Some of these are duplicates. This is
 " intentional.

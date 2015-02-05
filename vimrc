@@ -107,7 +107,10 @@ se t_ut=
 " wildmenu completion
 set wildmenu
 set wildmode=longest,list,full
-set wildignorecase
+if has("wildignorecase")
+  " wildignorecase is a new option and not present in the brew's vim
+  set wildignorecase
+end
 
 " keep context around the edge of the screen when the cursor is moving
 if !&scrolloff

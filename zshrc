@@ -79,6 +79,7 @@ alias vi=vim
 alias open="xdg-open"
 alias more=less
 alias info="info --vi-keys"
+alias open="xdg-open"
 
 # Include local bash init script if it exists. This is for when the local
 # computer needs custom configuration that I don't want in my standard

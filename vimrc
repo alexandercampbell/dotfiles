@@ -234,8 +234,8 @@ au FileType python nmap <buffer> <F5> :!clear && python3 %<CR>
 au FileType python nmap <buffer> <F9> :!clear && python3 %<CR>
 au FileType lua nmap <buffer> <F5> :!clear && love . --test<CR>
 au FileType lua nmap <buffer> <F9> :!clear && love .<CR>
-au FileType markdown nmap <buffer> <F9> :!pandoc -o %.html % && xdg-open %.html<CR>
-au FileType html nmap <buffer> <F9> :!clear && xdg-open %<CR>
+au FileType markdown nmap <buffer> <F9> :!pandoc -o %.html % && open %.html<CR>
+au FileType html nmap <buffer> <F9> :!clear && open %<CR>
 
 " gui options
 se guifont=Consolas\ 11

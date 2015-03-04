@@ -1,6 +1,6 @@
 
 # Get required packages
-sudo apt-get install zsh bash vim git mercurial tmux curl
+sudo apt-get install -y zsh bash vim git mercurial tmux curl
 
 # Install Oh-My-Zsh
 curl -L http://install.ohmyz.sh | sh

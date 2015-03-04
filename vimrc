@@ -91,6 +91,9 @@ set showcmd
 
 " highlight/incremental search
 se hlsearch incsearch
+" Ignore case by default when searching. For case-sensitive searches, use \C at
+" the end of the search (or the middle, whatever).
+set ignorecase
 
 " Use <C-L> to clear the highlighting of :set hlsearch.
 if maparg('<C-L>', 'n') ==# ''

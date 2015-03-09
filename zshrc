@@ -81,6 +81,16 @@ alias more=less
 alias info="info --vi-keys"
 alias open="xdg-open"
 alias gocover="go test -coverprofile=c.out && go tool cover -html=c.out"
+alias reload="
+echo source ~/.zshrc
+source ~/.zshrc
+"
+
+alias cleandocker="docker rm -f \`docker ps -a -q\`; docker rmi -f \`docker images -q -f dangling=true\`"
+
+export DOCKER_CERT_PATH=/Users/alexandercampbell/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
+export DOCKER_HOST=tcp://192.168.59.103:2376
 
 # Include local bash init script if it exists. This is for when the local
 # computer needs custom configuration that I don't want in my standard

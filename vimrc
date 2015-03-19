@@ -33,6 +33,7 @@ if portable_mode == 0
   Plugin 'jeroenbourgois/vim-actionscript' " Actionscript support
   Plugin 'dart-lang/dart-vim-plugin'       " Dart plugin
   Plugin 'cespare/vim-toml'                " TOML syntax highlighting
+  Plugin 'fidian/hexmode'                  " Hexmode editing with -b
 
   " Colorschemes
   Plugin 'altercation/vim-colors-solarized'
@@ -43,8 +44,6 @@ if portable_mode == 0
   Plugin 'noahfrederick/vim-hemisu'
   Plugin 'reedes/vim-colors-pencil'
   Plugin 'jnurmine/Zenburn'
-  Plugin 'zenorocha/dracula-theme'
-  Plugin 'chriskempson/base16-vim'
   Plugin 'sjl/badwolf'
 
   call vundle#end()

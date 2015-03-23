@@ -98,7 +98,7 @@ se t_ut=
 set wildmenu
 set wildmode=longest,list,full
 if has("wildignorecase")
-  " wildignorecase is a new option and not present in the brew's vim
+  " wildignorecase is a new option, so we feature check for it
   set wildignorecase
 end
 

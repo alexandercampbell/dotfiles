@@ -28,7 +28,6 @@ if portable_mode == 0
   Plugin 'tpope/vim-unimpaired'            " Jump through error list with ]l
   Plugin 'rest.vim'                        " Support for REStructured Text
   Plugin 'bronson/vim-trailing-whitespace' " Highlight trailing whitespace
-  Plugin 'haya14busa/incsearch.vim'        " Consistent n/N direction
   Plugin 'AutoComplPop'                    " Autocompletion as I type
   Plugin 'jeroenbourgois/vim-actionscript' " Actionscript support
   Plugin 'dart-lang/dart-vim-plugin'       " Dart plugin
@@ -56,17 +55,6 @@ if portable_mode == 0
   " CTRL-P: ignore things that aren't tracked by git
   " Thanks to https://github.com/kien/ctrlp.vim/issues/174#issuecomment-49747252
   let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-
-  " Better incsearch plugin configuration
-  let g:incsearch#consistent_n_direction = 1
-  map n  <Plug>(incsearch-nohl-n)
-  map N  <Plug>(incsearch-nohl-N)
-  map *  <Plug>(incsearch-nohl-*)
-  map #  <Plug>(incsearch-nohl-#)
-  map g* <Plug>(incsearch-nohl-g*)
-  map g# <Plug>(incsearch-nohl-g#)
-  map /  <Plug>(incsearch-forward)
-  map ?  <Plug>(incsearch-backward)
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

@@ -36,14 +36,9 @@ if portable_mode == 0
 
   " Colorschemes
   Plugin 'altercation/vim-colors-solarized'
-  Plugin 'tpope/vim-vividchalk'
   Plugin 'wombat256.vim'
-  Plugin 'Lokaltog/vim-distinguished'
-  Plugin 'morhetz/gruvbox'
-  Plugin 'noahfrederick/vim-hemisu'
-  Plugin 'reedes/vim-colors-pencil'
   Plugin 'jnurmine/Zenburn'
-  Plugin 'sjl/badwolf'
+  Plugin 'rainux/vim-desert-warm-256'
 
   call vundle#end()
 
@@ -172,7 +167,7 @@ se cursorline
 hi Visual ctermbg=white ctermfg=black
 " colorcolumn
 se colorcolumn=+1
-hi ColorColumn ctermbg=black
+"hi ColorColumn ctermbg=gray
 
 " Highlight searches with lightblue instead of annoyingly-bright yellow
 hi Search cterm=none ctermbg=lightblue

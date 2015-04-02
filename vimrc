@@ -189,9 +189,9 @@ au FileType rust nmap <buffer> <F9> :!clear && cargo run<CR>
 
 " Random bindings for Go programming. Some of these are duplicates. This is
 " intentional.
-au FileType go nmap <buffer> <F5> :!clear && go test<CR>
 au FileType go nmap <buffer> <F3> :!clear && go test -short<CR>
-au FileType go nmap <buffer> <F4> :!clear && go test -short<CR>
+au FileType go nmap <buffer> <F4> :!clear && go test<CR>
+au FileType go nmap <buffer> <F5> :!clear && go test<CR>
 au FileType go nmap <buffer> <F6> :!clear && go test -v<CR>
 au FileType go nmap <buffer> <F7> :!clear && go test -v -bench .<CR>
 au FileType go nmap <buffer> <F8> :!clear && go build<CR>

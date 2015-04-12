@@ -33,6 +33,8 @@ if portable_mode == 0
   Plugin 'dart-lang/dart-vim-plugin'       " Dart plugin
   Plugin 'cespare/vim-toml'                " TOML syntax highlighting
   Plugin 'fidian/hexmode'                  " Hexmode editing with -b
+  Plugin 'junegunn/goyo.vim'               " Distractionless editing
+  Plugin 'sickill/vim-pasta'               " Better pasting
 
   " Colorschemes
   Plugin 'altercation/vim-colors-solarized'
@@ -70,6 +72,7 @@ se virtualedit=block
 set laststatus=2
 set ruler
 set showcmd
+set shortmess=t
 
 " highlight/incremental search
 se hlsearch incsearch
@@ -88,6 +91,9 @@ se splitright
 
 " clear background in terminal so that colorschemes work without glitching
 se t_ut=
+
+" enable mouse so accidental scrolling doesn't fuck up the terminal
+se mouse=a
 
 " wildmenu completion
 set wildmenu
@@ -108,7 +114,7 @@ set display+=lastline
 
 " Leader stuff
 let mapleader = "\\"
-nmap <leader>l :CtrlP<CR>
+nnoremap <leader>l :CtrlP<CR>
 
 " faster custom keybindings. The important ones here are `q` and `w`. I
 " save/quit a LOT. The vim default of needing four keys to save the file

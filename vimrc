@@ -196,12 +196,12 @@ au FileType rust nmap <buffer> <F9> :!clear && cargo run<CR>
 " Random bindings for Go programming. Some of these are duplicates. This is
 " intentional.
 au FileType go nmap <buffer> <F3> :!clear && go test -short<CR>
-au FileType go nmap <buffer> <F4> :!clear && go test<CR>
-au FileType go nmap <buffer> <F5> :!clear && go test<CR>
+au FileType go nmap <buffer> <F4> :GoTest<CR>
+au FileType go nmap <buffer> <F5> :GoTest<CR>
 au FileType go nmap <buffer> <F6> :!clear && go test -v<CR>
 au FileType go nmap <buffer> <F7> :!clear && go test -v -bench .<CR>
 au FileType go nmap <buffer> <F8> :!clear && go build<CR>
-au FileType go nmap <buffer> <F9> :!clear; go build -o vimmain.out; ./vimmain.out; rm vimmain.out<CR>
+au FileType go nmap <buffer> <F9> :GoRun<CR>
 
 " recognize file extensions as the correct filetypes
 au BufRead,BufNewFile *.md set ft=markdown
@@ -222,8 +222,8 @@ au FileType rest setl tw=92
 " random autocommand bindings for miscellaneous programming languages
 au FileType c nmap <buffer> <F5> :!clear && clang --analyze *.c *.h<CR>
 au FileType c nmap <buffer> <F9> :make<CR>
-au FileType python nmap <buffer> <F5> :!clear && python3 %<CR>
-au FileType python nmap <buffer> <F9> :!clear && python3 %<CR>
+au FileType python nmap <buffer> <F5> :!clear && python %<CR>
+au FileType python nmap <buffer> <F9> :!clear && python %<CR>
 au FileType lua nmap <buffer> <F5> :!clear && love . --test<CR>
 au FileType lua nmap <buffer> <F9> :!clear && love .<CR>
 au FileType markdown nmap <buffer> <F9> :!pandoc -o %.html % && open %.html<CR>

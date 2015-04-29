@@ -41,17 +41,15 @@ if portable_mode == 0
   Plugin 'wombat256.vim'
   Plugin 'jnurmine/Zenburn'
   Plugin 'rainux/vim-desert-warm-256'
+  Plugin 'junegunn/seoul256.vim'
 
   call vundle#end()
 
   " Plugin configurations
-  let g:syntastic_always_populate_loc_list = 1
+  "let g:syntastic_always_populate_loc_list = 1
   let g:go_fmt_fail_silently = 1
+  let g:syntastic_auto_jump = 1
   let g:go_fmt_command = "goimports"
-
-  " CTRL-P: ignore things that aren't tracked by git
-  " Thanks to https://github.com/kien/ctrlp.vim/issues/174#issuecomment-49747252
-  let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

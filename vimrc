@@ -112,7 +112,6 @@ set display+=lastline
 
 " Leader stuff
 let mapleader = "\\"
-nnoremap <leader>l :CtrlP<CR>
 
 " faster custom keybindings. The important ones here are `q` and `w`. I
 " save/quit a LOT. The vim default of needing four keys to save the file
@@ -128,6 +127,7 @@ nnoremap <space> zz
 nnoremap <C-g> 1<C-g>
 nnoremap B ^
 nnoremap E $
+nnoremap <leader>i <C-i>
 noremap <C-c> <Esc>
 
 " In portable mode, open the file explorer with `-`. The reason this is
@@ -194,7 +194,7 @@ au FileType rust nmap <buffer> <F9> :!clear && cargo run<CR>
 " Random bindings for Go programming. Some of these are duplicates. This is
 " intentional.
 au FileType go nmap <buffer> <F3> :!clear && go test -short<CR>
-au FileType go nmap <buffer> <F4> :GoTest<CR>
+au FileType go nmap <buffer> <F4> :!clear && go test<CR>
 au FileType go nmap <buffer> <F5> :GoTest<CR>
 au FileType go nmap <buffer> <F6> :!clear && go test -v<CR>
 au FileType go nmap <buffer> <F7> :!clear && go test -v -bench .<CR>

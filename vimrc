@@ -21,7 +21,7 @@ if portable_mode == 0
   Plugin 'gmarik/Vundle.vim'
   Plugin 'tpope/vim-vinegar'               " Better file browser
   Plugin 'fatih/vim-go'                    " Go language support
-  Plugin 'wting/rust.vim'                  " Rust language support
+  Plugin 'rust-lang/rust.vim'              " Rust language support
   Plugin 'tpope/vim-fugitive'              " git plugin
   Plugin 'kien/ctrlp.vim'                  " Fuzzy file matching
   "Plugin 'scrooloose/syntastic'            " Syntax checking (10/10 would check)

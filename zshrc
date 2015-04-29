@@ -79,12 +79,15 @@ alias vi=vim
 alias open="xdg-open"
 alias more=less
 alias info="info --vi-keys"
+alias irssi='TERM=screen-256color irssi'
 alias open="xdg-open"
 alias gocover="go test -coverprofile=c.out && go tool cover -html=c.out"
 alias reload="
 echo source ~/.zshrc
 source ~/.zshrc
 "
+
+unalias 9
 
 alias cleandocker="docker rm -f \`docker ps -a -q\`; docker rmi -f \`docker images -q -f dangling=true\`"
 

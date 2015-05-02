@@ -75,7 +75,7 @@ alias ll="ls -lh"
 alias la="ls -la"
 alias sl="ls"
 
-alias vi=vim
+alias vi=nvim
 alias open="xdg-open"
 alias more=less
 alias info="info --vi-keys"

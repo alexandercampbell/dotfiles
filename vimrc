@@ -42,14 +42,20 @@ if portable_mode == 0
   Plugin 'jnurmine/Zenburn'
   Plugin 'rainux/vim-desert-warm-256'
   Plugin 'junegunn/seoul256.vim'
+  Plugin 'brafales/vim-desert256'
 
   call vundle#end()
 
   " Plugin configurations
   "let g:syntastic_always_populate_loc_list = 1
   let g:go_fmt_fail_silently = 1
-  let g:syntastic_auto_jump = 1
+  let g:syntastic_auto_jump = 0
   let g:go_fmt_command = "goimports"
+  let g:netrw_liststyle = 0
+  let g:zenburn_force_dark_Background = 0
+  let g:ctrlp_custom_ignore = {
+        \ 'dir': '\v[\/]target$',
+        \ }
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

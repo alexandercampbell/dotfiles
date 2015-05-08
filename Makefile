@@ -18,5 +18,7 @@ links:
 	ln -s ~/dotfiles/vimrc          ~/.vimrc
 	ln -s ~/dotfiles/bash_profile   ~/.bash_profile
 	ln -s ~/dotfiles/zshrc          ~/.zshrc
+	# Alias nvimrc onto vimrc
+	ln -s ~/.vimrc                  ~/.nvimrc
 
 

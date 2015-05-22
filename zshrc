@@ -50,8 +50,8 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-export EDITOR=vim
-export VISUAL=vim
+export EDITOR=nvim
+export VISUAL=nvim
 
 # zsh vim keys instead of emacs
 bindkey -v

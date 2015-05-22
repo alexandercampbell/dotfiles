@@ -47,14 +47,14 @@ if portable_mode == 0
   call vundle#end()
 
   " Plugin configurations
-  "let g:syntastic_always_populate_loc_list = 1
+  let g:syntastic_always_populate_loc_list = 1
   let g:go_fmt_fail_silently = 1
-  let g:syntastic_auto_jump = 0
+  let g:syntastic_auto_jump = 1
   let g:go_fmt_command = "goimports"
   let g:netrw_liststyle = 0
   let g:zenburn_force_dark_Background = 0
   let g:ctrlp_custom_ignore = {
-        \ 'dir': '\v[\/]target$',
+        \ 'dir': '\v[\/](target)|(Godeps)|(build)$',
         \ }
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -119,7 +119,7 @@ endif
 set display+=lastline
 
 " Leader stuff
-let mapleader = "\\"
+let mapleader = " "
 
 " faster custom keybindings. The important ones here are `q` and `w`. I
 " save/quit a LOT. The vim default of needing four keys to save the file
@@ -131,11 +131,24 @@ nnoremap D S<Esc>
 nnoremap <Tab> <C-w>w
 nnoremap <S-Tab> <C-w><S-w>
 nnoremap = <C-w>=
-nnoremap <space> zz
 nnoremap <C-g> 1<C-g>
 nnoremap B ^
 nnoremap E $
 noremap <C-c> <Esc>
+
+" Consistency with my tmux bindings.
+"
+" My tmux leader is <C-space>, and my vim leader is <space>. '<space>v' creates
+" a new vertical split in vim, while '<C-space>v' creates a new vertical split
+" in tmux.
+nnoremap <leader>r :source $MYVIMRC<CR>
+nnoremap <leader>s :sp<CR>
+nnoremap <leader>v :vs<CR>
+nnoremap <leader>d <C-z>
+nnoremap <leader>h <C-w>h
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>l <C-w>l
 
 " In portable mode, open the file explorer with `-`. The reason this is
 " conditionally specified is because `-` is bound to the vim-vinegar plugin in

@@ -241,6 +241,9 @@ au FileType lua nmap <buffer> <F9> :!love .<CR>
 au FileType markdown nmap <buffer> <F9> :!strapdown.sh %<CR>
 au FileType html nmap <buffer> <F9> :!open %<CR>
 
+" paste ~/.pr-message into `hub pull-request`
+au BufRead,BufNewFile PULLREQ_EDITMSG :1 | read ~/.pr-message | 4
+
 " gui options
 se guifont=Consolas\ 11
 se guioptions-=m

@@ -196,19 +196,23 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 " rust programming bindings
 " The `cargo clean` is on here so that the source is recompiled each time, to
 " make sure we get compiler warnings.
-au FileType rust nmap <buffer> <F4> :!clear && cargo test<CR>
-au FileType rust nmap <buffer> <F5> :!clear && cargo test<CR>
-au FileType rust nmap <buffer> <F6> :!clear && cargo test --verbose<CR>
-au FileType rust nmap <buffer> <F9> :!clear && cargo run<CR>
+au FileType rust nmap <buffer> <F4> :!cargo test<CR>
+au FileType rust nmap <buffer> <F5> :!cargo test<CR>
+au FileType rust nmap <buffer> <F6> :!cargo test --verbose<CR>
+au FileType rust nmap <buffer> <F9> :!cargo run<CR>
+
+" elixir programming bindings
+au FileType elixir nmap <buffer> <F4> :!elixir %<CR>
+au FileType elixir nmap <buffer> <F5> :!elixir %<CR>
 
 " Random bindings for Go programming. Some of these are duplicates. This is
 " intentional.
-au FileType go nmap <buffer> <F3> :!clear && go test -short<CR>
-au FileType go nmap <buffer> <F4> :!clear && go test<CR>
+au FileType go nmap <buffer> <F3> :!go test -short<CR>
+au FileType go nmap <buffer> <F4> :!go test<CR>
 au FileType go nmap <buffer> <F5> :GoTest<CR>
-au FileType go nmap <buffer> <F6> :!clear && go test -v<CR>
-au FileType go nmap <buffer> <F7> :!clear && go test -v -bench .<CR>
-au FileType go nmap <buffer> <F8> :!clear && go build<CR>
+au FileType go nmap <buffer> <F6> :!go test -v<CR>
+au FileType go nmap <buffer> <F7> :!go test -v -bench .<CR>
+au FileType go nmap <buffer> <F8> :!go build<CR>
 au FileType go nmap <buffer> <F9> :GoRun<CR>
 
 " recognize file extensions as the correct filetypes
@@ -228,14 +232,14 @@ au FileType lua setl ts=4 sw=4 et
 au FileType rest setl tw=92
 
 " random autocommand bindings for miscellaneous programming languages
-au FileType c nmap <buffer> <F5> :!clear && clang --analyze *.c *.h<CR>
+au FileType c nmap <buffer> <F5> :!clang --analyze *.c *.h<CR>
 au FileType c nmap <buffer> <F9> :make<CR>
-au FileType python nmap <buffer> <F5> :!clear && python %<CR>
-au FileType python nmap <buffer> <F9> :!clear && python %<CR>
-au FileType lua nmap <buffer> <F5> :!clear && love . --test<CR>
-au FileType lua nmap <buffer> <F9> :!clear && love .<CR>
-au FileType markdown nmap <buffer> <F9> :!pandoc -o %.html % && open %.html<CR>
-au FileType html nmap <buffer> <F9> :!clear && open %<CR>
+au FileType python nmap <buffer> <F5> :!python %<CR>
+au FileType python nmap <buffer> <F9> :!python %<CR>
+au FileType lua nmap <buffer> <F5> :!love . --test<CR>
+au FileType lua nmap <buffer> <F9> :!love .<CR>
+au FileType markdown nmap <buffer> <F9> :!strapdown.sh %<CR>
+au FileType html nmap <buffer> <F9> :!open %<CR>
 
 " gui options
 se guifont=Consolas\ 11

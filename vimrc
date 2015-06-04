@@ -245,11 +245,11 @@ au FileType html nmap <buffer> <F9> :!open %<CR>
 au BufRead,BufNewFile PULLREQ_EDITMSG :1 | read ~/.pr-message | 4
 
 " gui options
-se guifont=Consolas\ 11
 se guioptions-=m
 se guioptions-=T
 se guioptions-=r
 se guioptions-=L
+se guifont=Monaco:h12
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Everything below this line was copied from vim-sensible. I don't need all of

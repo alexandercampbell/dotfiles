@@ -35,6 +35,7 @@ if portable_mode == 0
   Plugin 'fidian/hexmode'                  " Hexmode editing with -b
   Plugin 'junegunn/goyo.vim'               " Distractionless editing
   Plugin 'sickill/vim-pasta'               " Better pasting
+  Plugin 'elixir-lang/vim-elixir'          " Elixir support
 
   " Colorschemes
   Plugin 'altercation/vim-colors-solarized'
@@ -43,6 +44,7 @@ if portable_mode == 0
   Plugin 'rainux/vim-desert-warm-256'
   Plugin 'junegunn/seoul256.vim'
   Plugin 'brafales/vim-desert256'
+  Plugin 'xoria256.vim'
 
   call vundle#end()
 
@@ -127,13 +129,12 @@ nnoremap q :q<CR>
 nnoremap w :w<CR>
 nnoremap D S<Esc>
 nnoremap <Tab> <C-w>w
-nnoremap = <C-w>=
 nnoremap <S-Tab> <C-w><S-w>
+nnoremap = <C-w>=
 nnoremap <space> zz
 nnoremap <C-g> 1<C-g>
 nnoremap B ^
 nnoremap E $
-nnoremap <leader>i <C-i>
 noremap <C-c> <Esc>
 
 " In portable mode, open the file explorer with `-`. The reason this is

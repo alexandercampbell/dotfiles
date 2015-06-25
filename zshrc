@@ -82,10 +82,9 @@ alias info="info --vi-keys"
 alias irssi='TERM=screen-256color irssi'
 alias open="xdg-open"
 alias gocover="go test -coverprofile=c.out && go tool cover -html=c.out"
-alias reload="
-echo source ~/.zshrc
-source ~/.zshrc
-"
+alias tree='tree -C'
+alias gpre="hub pull-request"
+alias reload='echo "source ~/.zshrc"; source ~/.zshrc'
 
 unalias 9
 

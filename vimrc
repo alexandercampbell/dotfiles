@@ -223,8 +223,6 @@ autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " rust programming bindings
-" The `cargo clean` is on here so that the source is recompiled each time, to
-" make sure we get compiler warnings.
 au FileType rust nmap <buffer> <F4> :!cargo test<CR>
 au FileType rust nmap <buffer> <F5> :!cargo test<CR>
 au FileType rust nmap <buffer> <F6> :!cargo test --verbose<CR>

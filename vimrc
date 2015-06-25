@@ -179,9 +179,6 @@ end
 " Hide introductory message when starting vim.
 se shm=aI
 
-" Use the system clipboard copy-paste buffer for everything
-se clipboard=unnamedplus
-
 " jump to last edited position in file instead of always starting at the
 " top line, leftmost column
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")

@@ -148,6 +148,26 @@ nnoremap <leader>h <C-w>h
 nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
 nnoremap <leader>l <C-w>l
+nnoremap <leader><S-h> <C-w><S-h>
+nnoremap <leader><S-j> <C-w><S-j>
+nnoremap <leader><S-k> <C-w><S-k>
+nnoremap <leader><S-l> <C-w><S-l>
+nnoremap <leader><bar> <C-w><bar>
+nnoremap <leader>_ <C-w>_
+nnoremap <leader>= <C-w>=
+nnoremap <leader>g :Goyo<CR>
+
+nnoremap <C-w>h <space>
+nnoremap <C-w>j <space>
+nnoremap <C-w>k <space>
+nnoremap <C-w>l <space>
+nnoremap <C-w><S-h> <space>
+nnoremap <C-w><S-j> <space>
+nnoremap <C-w><S-k> <space>
+nnoremap <C-w><S-l> <space>
+nnoremap <C-w><bar> <space>
+nnoremap <C-w>_ <space>
+nnoremap <C-w>= <space>
 
 " In portable mode, open the file explorer with `-`. The reason this is
 " conditionally specified is because `-` is bound to the vim-vinegar plugin in

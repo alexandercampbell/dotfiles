@@ -32,7 +32,6 @@ if portable_mode == 0
   Plugin 'jeroenbourgois/vim-actionscript' " Actionscript support
   Plugin 'dart-lang/dart-vim-plugin'       " Dart plugin
   Plugin 'cespare/vim-toml'                " TOML syntax highlighting
-  Plugin 'fidian/hexmode'                  " Hexmode editing with -b
   Plugin 'junegunn/goyo.vim'               " Distractionless editing
   Plugin 'sickill/vim-pasta'               " Better pasting
   Plugin 'elixir-lang/vim-elixir'          " Elixir support

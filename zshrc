@@ -14,7 +14,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git docker)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -60,10 +60,6 @@ alias reload='echo "source ~/.zshrc"; source ~/.zshrc'
 unalias 9
 
 alias cleandocker="docker rm -f \`docker ps -a -q\`; docker rmi -f \`docker images -q -f dangling=true\`"
-
-export DOCKER_CERT_PATH=/Users/alexandercampbell/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
-export DOCKER_HOST=tcp://192.168.59.103:2376
 
 # Include local init script if it exists. This is for when the local computer
 # needs custom configuration that I don't want in my standard dotfiles.

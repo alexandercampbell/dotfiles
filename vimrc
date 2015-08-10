@@ -22,6 +22,7 @@ if portable_mode == 0
   Plugin 'tpope/vim-vinegar'               " Better file browser
   Plugin 'fatih/vim-go'                    " Go language support
   Plugin 'rust-lang/rust.vim'              " Rust language support
+  Plugin 'phildawes/racer'                 " Rust code completion
   Plugin 'tpope/vim-fugitive'              " git plugin
   Plugin 'kien/ctrlp.vim'                  " Fuzzy file matching
   "Plugin 'scrooloose/syntastic'            " Syntax checking (10/10 would check)
@@ -57,6 +58,8 @@ if portable_mode == 0
   let g:ctrlp_custom_ignore = {
         \ 'dir': '\v[\/](target)|(Godeps)|(build)$',
         \ }
+  let g:racer_cmd = $HOME . "/workspace/src/github.com/phildawes/racer/target/release/racer"
+  let $RUST_SRC_PATH = $HOME . "/workspace/src/github.com/rust-lang/rust/src"
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

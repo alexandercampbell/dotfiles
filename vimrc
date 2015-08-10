@@ -229,10 +229,11 @@ au FileType rust nmap <buffer> <F4> :!cargo test<CR>
 au FileType rust nmap <buffer> <F5> :!cargo test<CR>
 au FileType rust nmap <buffer> <F6> :!cargo test --verbose<CR>
 au FileType rust nmap <buffer> <F9> :!cargo run<CR>
+au FileType rust setl tw=92
 
 " elixir programming bindings
-au FileType elixir nmap <buffer> <F4> :!elixir %<CR>
-au FileType elixir nmap <buffer> <F5> :!elixir %<CR>
+au FileType elixir nmap <buffer> <F4> :!mix test<CR>
+au FileType elixir nmap <buffer> <F5> :!mix test<CR>
 
 " Random bindings for Go programming. Some of these are duplicates. This is
 " intentional.
@@ -241,7 +242,7 @@ au FileType go nmap <buffer> <F4> :!go test<CR>
 au FileType go nmap <buffer> <F5> :GoTest<CR>
 au FileType go nmap <buffer> <F6> :!go test -v<CR>
 au FileType go nmap <buffer> <F7> :!go test -v -bench .<CR>
-au FileType go nmap <buffer> <F8> :!go build<CR>
+au FileType go nmap <buffer> <F8> :GoBuild<CR>
 au FileType go nmap <buffer> <F9> :GoRun<CR>
 
 " recognize file extensions as the correct filetypes
@@ -257,6 +258,7 @@ au FileType yaml setl ts=4 sw=4 et
 au FileType javascript setl ts=4 sw=4 et
 au FileType html setl ts=4 sw=4 et
 au FileType python setl ts=4 sw=4 et
+au FileType elixir setl ts=4 sw=4 et
 au FileType lua setl ts=4 sw=4 et
 au FileType rest setl tw=92
 
@@ -265,9 +267,11 @@ au FileType c nmap <buffer> <F5> :!clang --analyze *.c *.h<CR>
 au FileType c nmap <buffer> <F9> :make<CR>
 au FileType python nmap <buffer> <F5> :!python %<CR>
 au FileType python nmap <buffer> <F9> :!python %<CR>
+au FileType python nmap gd <Plug>(go-def)
 au FileType lua nmap <buffer> <F5> :!love . --test<CR>
 au FileType lua nmap <buffer> <F9> :!love .<CR>
-au FileType markdown nmap <buffer> <F9> :!strapdown.sh %<CR>
+au FileType markdown nmap <buffer> <F9> :!open %<CR>
+au FileType markdown setl spell
 au FileType html nmap <buffer> <F9> :!open %<CR>
 
 " paste ~/.pr-message into `hub pull-request`

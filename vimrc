@@ -53,7 +53,7 @@ if portable_mode == 0
   let g:go_fmt_fail_silently = 1
   let g:syntastic_auto_jump = 1
   let g:go_fmt_command = "goimports"
-  let g:netrw_liststyle = 0
+  let g:netrw_liststyle = 1
   let g:zenburn_force_dark_Background = 0
   let g:ctrlp_custom_ignore = {
         \ 'dir': '\v[\/](target)|(Godeps)|(build)$',
@@ -158,7 +158,6 @@ nnoremap <leader><S-l> <C-w><S-l>
 nnoremap <leader><bar> <C-w><bar>
 nnoremap <leader>_ <C-w>_
 nnoremap <leader>= <C-w>=
-nnoremap <leader>g :Goyo<CR>
 
 nnoremap <C-w>h <space>
 nnoremap <C-w>j <space>
@@ -189,7 +188,7 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 
 " Always cd to the directory of the current buffer. Better for running
 " commandline stuff and editing adjacent files.
-autocmd BufEnter * silent! lcd %:p:h
+"autocmd BufEnter * silent! lcd %:p:h
 
 " Color-related settings
 if portable_mode == 0

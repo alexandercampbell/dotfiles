@@ -158,6 +158,9 @@ nnoremap <leader><S-l> <C-w><S-l>
 nnoremap <leader><bar> <C-w><bar>
 nnoremap <leader>_ <C-w>_
 nnoremap <leader>= <C-w>=
+nnoremap <leader>c :tabnew<CR>
+nnoremap <leader>n :tabnext<CR>
+nnoremap <leader>p :tabprevious<CR>
 
 nnoremap <C-w>h <space>
 nnoremap <C-w>j <space>

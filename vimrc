@@ -84,8 +84,7 @@ set shortmess=t
 
 " highlight/incremental search
 se hlsearch incsearch
-" Ignore case by default when searching. For case-sensitive searches, use \C at
-" the end of the search (or the middle, whatever).
+" Ignore case by default when searching.
 set ignorecase
 
 " Use <C-L> to clear the highlighting of :set hlsearch.
@@ -151,6 +150,7 @@ nnoremap <leader>h <C-w>h
 nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
 nnoremap <leader>l <C-w>l
+nnoremap <Leader>o <C-i>
 nnoremap <leader><S-h> <C-w><S-h>
 nnoremap <leader><S-j> <C-w><S-j>
 nnoremap <leader><S-k> <C-w><S-k>

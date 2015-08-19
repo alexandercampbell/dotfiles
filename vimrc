@@ -263,8 +263,9 @@ au FileType lua setl ts=4 sw=4 et
 au FileType rest setl tw=92
 
 " random autocommand bindings for miscellaneous programming languages
-au FileType c nmap <buffer> <F5> :!clang --analyze *.c *.h<CR>
-au FileType c nmap <buffer> <F9> :make<CR>
+au FileType c nmap <buffer> <F4> :make<CR>
+au FileType c nmap <buffer> <F5> :make<CR>
+au FileType c nmap <buffer> <F9> :make run<CR>
 au FileType python nmap <buffer> <F5> :!python %<CR>
 au FileType python nmap <buffer> <F9> :!python %<CR>
 au FileType python nmap gd <Plug>(go-def)

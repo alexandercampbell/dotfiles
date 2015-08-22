@@ -1,8 +1,23 @@
 
 export ZSH=$HOME/.oh-my-zsh
 
-# If you set this to "random", it'll load a random theme each time.
-ZSH_THEME="eastwood"
+# Borrowed from http://unix.stackexchange.com/questions/9605/how-can-i-detect-if-the-shell-is-controlled-from-ssh
+# Set SESSION_TYPE to remote/ssh if we're controlling the computer through
+# remote SSH.
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+	SESSION_TYPE=remote/ssh
+else
+	case $(ps -o comm= -p $PPID) in
+		sshd|*/sshd) SESSION_TYPE=remote/ssh;;
+	esac
+fi
+
+# Set a different theme if we are ssh'd into a remote.
+if [ "$SESSION_TYPE" = "remote/ssh" ]; then
+	ZSH_THEME="gentoo"
+else
+	ZSH_THEME="eastwood"
+fi
 
 COMPLETION_WAITING_DOTS="true"
 

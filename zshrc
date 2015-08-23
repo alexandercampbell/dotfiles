@@ -49,7 +49,6 @@ unsetopt share_history
 
 export GREP_OPTIONS='--color=auto'
 export GOPATH=~/workspace
-export GOROOT=/usr/local/go
 export PATH=$PATH:$GOPATH/bin:$HOME/bin
 
 export GOMAXPROCS=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || sysctl -n hw.ncpu)

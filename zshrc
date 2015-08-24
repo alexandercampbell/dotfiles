@@ -60,6 +60,16 @@ alias ll="ls -lh"
 alias la="ls -la"
 alias sl="ls"
 
+# Alias `vi` to either nvim or vim, depending on which is installed. Prefer
+# nvim.
+#
+# Can't use the -s switch to `which` in certain implementations
+# Better to pipe to /dev/null anyway.
+if which nvim > /dev/null; then
+	alias vi=nvim
+else
+	alias vi=vim
+fi
 alias vi=nvim
 alias more=less
 alias info="info --vi-keys"

@@ -61,7 +61,6 @@ alias la="ls -la"
 alias sl="ls"
 
 alias vi=nvim
-alias open="xdg-open"
 alias more=less
 alias info="info --vi-keys"
 alias irssi='TERM=screen-256color irssi'

@@ -189,10 +189,6 @@ se shm=aI
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
   \| exe "normal! g'\"" | endif
 
-" Always cd to the directory of the current buffer. Better for running
-" commandline stuff and editing adjacent files.
-"autocmd BufEnter * silent! lcd %:p:h
-
 " Color-related settings
 if portable_mode == 0
   colo zenburn

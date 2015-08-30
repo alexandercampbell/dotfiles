@@ -16,7 +16,7 @@ fi
 if [ "$SESSION_TYPE" = "remote/ssh" ]; then
 	ZSH_THEME="gentoo"
 else
-	ZSH_THEME="eastwood"
+	ZSH_THEME="arrow"
 fi
 
 COMPLETION_WAITING_DOTS="true"

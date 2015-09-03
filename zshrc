@@ -54,11 +54,15 @@ export PATH=$PATH:$GOPATH/bin:$HOME/bin
 export GOMAXPROCS=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || sysctl -n hw.ncpu)
 
 alias ls="ls --color=tty --group-directories-first"
-
 alias l="ls"
 alias ll="ls -lh"
 alias la="ls -la"
 alias sl="ls"
+
+# Treat symbolic links to directories as jumps.
+# This may not fit with traditional Linux model of a filesystem, but it makes
+# more sense for my usages of symbolic links.
+alias cd="cd -P"
 
 # Alias `vi` to either nvim or vim, depending on which is installed. Prefer
 # nvim.

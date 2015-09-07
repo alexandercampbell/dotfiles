@@ -84,6 +84,12 @@ alias tree='tree -C'
 alias gpre="hub pull-request"
 alias reload='echo "source ~/.zshrc"; source ~/.zshrc'
 
+# rtest helps you see the beginning of the Rust compilation errors more easily.
+# The errors I want to fix first are at the top of the list, but sometimes I
+# have to scroll through ten pages of other errors to get to them. I needed a
+# way to see the first five or six errors easily.
+alias rtest='clear; cargo test --color=always 2>&1 | head -32'
+
 unalias 9
 
 alias cleandocker="docker rm -f \`docker ps -a -q\`; docker rmi -f \`docker images -q -f dangling=true\`"

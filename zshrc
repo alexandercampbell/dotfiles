@@ -43,7 +43,7 @@ export VISUAL=nvim
 bindkey -v
 
 export TERM=xterm-256color
-export SAVEHIST=50000
+export SAVEHIST=5000
 
 unsetopt share_history
 

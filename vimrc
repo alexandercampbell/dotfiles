@@ -191,6 +191,7 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 
 " Color-related settings
 if portable_mode == 0
+  se bg=dark
   colo zenburn
 else
   se t_Co=8

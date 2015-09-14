@@ -45,6 +45,10 @@ if portable_mode == 0
   Plugin 'junegunn/seoul256.vim'
   Plugin 'brafales/vim-desert256'
   Plugin 'xoria256.vim'
+  Plugin 'ChocolateLiquor'
+  Plugin 'apprentice.vim'
+  Plugin 'w0ng/vim-hybrid'
+  Plugin 'chriskempson/base16-vim'
 
   call vundle#end()
 
@@ -192,7 +196,7 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 " Color-related settings
 if portable_mode == 0
   se bg=dark
-  colo zenburn
+  colo apprentice
 else
   se t_Co=8
   colo slate
@@ -212,7 +216,7 @@ se cursorline
 hi Visual ctermbg=white ctermfg=black
 " colorcolumn
 se colorcolumn=+1
-"hi ColorColumn ctermbg=gray
+hi ColorColumn ctermbg=gray guibg=black
 
 " Highlight searches with lightblue instead of annoyingly-bright yellow
 hi Search cterm=none ctermbg=lightblue

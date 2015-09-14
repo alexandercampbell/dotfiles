@@ -196,7 +196,7 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 " Color-related settings
 if portable_mode == 0
   se bg=dark
-  colo apprentice
+  colo zenburn
 else
   se t_Co=8
   colo slate
@@ -288,7 +288,7 @@ se guioptions-=m
 se guioptions-=T
 se guioptions-=r
 se guioptions-=L
-se guifont=Monaco:h12
+se guifont="Monaco 10"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Everything below this line was copied from vim-sensible. I don't need all of

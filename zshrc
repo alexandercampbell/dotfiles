@@ -90,6 +90,9 @@ alias reload='echo "source ~/.zshrc"; source ~/.zshrc'
 # way to see the first five or six errors easily.
 alias rtest='clear; cargo test --color=always 2>&1 | head -32'
 
+# random_hash generates a random-ish list of uuid characters.
+alias random_hash="python2 -c 'from uuid import uuid4; print str(uuid4()).split(\"-\")[0]'"
+
 unalias 9
 
 alias cleandocker="docker rm -f \`docker ps -a -q\`; docker rmi -f \`docker images -q -f dangling=true\`"

@@ -71,6 +71,9 @@ endif
 filetype plugin indent on
 syntax enable
 
+" disable backups
+se nobackup nowritebackup
+
 " better indentation
 se autoindent
 se backspace=indent,eol,start

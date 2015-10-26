@@ -1,5 +1,5 @@
 
-.PHONY: all programs links vundle
+.PHONY: all programs vundle tmux-plugin-manager links
 
 all: programs vundle links tmux-plugin-manager
 
@@ -30,6 +30,7 @@ links:
 	ln -s ~/dotfiles/bash_profile   ~/.bash_profile
 	ln -s ~/dotfiles/zshrc          ~/.zshrc
 	# Alias nvimrc onto vimrc
-	ln -s ~/.vimrc                  ~/.nvimrc
+	mkdir -p ~/.config/nvim
+	ln -s ~/.vimrc                  ~/.config/nvim/init.vim
 
 

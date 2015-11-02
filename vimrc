@@ -36,6 +36,8 @@ if portable_mode == 0
   Plugin 'junegunn/goyo.vim'               " Distractionless editing
   Plugin 'sickill/vim-pasta'               " Better pasting
   Plugin 'elixir-lang/vim-elixir'          " Elixir support
+  Plugin 'guns/vim-clojure-static'         " Clojure support
+  Plugin 'solarnz/thrift.vim'              " Thrift synatx highlight
 
   " Colorschemes
   Plugin 'altercation/vim-colors-solarized'

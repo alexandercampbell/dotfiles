@@ -91,7 +91,7 @@ alias reload='echo "source ~/.zshrc"; source ~/.zshrc'
 alias rtest='clear; cargo test --color=always 2>&1 | head -32'
 
 # random_hash generates a random-ish list of uuid characters.
-alias random_hash="python2 -c 'from uuid import uuid4; print str(uuid4()).split(\"-\")[0]'"
+alias random_hash="python2 -c 'from uuid import uuid4; print \"\".join(str(uuid4()).split(\"-\")[0:2])'"
 
 unalias 9
 

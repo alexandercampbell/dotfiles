@@ -33,9 +33,6 @@ plugins=(git docker)
 
 source $ZSH/oh-my-zsh.sh
 
-####################
-# User configuration
-
 export EDITOR=nvim
 export VISUAL=nvim
 
@@ -49,9 +46,9 @@ unsetopt share_history
 
 export GREP_OPTIONS='--color=auto'
 export GOPATH=~/workspace
-export PATH=$PATH:$GOPATH/bin:$HOME/bin
-
 export GOMAXPROCS=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || sysctl -n hw.ncpu)
+
+export PATH=$PATH:$GOPATH/bin:$HOME/bin
 
 alias ls="ls --color=tty --group-directories-first"
 alias l="ls"

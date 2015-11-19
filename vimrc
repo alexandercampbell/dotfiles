@@ -64,7 +64,7 @@ if portable_mode == 0
   let g:ctrlp_custom_ignore = {
         \ 'dir': '\v[\/](target)|(Godeps)|(build)$',
         \ }
-  let g:racer_cmd = $HOME . "/workspace/src/github.com/phildawes/racer/target/release/racer"
+  let g:racer_cmd = $HOME . "/.cargo/bin/racer"
   let $RUST_SRC_PATH = $HOME . "/workspace/src/github.com/rust-lang/rust/src"
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

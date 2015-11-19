@@ -29,7 +29,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -40,15 +40,26 @@ export VISUAL=nvim
 bindkey -v
 
 export TERM=xterm-256color
+export GREP_OPTIONS='--color=auto'
 export SAVEHIST=5000
 
+# each terminal has its own command-line history
 unsetopt share_history
 
-export GREP_OPTIONS='--color=auto'
+# configure a workspace for Golang development
 export GOPATH=~/workspace
 export GOMAXPROCS=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || sysctl -n hw.ncpu)
+export PATH="$PATH:$GOPATH/bin"
 
-export PATH=$PATH:$GOPATH/bin:$HOME/bin
+# add ~/bin to path
+export PATH="$PATH:$HOME/bin"
+
+# add cargo (rust) bin directory to path
+# allows simple cargo installs with
+#
+#	cargo install --git "https://some_url"
+#
+export PATH="$PATH:~/.cargo/bin"
 
 alias ls="ls --color=tty --group-directories-first"
 alias l="ls"

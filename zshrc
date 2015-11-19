@@ -59,7 +59,7 @@ export PATH="$PATH:$HOME/bin"
 #
 #	cargo install --git "https://some_url"
 #
-export PATH="$PATH:~/.cargo/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
 
 alias ls="ls --color=tty --group-directories-first"
 alias l="ls"

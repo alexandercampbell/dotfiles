@@ -221,7 +221,7 @@ se cursorline
 hi Visual ctermbg=white ctermfg=black
 " colorcolumn
 se colorcolumn=+1
-hi ColorColumn ctermbg=black guibg=black
+hi ColorColumn ctermbg=236
 
 " Highlight searches with lightblue instead of annoyingly-bright yellow
 hi Search cterm=none ctermbg=lightblue

@@ -55,6 +55,7 @@ if portable_mode == 0
   call vundle#end()
 
   " Plugin configurations
+  let g:rustfmt_autosave = 1
   let g:syntastic_always_populate_loc_list = 1
   let g:go_fmt_fail_silently = 1
   let g:syntastic_auto_jump = 1

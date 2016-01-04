@@ -24,7 +24,7 @@ if portable_mode == 0
   Plugin 'rust-lang/rust.vim'              " Rust language support
   Plugin 'racer-rust/vim-racer'            " Rust code completion
   Plugin 'tpope/vim-fugitive'              " git plugin
-  Plugin 'kien/ctrlp.vim'                  " Fuzzy file matching
+  Plugin 'ctrlpvim/ctrlp.vim'              " Fuzzy file matching
   "Plugin 'scrooloose/syntastic'            " Syntax checking (10/10 would check)
   Plugin 'tpope/vim-unimpaired'            " Jump through error list with ]l
   Plugin 'rest.vim'                        " Support for REStructured Text

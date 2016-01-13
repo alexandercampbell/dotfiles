@@ -38,6 +38,7 @@ if portable_mode == 0
   Plugin 'elixir-lang/vim-elixir'          " Elixir support
   Plugin 'guns/vim-clojure-static'         " Clojure support
   Plugin 'solarnz/thrift.vim'              " Thrift synatx highlight
+  Plugin 'leafo/moonscript-vim'            " Moonscript support
 
   " Colorschemes
   Plugin 'altercation/vim-colors-solarized'
@@ -270,6 +271,7 @@ au FileType html setl ts=4 sw=4 et
 au FileType python setl ts=4 sw=4 et
 au FileType elixir setl ts=4 sw=4 et
 au FileType lua setl ts=4 sw=4 et
+au FileType moon setl ts=4 sw=4 et
 au FileType rest setl tw=92
 au FileType dart setl ts=4 sw=4 et
 

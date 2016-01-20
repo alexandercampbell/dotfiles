@@ -146,7 +146,7 @@ nnoremap = <C-w>=
 nnoremap <C-g> 1<C-g>
 nnoremap B ^
 nnoremap E $
-noremap <C-c> <Esc>
+inoremap <C-c> <Esc>
 
 " Consistency with my tmux bindings.
 "

@@ -33,6 +33,7 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+export LS_COLORS=""
 export EDITOR=nvim
 export VISUAL=nvim
 

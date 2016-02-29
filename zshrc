@@ -33,6 +33,13 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+# Subset of the bash safe mode.
+# http://redsymbol.net/articles/unofficial-bash-strict-mode/
+# Makes "git grep `git ls-files | grep .go`" work in repos with spaces in the
+# filenames.
+set -uo pipefail
+IFS=$'\n\t'
+
 export LS_COLORS=""
 export EDITOR=nvim
 export VISUAL=nvim

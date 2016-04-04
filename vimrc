@@ -285,7 +285,7 @@ au FileType elixir setl ts=4 sw=4 et
 au FileType lua setl ts=4 sw=4 et
 au FileType moon setl ts=4 sw=4 et
 au FileType rest setl tw=92
-au FileType dart setl ts=4 sw=4 et
+au FileType dart setl ts=2 sw=2 et
 
 " random autocommand bindings for miscellaneous programming languages
 au FileType c nmap <buffer> <F4> :make<CR>

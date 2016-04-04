@@ -304,11 +304,16 @@ au FileType html nmap <buffer> <F9> :!open %<CR>
 au BufRead,BufNewFile PULLREQ_EDITMSG :1 | read ~/.pr-message | 4
 
 " gui options
-se guioptions-=m
-se guioptions-=T
-se guioptions-=r
-se guioptions-=L
-se guifont="Monaco 10"
+if has("gui_running")
+  colo macvim
+  se bg=light
+  se guioptions-=m
+  se guioptions-=T
+  se guioptions-=r
+  se guioptions-=L
+  se guifont=ProggyCleanTT:h13
+  se guifont=Monaco:h10
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Everything below this line was copied from vim-sensible. I don't need all of

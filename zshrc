@@ -4,7 +4,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Borrowed from http://unix.stackexchange.com/questions/9605/how-can-i-detect-if-the-shell-is-controlled-from-ssh
 # Set SESSION_TYPE to remote/ssh if we're controlling the computer through
 # remote SSH.
-if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+if (($+SSH_CLIENT)) || (($+SSH_TTY)); then
 	SESSION_TYPE=remote/ssh
 else
 	case $(ps -o comm= -p $PPID) in
@@ -13,8 +13,10 @@ else
 fi
 
 # Set a different theme if we are ssh'd into a remote.
-if [ "$SESSION_TYPE" = "remote/ssh" ]; then
-	ZSH_THEME="gentoo"
+if (($+SESSION_TYPE)); then
+	if [ "$SESSION_TYPE" = "remote/ssh" ]; then
+		ZSH_THEME="gentoo"
+	fi
 else
 	ZSH_THEME="arrow"
 fi
@@ -30,6 +32,9 @@ HIST_STAMPS="yyyy-mm-dd"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
+
+# Temporarily disable a subset of the bash safe mode for oh-my-zsh loading.
+set +uo nopipefail
 
 source $ZSH/oh-my-zsh.sh
 

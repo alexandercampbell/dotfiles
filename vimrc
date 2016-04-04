@@ -148,6 +148,18 @@ nnoremap B ^
 nnoremap E $
 inoremap <C-c> <Esc>
 
+" NetRW registers some keybinds that interfere with my usage of `q` for `quit`.
+augroup netrw_mapping
+  autocmd!
+  autocmd filetype netrw call CustomNetrwSetup()
+augroup END
+
+function! CustomNetrwSetup()
+  unmap <buffer> qF
+  unmap <buffer> qf
+  unmap <buffer> qb
+endfunction
+
 " Consistency with my tmux bindings.
 "
 " My tmux leader is <C-space>, and my vim leader is <space>. '<space>v' creates

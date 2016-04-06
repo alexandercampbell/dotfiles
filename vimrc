@@ -27,31 +27,25 @@ if portable_mode == 0
   Plugin 'ctrlpvim/ctrlp.vim'              " Fuzzy file matching
   "Plugin 'scrooloose/syntastic'            " Syntax checking (10/10 would check)
   Plugin 'tpope/vim-unimpaired'            " Jump through error list with ]l
-  Plugin 'rest.vim'                        " Support for REStructured Text
   Plugin 'bronson/vim-trailing-whitespace' " Highlight trailing whitespace
   Plugin 'AutoComplPop'                    " Autocompletion as I type
-  Plugin 'jeroenbourgois/vim-actionscript' " Actionscript support
   Plugin 'dart-lang/dart-vim-plugin'       " Dart plugin
   Plugin 'cespare/vim-toml'                " TOML syntax highlighting
-  Plugin 'junegunn/goyo.vim'               " Distractionless editing
   Plugin 'sickill/vim-pasta'               " Better pasting
-  Plugin 'elixir-lang/vim-elixir'          " Elixir support
   Plugin 'guns/vim-clojure-static'         " Clojure support
   Plugin 'solarnz/thrift.vim'              " Thrift synatx highlight
   Plugin 'leafo/moonscript-vim'            " Moonscript support
 
   " Colorschemes
+  Plugin 'jnurmine/Zenburn'
   Plugin 'altercation/vim-colors-solarized'
   Plugin 'wombat256.vim'
-  Plugin 'jnurmine/Zenburn'
-  Plugin 'rainux/vim-desert-warm-256'
-  Plugin 'junegunn/seoul256.vim'
-  Plugin 'brafales/vim-desert256'
   Plugin 'xoria256.vim'
-  Plugin 'ChocolateLiquor'
   Plugin 'apprentice.vim'
-  Plugin 'w0ng/vim-hybrid'
   Plugin 'chriskempson/base16-vim'
+  Plugin 'scwood/vim-hybrid'
+  Plugin 'AlessandroYorba/Sierra'
+  Plugin 'marcopaganini/termschool-vim-theme'
 
   call vundle#end()
 

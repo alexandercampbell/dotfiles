@@ -102,6 +102,7 @@ alias irssi='TERM=screen-256color irssi'
 alias open="xdg-open"
 alias gocover="go test -coverprofile=c.out && go tool cover -html=c.out"
 alias tree='tree -C'
+alias htop='htop -d 5' # More frequent updates
 alias gpre="hub pull-request"
 alias reload='echo "source ~/.zshrc"; source ~/.zshrc'
 

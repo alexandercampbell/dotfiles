@@ -42,10 +42,12 @@ if portable_mode == 0
   Plugin 'wombat256.vim'
   Plugin 'xoria256.vim'
   Plugin 'apprentice.vim'
-  Plugin 'chriskempson/base16-vim'
+  Plugin 'alexandercampbell/base16-vim'
   Plugin 'scwood/vim-hybrid'
   Plugin 'AlessandroYorba/Sierra'
   Plugin 'marcopaganini/termschool-vim-theme'
+  Plugin 'vim-scripts/blackdust.vim'
+  Plugin 'romainl/Disciple'
 
   call vundle#end()
 

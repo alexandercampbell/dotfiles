@@ -257,8 +257,8 @@ au FileType elixir nmap <buffer> <F5> :!mix test<CR>
 " Random bindings for Go programming. Some of these are duplicates. This is
 " intentional.
 au FileType go nmap <buffer> <F3> :!go test -short<CR>
-au FileType go nmap <buffer> <F4> :!go test<CR>
-au FileType go nmap <buffer> <F5> :GoTest<CR>
+au FileType go nmap <buffer> <leader><CR> :GoTest<CR>
+au FileType go nmap <buffer> <leader><CR> :GoTest<CR>
 au FileType go nmap <buffer> <F6> :!go test -v<CR>
 au FileType go nmap <buffer> <F7> :!go test -v -bench .<CR>
 au FileType go nmap <buffer> <F8> :GoBuild<CR>

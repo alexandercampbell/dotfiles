@@ -35,6 +35,7 @@ if portable_mode == 0
   Plugin 'guns/vim-clojure-static'         " Clojure support
   Plugin 'solarnz/thrift.vim'              " Thrift synatx highlight
   Plugin 'leafo/moonscript-vim'            " Moonscript support
+  Plugin 'scrooloose/nerdtree'             " Nerdtree file browser
 
   " Colorschemes
   Plugin 'jnurmine/Zenburn'
@@ -181,6 +182,7 @@ nnoremap <leader>= <C-w>=
 nnoremap <leader>c :tabnew<CR>
 nnoremap <leader>n :tabnext<CR>
 nnoremap <leader>p :tabprevious<CR>
+nnoremap <leader>N :NERDTreeToggle<CR>
 
 nnoremap <C-w>h <space>
 nnoremap <C-w>j <space>

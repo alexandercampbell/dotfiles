@@ -152,6 +152,7 @@ augroup END
 
 function! CustomNetrwSetup()
   unmap <buffer> qF
+  unmap <buffer> qL
   unmap <buffer> qf
   unmap <buffer> qb
 endfunction

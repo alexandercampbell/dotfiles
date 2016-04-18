@@ -310,6 +310,7 @@ if has("gui_running")
   se guioptions-=L
   se guifont=ProggyCleanTT:h13
   se guifont=Monaco:h10
+  se noantialias
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

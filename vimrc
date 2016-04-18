@@ -214,7 +214,7 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 " Color-related settings
 if portable_mode == 0
   se bg=dark
-  colo zenburn
+  colo apprentice
 else
   se t_Co=8
   colo slate
@@ -304,8 +304,8 @@ au BufRead,BufNewFile PULLREQ_EDITMSG :1 | read ~/.pr-message | 4
 
 " gui options
 if has("gui_running")
-  colo macvim
-  se bg=light
+  se bg=dark
+  colo base16-ocean
   se guioptions-=m
   se guioptions-=T
   se guioptions-=r

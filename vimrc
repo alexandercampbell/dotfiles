@@ -35,7 +35,9 @@ if portable_mode == 0
   Plugin 'guns/vim-clojure-static'         " Clojure support
   Plugin 'solarnz/thrift.vim'              " Thrift synatx highlight
   Plugin 'leafo/moonscript-vim'            " Moonscript support
-  Plugin 'scrooloose/nerdtree'             " Nerdtree file browser
+  Plugin 'vim-airline/vim-airline'         " Cool status bar
+  Plugin 'vim-airline/vim-airline-themes'  " Plugins for airline
+
 
   " Colorschemes
   Plugin 'jnurmine/Zenburn'
@@ -213,8 +215,10 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 
 " Color-related settings
 if portable_mode == 0
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
   se bg=dark
-  colo apprentice
+  colo zenburn
+  call g:airline#switch_theme("raven")
 else
   se t_Co=8
   colo slate

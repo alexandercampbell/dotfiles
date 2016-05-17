@@ -241,6 +241,7 @@ hi Visual ctermbg=white ctermfg=black
 " colorcolumn
 se colorcolumn=+1
 hi ColorColumn ctermbg=236
+highlight LineNr ctermbg=16
 
 " Highlight searches with lightblue instead of annoyingly-bright yellow
 hi Search cterm=none ctermbg=lightblue

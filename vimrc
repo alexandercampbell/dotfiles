@@ -51,6 +51,7 @@ if portable_mode == 0
   Plugin 'marcopaganini/termschool-vim-theme'
   Plugin 'vim-scripts/blackdust.vim'
   Plugin 'romainl/Disciple'
+  Plugin 'morhetz/gruvbox'
 
   call vundle#end()
 
@@ -67,6 +68,7 @@ if portable_mode == 0
         \ }
   let g:racer_cmd = $HOME . "/.cargo/bin/racer"
   let $RUST_SRC_PATH = $HOME . "/workspace/src/github.com/rust-lang/rust/src"
+  let g:airline_powerline_fonts = 1
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -217,8 +219,8 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 if portable_mode == 0
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
   se bg=dark
-  colo zenburn
-  call g:airline#switch_theme("raven")
+  colo gruvbox
+  call g:airline#switch_theme("term")
 else
   se t_Co=8
   colo slate

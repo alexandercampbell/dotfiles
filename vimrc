@@ -57,6 +57,7 @@ if portable_mode == 0
 
   " Plugin configurations
   let g:rustfmt_autosave = 1
+  let g:rustfmt_fail_silently = 1
   let g:syntastic_always_populate_loc_list = 1
   let g:go_fmt_fail_silently = 1
   let g:syntastic_auto_jump = 1
@@ -255,7 +256,7 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " rust programming bindings
 au FileType rust nmap <buffer> <F4> :!cargo test<CR>
-au FileType rust nmap <buffer> <F5> :!cargo test<CR>
+au FileType rust nmap <buffer> <leader><CR> :!cargo test<CR>
 au FileType rust nmap <buffer> <F6> :!cargo test --verbose<CR>
 au FileType rust nmap <buffer> <F9> :!cargo run<CR>
 au FileType rust setl tw=92

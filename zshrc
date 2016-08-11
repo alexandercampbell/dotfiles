@@ -54,7 +54,7 @@ bindkey -v
 
 export TERM=xterm-256color
 export GREP_OPTIONS='--color=auto'
-export SAVEHIST=5000
+export SAVEHIST=2000
 
 # each terminal has its own command-line history
 unsetopt share_history

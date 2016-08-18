@@ -48,6 +48,7 @@ IFS=$'\n\t'
 export LS_COLORS=""
 export EDITOR=nvim
 export VISUAL=nvim
+export MANPAGER="nvim -c 'set ft=man' -"
 
 # zsh vim keys instead of emacs
 bindkey -v

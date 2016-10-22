@@ -106,6 +106,7 @@ alias tree='tree -C'
 alias htop='htop -d 5' # More frequent updates
 alias gpre="hub pull-request"
 alias reload='echo "source ~/.zshrc"; source ~/.zshrc'
+alias pip='pip2'
 
 # rtest helps you see the beginning of the Rust compilation errors more easily.
 # The errors I want to fix first are at the top of the list, but sometimes I

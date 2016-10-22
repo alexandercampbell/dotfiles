@@ -37,7 +37,7 @@ if portable_mode == 0
   Plugin 'leafo/moonscript-vim'            " Moonscript support
   Plugin 'vim-airline/vim-airline'         " Cool status bar
   Plugin 'vim-airline/vim-airline-themes'  " Plugins for airline
-
+  Plugin 'lambdatoast/elm.vim'             " Elm support
 
   " Colorschemes
   Plugin 'jnurmine/Zenburn'
@@ -66,7 +66,7 @@ if portable_mode == 0
   let g:netrw_liststyle = 1
   let g:zenburn_force_dark_Background = 0
   let g:ctrlp_custom_ignore = {
-        \ 'dir': '\v[\/](target)|(Godeps)|(vendor)|(build)$',
+        \ 'dir': '\v[\/](target)|(dist)|(node_modules)|(Godeps)|(vendor)|(build)$',
         \ 'file': '\v\.*(.class)$',
         \ }
   let g:racer_cmd = $HOME . "/.cargo/bin/racer"

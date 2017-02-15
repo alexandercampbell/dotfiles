@@ -68,7 +68,7 @@ if portable_mode == 0
   let g:zenburn_force_dark_Background = 0
   let g:ctrlp_custom_ignore = {
         \ 'dir': '\v[\/](target)|(dist)|(node_modules)|(Godeps)|(vendor)|(build)$',
-        \ 'file': '\v\.*(.class)$',
+        \ 'file': '\v\.*(.class)|\.*(.pyc)$',
         \ }
   let g:racer_cmd = $HOME . "/.cargo/bin/racer"
   let $RUST_SRC_PATH = $HOME . "/workspace/src/github.com/rust-lang/rust/src"

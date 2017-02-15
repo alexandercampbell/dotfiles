@@ -37,7 +37,7 @@ if portable_mode == 0
   Plugin 'leafo/moonscript-vim'            " Moonscript support
   Plugin 'vim-airline/vim-airline'         " Cool status bar
   Plugin 'vim-airline/vim-airline-themes'  " Plugins for airline
-  Plugin 'lambdatoast/elm.vim'             " Elm support
+  Plugin 'ElmCast/elm-vim'                 " Elm support
 
   " Colorschemes
   Plugin 'jnurmine/Zenburn'
@@ -73,6 +73,9 @@ if portable_mode == 0
   let g:racer_cmd = $HOME . "/.cargo/bin/racer"
   let $RUST_SRC_PATH = $HOME . "/workspace/src/github.com/rust-lang/rust/src"
   let g:airline_powerline_fonts = 1
+  let g:elm_format_autosave = 1
+  let g:elm_format_fail_silently = 1
+  let g:elm_setup_keybindings = 0
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -291,6 +294,7 @@ au FileType yaml setl ts=4 sw=4 et
 au FileType javascript setl ts=4 sw=4 et
 au FileType html setl ts=4 sw=4 et
 au FileType python setl ts=4 sw=4 et
+au FileType elm setl ts=4 sw=4 et
 au FileType elixir setl ts=4 sw=4 et
 au FileType lua setl ts=4 sw=4 et
 au FileType moon setl ts=4 sw=4 et

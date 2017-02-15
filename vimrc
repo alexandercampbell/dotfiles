@@ -225,9 +225,11 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 " Color-related settings
 if portable_mode == 0
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  se termguicolors
   se bg=dark
-  colo gruvbox
-  call g:airline#switch_theme("term")
+  "call g:airline#switch_theme("term")
+  call g:airline#switch_theme("distinguished")
+  colo despacio
 else
   se t_Co=8
   colo slate
@@ -248,7 +250,6 @@ hi Visual ctermbg=white ctermfg=black
 " colorcolumn
 se colorcolumn=+1
 hi ColorColumn ctermbg=236
-highlight LineNr ctermbg=16
 
 " Highlight searches with lightblue instead of annoyingly-bright yellow
 hi Search cterm=none ctermbg=lightblue

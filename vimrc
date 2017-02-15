@@ -243,7 +243,7 @@ se wrapmargin=0
 se linebreak
 se textwidth=80
 " highlight line containing the cursor
-se cursorline
+"se cursorline
 " Highlight selection as black on white instead of whatever the colorscheme
 " does by default.
 hi Visual ctermbg=white ctermfg=black

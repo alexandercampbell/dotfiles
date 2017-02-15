@@ -52,6 +52,7 @@ if portable_mode == 0
   Plugin 'vim-scripts/blackdust.vim'
   Plugin 'romainl/Disciple'
   Plugin 'morhetz/gruvbox'
+  Plugin 'alessandroyorba/despacio'
 
   call vundle#end()
 

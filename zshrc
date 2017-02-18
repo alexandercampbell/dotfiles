@@ -33,17 +33,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
-# Temporarily disable a subset of the bash safe mode for oh-my-zsh loading.
-set +uo nopipefail
-
 source $ZSH/oh-my-zsh.sh
-
-# Subset of the bash safe mode.
-# http://redsymbol.net/articles/unofficial-bash-strict-mode/
-# Makes "git grep `git ls-files | grep .go`" work in repos with spaces in the
-# filenames.
-set -uo pipefail
-IFS=$'\n\t'
 
 export LS_COLORS=""
 export EDITOR=nvim

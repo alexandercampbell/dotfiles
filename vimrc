@@ -70,6 +70,7 @@ if portable_mode == 0
         \ 'dir': '\v[\/](target)|(dist)|(node_modules)|(Godeps)|(vendor)|(build)$',
         \ 'file': '\v\.*(.class)|\.*(.pyc)$',
         \ }
+  let g:ctrlp_working_path_mode = 'a'
   let g:racer_cmd = $HOME . "/.cargo/bin/racer"
   let $RUST_SRC_PATH = $HOME . "/workspace/src/github.com/rust-lang/rust/src"
   let g:airline_powerline_fonts = 1

@@ -230,7 +230,7 @@ if portable_mode == 0
   se bg=dark
   "call g:airline#switch_theme("term")
   call g:airline#switch_theme("distinguished")
-  colo despacio
+  colo gruvbox
 else
   se t_Co=8
   colo slate

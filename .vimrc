@@ -220,7 +220,7 @@ se textwidth=80
 " does by default.
 hi Visual ctermbg=white ctermfg=black
 " colorcolumn
-se colorcolumn=81
+se colorcolumn=+1
 
 
 " Highlight searches with lightblue instead of annoyingly-bright yellow

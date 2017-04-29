@@ -22,36 +22,20 @@ if portable_mode == 0
   Plugin 'tpope/vim-vinegar'               " Better file browser
   Plugin 'fatih/vim-go'                    " Go language support
   Plugin 'rust-lang/rust.vim'              " Rust language support
-  Plugin 'racer-rust/vim-racer'            " Rust code completion
+  Plugin 'racer-rust/vim-racer'            " Rust code completion / jump-to-def
   Plugin 'tpope/vim-fugitive'              " git plugin
   Plugin 'ctrlpvim/ctrlp.vim'              " Fuzzy file matching
   Plugin 'tpope/vim-unimpaired'            " Jump through error list with ]l
   Plugin 'bronson/vim-trailing-whitespace' " Highlight trailing whitespace
   Plugin 'AutoComplPop'                    " Autocompletion as I type
-  Plugin 'dart-lang/dart-vim-plugin'       " Dart plugin
   Plugin 'cespare/vim-toml'                " TOML syntax highlighting
   Plugin 'sickill/vim-pasta'               " Better pasting
-  Plugin 'guns/vim-clojure-static'         " Clojure support
-  Plugin 'solarnz/thrift.vim'              " Thrift synatx highlight
-  Plugin 'leafo/moonscript-vim'            " Moonscript support
   Plugin 'vim-airline/vim-airline'         " Cool status bar
-  Plugin 'vim-airline/vim-airline-themes'  " Plugins for airline
   Plugin 'ElmCast/elm-vim'                 " Elm support
 
   " Colorschemes
   Plugin 'jnurmine/Zenburn'
-  Plugin 'altercation/vim-colors-solarized'
-  Plugin 'wombat256.vim'
-  Plugin 'xoria256.vim'
-  Plugin 'apprentice.vim'
-  Plugin 'alexandercampbell/base16-vim'
-  Plugin 'scwood/vim-hybrid'
-  Plugin 'AlessandroYorba/Sierra'
-  Plugin 'marcopaganini/termschool-vim-theme'
-  Plugin 'vim-scripts/blackdust.vim'
-  Plugin 'romainl/Disciple'
   Plugin 'morhetz/gruvbox'
-  Plugin 'alessandroyorba/despacio'
 
   call vundle#end()
 
@@ -60,8 +44,6 @@ if portable_mode == 0
   let g:rustfmt_fail_silently = 1
   let g:syntastic_always_populate_loc_list = 1
   let g:go_fmt_fail_silently = 1
-  let g:syntastic_auto_jump = 1
-  let g:syntastic_auto_loc_list = 3
   let g:go_fmt_command = "goimports"
   let g:netrw_liststyle = 1
   let g:zenburn_force_dark_Background = 0
@@ -72,7 +54,6 @@ if portable_mode == 0
   let g:ctrlp_working_path_mode = 'a'
   let g:racer_cmd = $HOME . "/.cargo/bin/racer"
   let $RUST_SRC_PATH = $HOME . "/workspace/src/github.com/rust-lang/rust/src"
-  let g:airline_powerline_fonts = 1
   let g:elm_format_autosave = 1
   let g:elm_format_fail_silently = 1
   let g:elm_setup_keybindings = 0
@@ -232,7 +213,6 @@ if portable_mode == 0
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
   se termguicolors
   se bg=dark
-  call g:airline#switch_theme("distinguished")
   colo gruvbox
 else
   se t_Co=8

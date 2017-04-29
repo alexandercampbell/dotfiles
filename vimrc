@@ -45,7 +45,6 @@ if portable_mode == 0
   let g:syntastic_always_populate_loc_list = 1
   let g:go_fmt_fail_silently = 1
   let g:go_fmt_command = "goimports"
-  let g:netrw_liststyle = 1
   let g:zenburn_force_dark_Background = 0
   let g:ctrlp_custom_ignore = {
         \ 'dir': '\v[\/](target)|(dist)|(node_modules)|(Godeps)|(vendor)|(build)|(elm-stuff)$',
@@ -116,16 +115,8 @@ if has("wildignorecase")
 end
 
 " keep context around the edge of the screen when the cursor is moving
-if !&scrolloff
-  set scrolloff=1
-endif
-if !&sidescrolloff
-  set sidescrolloff=5
-endif
-set display+=lastline
-
-" Leader stuff
-let mapleader = " "
+set scrolloff=3
+set display=truncate,uhex
 
 " faster custom keybindings. The important ones here are `q` and `w`. I
 " save/quit a LOT. The vim default of needing four keys to save the file
@@ -160,6 +151,7 @@ endfunction
 " My tmux leader is <C-space>, and my vim leader is <space>. '<space>v' creates
 " a new vertical split in vim, while '<C-space>v' creates a new vertical split
 " in tmux.
+let mapleader = " "
 nnoremap <leader>r :source $MYVIMRC<CR>
 nnoremap <leader>s :sp<CR>
 nnoremap <leader>v :vs<CR>
@@ -193,12 +185,8 @@ nnoremap <C-w><bar> <space>
 nnoremap <C-w>_ <space>
 nnoremap <C-w>= <space>
 
-" In portable mode, open the file explorer with `-`. The reason this is
-" conditionally specified is because `-` is bound to the vim-vinegar plugin in
-" non-portable mode.
-if portable_mode
-  nmap - :E<CR>
-end
+" Mostly for portable mode, since this is configured in vim-vinegar.
+nmap - :E<CR>
 
 " Hide introductory message when starting vim.
 se shm=aI
@@ -233,9 +221,6 @@ se textwidth=80
 hi Visual ctermbg=white ctermfg=black
 " colorcolumn
 se colorcolumn=81
-"hi ColorColumn ctermbg=black
-"hi ColorColumn ctermbg=236
-"hi ColorColumn ctermbg=235
 
 
 " Highlight searches with lightblue instead of annoyingly-bright yellow
@@ -244,10 +229,6 @@ hi Search cterm=none ctermbg=lightblue
 " Don't join together lines with two spaces after each period.
 se nojoinspaces
 
-" hide autocompletion window on cursor movement
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-
 " rust programming bindings
 au FileType rust nmap <buffer> <F4> :!cargo test<CR>
 au FileType rust nmap <buffer> <leader><CR> :!cargo test<CR>
@@ -255,39 +236,19 @@ au FileType rust nmap <buffer> <F6> :!cargo test --verbose<CR>
 au FileType rust nmap <buffer> <F9> :!cargo run<CR>
 au FileType rust setl tw=92
 
-" elixir programming bindings
-au FileType elixir nmap <buffer> <F4> :!mix test<CR>
-au FileType elixir nmap <buffer> <F5> :!mix test<CR>
-
-" Random bindings for Go programming. Some of these are duplicates. This is
-" intentional.
-au FileType go nmap <buffer> <F3> :!go test -short<CR>
-au FileType go nmap <buffer> <leader><CR> :GoTest<CR>
-au FileType go nmap <buffer> <leader><CR> :GoTest<CR>
-au FileType go nmap <buffer> <F6> :!go test -v<CR>
-au FileType go nmap <buffer> <F7> :!go test -v -bench .<CR>
-au FileType go nmap <buffer> <F8> :GoBuild<CR>
-au FileType go nmap <buffer> <F9> :GoRun<CR>
-
 " recognize file extensions as the correct filetypes
 au BufRead,BufNewFile *.md set ft=markdown
 au BufRead,BufNewFile *.yaml se ft=yaml
-" restructured text
-au BufRead,BufNewFile *.rst se ft=rest
-" header files are marked as C++ by default
-au BufRead,BufNewFile *.h se ft=c
 
 " Use the canonically accepted tab sizes for yaml, js, and python
-au FileType yaml setl ts=4 sw=4 et
-au FileType javascript setl ts=4 sw=4 et
-au FileType html setl ts=4 sw=4 et
-au FileType python setl ts=4 sw=4 et
-au FileType elm setl ts=4 sw=4 et
-au FileType elixir setl ts=4 sw=4 et
-au FileType lua setl ts=4 sw=4 et
-au FileType moon setl ts=4 sw=4 et
-au FileType rest setl tw=92
-au FileType dart setl ts=2 sw=2 et
+au FileType yaml                setl ts=4 sw=4 et
+au FileType javascript          setl ts=4 sw=4 et
+au FileType html                setl ts=4 sw=4 et
+au FileType python              setl ts=4 sw=4 et
+au FileType elm                 setl ts=4 sw=4 et
+au FileType elixir              setl ts=4 sw=4 et
+au FileType lua                 setl ts=4 sw=4 et
+au FileType dart                setl ts=2 sw=2 et
 
 " random autocommand bindings for miscellaneous programming languages
 au FileType c,cpp nmap <buffer> gd <C-]>
@@ -296,12 +257,8 @@ au FileType python nmap <buffer> <F9> :!python %<CR>
 au FileType python nmap gd <Plug>(go-def)
 au FileType lua nmap <buffer> <F5> :!love . --test<CR>
 au FileType lua nmap <buffer> <F9> :!love .<CR>
-au FileType markdown nmap <buffer> <F9> :!open %<CR>
 au FileType markdown setl spell
 au FileType html nmap <buffer> <F9> :!open %<CR>
-
-" paste ~/.pr-message into `hub pull-request`
-au BufRead,BufNewFile PULLREQ_EDITMSG :1 | read ~/.pr-message | 4
 
 " gui options
 if has("gui_running")

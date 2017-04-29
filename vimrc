@@ -25,7 +25,6 @@ if portable_mode == 0
   Plugin 'racer-rust/vim-racer'            " Rust code completion
   Plugin 'tpope/vim-fugitive'              " git plugin
   Plugin 'ctrlpvim/ctrlp.vim'              " Fuzzy file matching
-  "Plugin 'scrooloose/syntastic'            " Syntax checking (10/10 would check)
   Plugin 'tpope/vim-unimpaired'            " Jump through error list with ]l
   Plugin 'bronson/vim-trailing-whitespace' " Highlight trailing whitespace
   Plugin 'AutoComplPop'                    " Autocompletion as I type

@@ -1,0 +1,17 @@
+
+This repo expects to live at ~/dotfiles
+You probably shouldn't install these dotfiles.
+
+Install:
+
+	cd
+	git clone git@github.com:alexandercampbell/dotfiles.git
+	ln -s dotfiles/.vimrc
+	ln -s dotfiles/.tmux.conf
+	ln -s dotfiles/.zshrc
+	mkdir -p .config/nvim
+	ln -s .vimrc .config/nvim/init.vim
+
+	cd dotfiles/vendor
+	./install_vundle.sh
+

@@ -94,6 +94,9 @@ se backspace=indent,eol,start
 se complete-=i
 se smarttab
 
+" jump-to-definition should work even without saving the current file.
+se hidden
+
 se virtualedit=block
 
 " status line improvements (probably overriden by my status line plugin, but

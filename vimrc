@@ -230,7 +230,6 @@ if portable_mode == 0
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
   se termguicolors
   se bg=dark
-  "call g:airline#switch_theme("term")
   call g:airline#switch_theme("distinguished")
   colo gruvbox
 else
@@ -251,8 +250,11 @@ se textwidth=80
 " does by default.
 hi Visual ctermbg=white ctermfg=black
 " colorcolumn
-se colorcolumn=+1
+se colorcolumn=81
+"hi ColorColumn ctermbg=black
 "hi ColorColumn ctermbg=236
+"hi ColorColumn ctermbg=235
+
 
 " Highlight searches with lightblue instead of annoyingly-bright yellow
 hi Search cterm=none ctermbg=lightblue
@@ -322,12 +324,10 @@ au BufRead,BufNewFile PULLREQ_EDITMSG :1 | read ~/.pr-message | 4
 " gui options
 if has("gui_running")
   se bg=dark
-  colo base16-ocean
   se guioptions-=m
   se guioptions-=T
   se guioptions-=r
   se guioptions-=L
-  se guifont=ProggyCleanTT:h13
   se guifont=Monaco:h10
   se noantialias
 endif

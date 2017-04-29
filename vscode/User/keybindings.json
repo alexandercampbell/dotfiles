@@ -1,6 +1,0 @@
-// Place your key bindings in this file to overwrite the defaults
-[
-    {"key": "f5", "command": "python.execInTerminal"},
-    {"key": "ctrl+pagedown", "command": "workbench.action.nextEditor"},
-    {"key": "ctrl+pageup", "command": "workbench.action.previousEditor"}
-]

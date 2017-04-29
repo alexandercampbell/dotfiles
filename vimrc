@@ -77,6 +77,8 @@ if portable_mode == 0
   let g:elm_format_autosave = 1
   let g:elm_format_fail_silently = 1
   let g:elm_setup_keybindings = 0
+
+  au FileType rust nmap gd <Plug>(rust-def)
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

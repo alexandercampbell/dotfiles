@@ -306,9 +306,7 @@ au FileType rest setl tw=92
 au FileType dart setl ts=2 sw=2 et
 
 " random autocommand bindings for miscellaneous programming languages
-au FileType c nmap <buffer> <F4> :make<CR>
-au FileType c nmap <buffer> <F5> :make<CR>
-au FileType c nmap <buffer> <F9> :make run<CR>
+au FileType c,cpp nmap <buffer> gd <C-]>
 au FileType python nmap <buffer> <F5> :!python %<CR>
 au FileType python nmap <buffer> <F9> :!python %<CR>
 au FileType python nmap gd <Plug>(go-def)

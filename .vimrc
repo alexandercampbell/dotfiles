@@ -160,7 +160,6 @@ nnoremap <leader>h <C-w>h
 nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
 nnoremap <leader>l <C-w>l
-nnoremap <Leader>o <C-i>
 nnoremap <leader><S-h> <C-w><S-h>
 nnoremap <leader><S-j> <C-w><S-j>
 nnoremap <leader><S-k> <C-w><S-k>
@@ -168,10 +167,6 @@ nnoremap <leader><S-l> <C-w><S-l>
 nnoremap <leader><bar> <C-w><bar>
 nnoremap <leader>_ <C-w>_
 nnoremap <leader>= <C-w>=
-nnoremap <leader>c :tabnew<CR>
-nnoremap <leader>n :tabnext<CR>
-nnoremap <leader>p :tabprevious<CR>
-nnoremap <leader>N :NERDTreeToggle<CR>
 
 nnoremap <C-w>h <space>
 nnoremap <C-w>j <space>

@@ -193,8 +193,6 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 
 " Color-related settings
 if portable_mode == 0
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  se termguicolors
   se bg=dark
   colo gruvbox
 else

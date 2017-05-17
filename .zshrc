@@ -32,6 +32,7 @@ unsetopt share_history
 
 # configure a workspace for Golang development
 export GOPATH=~/workspace
+export PATH="$PATH:$GOPATH/bin"
 
 # add ~/bin to path
 export PATH="$PATH:$HOME/bin"

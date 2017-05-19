@@ -23,7 +23,6 @@ export MANPAGER="nvim -c 'set ft=man' -"
 # zsh vim keys instead of emacs
 bindkey -v
 
-export TERM=screen-256color
 export GREP_OPTIONS='--color=auto'
 export SAVEHIST=2000
 

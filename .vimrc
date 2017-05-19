@@ -48,7 +48,7 @@ if portable_mode == 0
   let g:zenburn_force_dark_Background = 0
   let g:ctrlp_custom_ignore = {
         \ 'dir': '\v[\/](target)|(dist)|(node_modules)|(Godeps)|(vendor)|(build)|(elm-stuff)$',
-        \ 'file': '\v\.*(.class)|\.*(.pyc)|\.*(.d|o)$',
+        \ 'file': '\v\.*(.class)|\.*(.pyc)$',
         \ }
   let g:ctrlp_working_path_mode = 'a'
   let g:racer_cmd = $HOME . "/.cargo/bin/racer"

@@ -193,8 +193,8 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 
 " Color-related settings
 if portable_mode == 0
-  se bg=dark
   se termguicolors
+  se bg=light
   colo gruvbox
 else
   se t_Co=8

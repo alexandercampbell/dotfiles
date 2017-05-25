@@ -257,12 +257,11 @@ au FileType html nmap <buffer> <F9> :!open %<CR>
 
 " gui options
 if has("gui_running")
-  se bg=dark
   se guioptions-=m
   se guioptions-=T
   se guioptions-=r
   se guioptions-=L
-  se guifont=Monaco:h10
+  se guifont="Monaco 8"
   se noantialias
 endif
 

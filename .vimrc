@@ -207,6 +207,7 @@ se formatoptions-=t
 se wrapmargin=0
 se linebreak
 se textwidth=80
+se showmatch
 " highlight line containing the cursor
 "se cursorline
 " Highlight selection as black on white instead of whatever the colorscheme

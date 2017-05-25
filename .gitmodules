@@ -1,0 +1,3 @@
+[submodule "submodules/gnome-terminal-colors"]
+	path = submodules/gnome-terminal-colors
+	url = https://github.com/metalelf0/gnome-terminal-colors.git

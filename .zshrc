@@ -1,7 +1,7 @@
 
 export ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="mh"
+ZSH_THEME="arrow"
 
 # This makes repository status check for large repositories much, much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"

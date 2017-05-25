@@ -30,7 +30,6 @@ if portable_mode == 0
   Plugin 'AutoComplPop'                    " Autocompletion as I type
   Plugin 'cespare/vim-toml'                " TOML syntax highlighting
   Plugin 'sickill/vim-pasta'               " Better pasting
-  Plugin 'vim-airline/vim-airline'         " Cool status bar
   Plugin 'ElmCast/elm-vim'                 " Elm support
 
   " Colorschemes

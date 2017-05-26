@@ -20,17 +20,19 @@ if portable_mode == 0
   " Basic plugins
   Plugin 'gmarik/Vundle.vim'
   Plugin 'tpope/vim-vinegar'               " Better file browser
-  Plugin 'fatih/vim-go'                    " Go language support
-  Plugin 'rust-lang/rust.vim'              " Rust language support
-  Plugin 'racer-rust/vim-racer'            " Rust code completion / jump-to-def
   Plugin 'tpope/vim-fugitive'              " git plugin
   Plugin 'ctrlpvim/ctrlp.vim'              " Fuzzy file matching
   Plugin 'tpope/vim-unimpaired'            " Jump through error list with ]l
   Plugin 'ntpeters/vim-better-whitespace'  " Highlight trailing whitespace
   Plugin 'AutoComplPop'                    " Autocompletion as I type
-  Plugin 'cespare/vim-toml'                " TOML syntax highlighting
   Plugin 'sickill/vim-pasta'               " Better pasting
+
+  " Specific language support
+  Plugin 'fatih/vim-go'                    " Go language support
+  Plugin 'rust-lang/rust.vim'              " Rust language support
+  Plugin 'racer-rust/vim-racer'            " Rust code completion / jump-to-def
   Plugin 'ElmCast/elm-vim'                 " Elm support
+  Plugin 'cespare/vim-toml'                " TOML syntax highlighting
 
   " Colorschemes
   Plugin 'jnurmine/Zenburn'

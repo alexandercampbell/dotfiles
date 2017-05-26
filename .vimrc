@@ -26,7 +26,7 @@ if portable_mode == 0
   Plugin 'tpope/vim-fugitive'              " git plugin
   Plugin 'ctrlpvim/ctrlp.vim'              " Fuzzy file matching
   Plugin 'tpope/vim-unimpaired'            " Jump through error list with ]l
-  Plugin 'bronson/vim-trailing-whitespace' " Highlight trailing whitespace
+  Plugin 'ntpeters/vim-better-whitespace'  " Highlight trailing whitespace
   Plugin 'AutoComplPop'                    " Autocompletion as I type
   Plugin 'cespare/vim-toml'                " TOML syntax highlighting
   Plugin 'sickill/vim-pasta'               " Better pasting

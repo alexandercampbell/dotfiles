@@ -264,7 +264,7 @@ if has("gui_running")
   se guioptions-=T
   se guioptions-=r
   se guioptions-=L
-  se guifont="Monaco 8"
+  se guifont=Monaco\ 9
   se noantialias
 endif
 

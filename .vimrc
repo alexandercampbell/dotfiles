@@ -231,6 +231,7 @@ au FileType rust nmap <buffer> <leader><CR> :!cargo test<CR>
 au FileType rust nmap <buffer> <F6> :!cargo test --verbose<CR>
 au FileType rust nmap <buffer> <F9> :!cargo run<CR>
 au FileType rust setl tw=92
+au FileType rust setl ts=8 sw=8 noet
 
 " recognize file extensions as the correct filetypes
 au BufRead,BufNewFile *.md set ft=markdown

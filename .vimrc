@@ -217,7 +217,7 @@ se showmatch
 hi Visual ctermbg=white ctermfg=black
 " colorcolumn
 se colorcolumn=+1
-
+se cursorline
 
 " Highlight searches with lightblue instead of annoyingly-bright yellow
 hi Search cterm=none ctermbg=lightblue

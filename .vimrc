@@ -5,7 +5,7 @@ let portable_mode=0
 " remove all autocommands to prevent them from being loaded twice
 au!
 
-" required for Vundle setup
+" Generally good idea with any plugin manager :)
 se nocompatible
 filetype off
 
@@ -14,31 +14,30 @@ filetype off
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if portable_mode == 0
-  set rtp+=~/.vim/bundle/Vundle.vim
-  call vundle#begin()
+  call plug#begin('~/.vim/plugged')
 
   " Basic plugins
-  Plugin 'gmarik/Vundle.vim'
-  Plugin 'tpope/vim-vinegar'               " Better file browser
-  Plugin 'tpope/vim-fugitive'              " git plugin
-  Plugin 'ctrlpvim/ctrlp.vim'              " Fuzzy file matching
-  Plugin 'tpope/vim-unimpaired'            " Jump through error list with ]l
-  Plugin 'ntpeters/vim-better-whitespace'  " Highlight trailing whitespace
-  Plugin 'AutoComplPop'                    " Autocompletion as I type
-  Plugin 'sickill/vim-pasta'               " Better pasting
+  Plug 'gmarik/Vundle.vim'
+  Plug 'tpope/vim-vinegar'               " Better file browser
+  Plug 'tpope/vim-fugitive'              " git plugin
+  Plug 'ctrlpvim/ctrlp.vim'              " Fuzzy file matching
+  Plug 'tpope/vim-unimpaired'            " Jump through error list with ]l
+  Plug 'ntpeters/vim-better-whitespace'  " Highlight trailing whitespace
+  Plug 'vim-scripts/AutoComplPop'        " Autocompletion as I type
+  Plug 'sickill/vim-pasta'               " Better pasting
 
   " Specific language support
-  Plugin 'fatih/vim-go'                    " Go language support
-  Plugin 'rust-lang/rust.vim'              " Rust language support
-  Plugin 'racer-rust/vim-racer'            " Rust code completion / jump-to-def
-  Plugin 'ElmCast/elm-vim'                 " Elm support
-  Plugin 'cespare/vim-toml'                " TOML syntax highlighting
+  Plug 'fatih/vim-go'                    " Go language support
+  Plug 'rust-lang/rust.vim'              " Rust language support
+  Plug 'racer-rust/vim-racer'            " Rust code completion / jump-to-def
+  Plug 'ElmCast/elm-vim'                 " Elm support
+  Plug 'cespare/vim-toml'                " TOML syntax highlighting
 
   " Colorschemes
-  Plugin 'jnurmine/Zenburn'
-  Plugin 'morhetz/gruvbox'
+  Plug 'jnurmine/Zenburn'
+  Plug 'morhetz/gruvbox'
 
-  call vundle#end()
+  call plug#end()
 
   " Plugin configurations
   let g:rustfmt_autosave = 1
@@ -90,7 +89,7 @@ set shortmess=t
 " highlight/incremental search
 se hlsearch incsearch
 " Ignore case by default when searching.
-set ignorecase
+set ignorecase smartcase
 
 " Use <C-L> to clear the highlighting of :set hlsearch.
 if maparg('<C-L>', 'n') ==# ''
@@ -181,8 +180,10 @@ nnoremap <C-w><bar> <space>
 nnoremap <C-w>_ <space>
 nnoremap <C-w>= <space>
 
-" Mostly for portable mode, since this is configured in vim-vinegar.
-nmap - :E<CR>
+" Only necessary for portable mode, since this is also bound in vim-vinegar.
+if portable_mode == 0
+  nmap - :Explore<CR>
+endif
 
 " Hide introductory message when starting vim.
 se shm=aI
@@ -196,7 +197,11 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 if portable_mode == 0
   se termguicolors
   se bg=light
-  colo gruvbox
+  try
+    colo gruvbox
+  catch /^Vim\%((\a\+)\)\=:E185/
+    " gruvbox hasn't been installed
+  endtry
 else
   se t_Co=8
   colo slate

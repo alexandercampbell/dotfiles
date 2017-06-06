@@ -73,6 +73,22 @@ alias htop='htop -d 5' # More frequent updates
 alias gpre="hub pull-request"
 alias reload='exec zsh'
 alias pip='pip2'
+alias gs='gst'
+
+# Why does zsh reserve "time" as a keyword?
+# I want to use the command.
+alias time='/usr/bin/time'
+
+# Necessary to have an alias like this around since Docker fills up the disk so
+# quickly with intermediate images.
+docker-clean() {
+	(
+	set -o xtrace
+	docker rm $(docker ps -a -q)
+	docker rm -v $(docker ps -a -q -f status=exited)
+	docker rmi $(docker images -q -f dangling=true)
+	)
+}
 
 # random_hash generates a random-ish list of uuid characters.
 alias random_hash="python2 -c 'from uuid import uuid4; print \"\".join(str(uuid4()).split(\"-\")[0:2])'"

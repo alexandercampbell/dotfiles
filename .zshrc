@@ -6,7 +6,16 @@ zplug 'zsh-users/zsh-autosuggestions'
 zplug 'zsh-users/zsh-syntax-highlighting', defer:2
 zplug 'themes/arrow', from:oh-my-zsh
 zplug 'plugins/git', from:oh-my-zsh
-zplug load --verbose
+zplug load
+
+# Repository status check for large repositories is much faster.
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# When I go through history, make sure that the cursor is placed at the end of
+# each line.
+autoload -U history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
 
 export LS_COLORS=""
 export EDITOR=nvim
@@ -18,6 +27,7 @@ bindkey -v
 
 export GREP_OPTIONS='--color=auto'
 export SAVEHIST=2000
+export HISTFILE=~/.zsh_history
 
 # each terminal has its own command-line history
 unsetopt share_history
@@ -74,6 +84,10 @@ alias gpre="hub pull-request"
 alias reload='exec zsh'
 alias pip='pip2'
 alias gs='gst'
+
+alias '..'='cd ..'
+alias '...'='cd ../..'
+alias '....'='cd ../../..'
 
 # Why does zsh reserve "time" as a keyword?
 # I want to use the command.

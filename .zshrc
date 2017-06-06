@@ -1,19 +1,12 @@
 
-export ZSH=$HOME/.oh-my-zsh
-
-ZSH_THEME="arrow"
-
-# This makes repository status check for large repositories much, much faster.
-DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-HIST_STAMPS="yyyy-mm-dd"
-
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
+# zplug setup
+source ~/.zplug/init.zsh
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+zplug 'zsh-users/zsh-autosuggestions'
+zplug 'zsh-users/zsh-syntax-highlighting', defer:2
+zplug 'themes/arrow', from:oh-my-zsh
+zplug 'plugins/git', from:oh-my-zsh
+zplug load --verbose
 
 export LS_COLORS=""
 export EDITOR=nvim

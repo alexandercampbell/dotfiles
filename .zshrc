@@ -71,7 +71,7 @@ alias open="xdg-open"
 alias tree='tree -C'
 alias htop='htop -d 5' # More frequent updates
 alias gpre="hub pull-request"
-alias reload='echo "source ~/.zshrc"; source ~/.zshrc'
+alias reload='exec zsh'
 alias pip='pip2'
 
 # random_hash generates a random-ish list of uuid characters.

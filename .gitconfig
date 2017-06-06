@@ -1,0 +1,7 @@
+[user]
+	name = Alexander Campbell
+	email = alexanderhcampbell@gmail.com
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+	prompt = false

@@ -9,6 +9,7 @@ Install:
 	ln -s dotfiles/.vimrc
 	ln -s dotfiles/.tmux.conf
 	ln -s dotfiles/.zshrc
+	ln -s dotfiles/.gitconfig
 	mkdir -p .config/nvim
 	ln -s .vimrc .config/nvim/init.vim
 

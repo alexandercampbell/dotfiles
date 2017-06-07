@@ -4,7 +4,8 @@ source ~/.zplug/init.zsh
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 zplug 'zsh-users/zsh-autosuggestions'
 zplug 'zsh-users/zsh-syntax-highlighting', defer:2
-zplug 'themes/arrow', from:oh-my-zsh
+zplug "b4b4r07/zsh-vimode-visual", defer:3 # defer for zsh-syntax-highlighting
+zplug 'themes/terminalparty', from:oh-my-zsh
 zplug 'plugins/git', from:oh-my-zsh
 zplug load
 
@@ -21,9 +22,6 @@ export LS_COLORS=""
 export EDITOR=nvim
 export VISUAL=nvim
 export MANPAGER="nvim -c 'set ft=man' -"
-
-# zsh vim keys instead of emacs
-bindkey -v
 
 export GREP_OPTIONS='--color=auto'
 export SAVEHIST=2000

@@ -197,7 +197,7 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 " Color-related settings
 if portable_mode == 0
   se termguicolors
-  se bg=light
+  se bg=dark
   try
     colo gruvbox
   catch /^Vim\%((\a\+)\)\=:E185/
@@ -246,7 +246,6 @@ au BufRead,BufNewFile *.yaml se ft=yaml
 " Use the canonically accepted tab sizes for yaml, js, and python
 au FileType yaml                setl ts=4 sw=4 et
 au FileType javascript          setl ts=4 sw=4 et
-au FileType html                setl ts=4 sw=4 et
 au FileType python              setl ts=4 sw=4 et
 au FileType elm                 setl ts=4 sw=4 et
 au FileType elixir              setl ts=4 sw=4 et

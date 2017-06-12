@@ -1,6 +1,11 @@
 
 This repo expects to live at ~/dotfiles
-You probably shouldn't install these dotfiles.
+Don't install these dotfiles.
+
+Instructions
+------------
+
+Prereqs: curl, git, zsh, nvim, tmux
 
 Install:
 
@@ -12,6 +17,8 @@ Install:
 	ln -s dotfiles/.zshrc
 	ln -s dotfiles/.gitconfig
 
-	cd dotfiles/vendor
-	./install_vundle.sh
+	cd dotfiles/scripts
+	./install_zplug.sh
+	./install_vim-plug.sh
+	exec zsh
 

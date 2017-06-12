@@ -49,6 +49,9 @@ export PATH="$PATH:$HOME/bin"
 #
 export PATH="$PATH:$HOME/.cargo/bin"
 
+# yes show me what happened when a program crashes thanks
+export RUST_BACKTRACE=1
+
 alias ls="ls --color=tty --group-directories-first"
 alias l="ls"
 alias ll="ls -lh"

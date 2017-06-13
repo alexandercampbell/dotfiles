@@ -1,7 +1,14 @@
 [user]
 	name = Alexander Campbell
 	email = alexanderhcampbell@gmail.com
+
+# Much of this mergetool configuration is copied from @justinmk's solution here:
+# https://github.com/neovim/neovim/issues/2377#issuecomment-126092442
 [merge]
 	tool = vimdiff
 	conflictstyle = diff3
 	prompt = false
+[mergetool]
+	prompt = true
+[mergetool "vimdiff"]
+	cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'

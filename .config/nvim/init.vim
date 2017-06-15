@@ -231,6 +231,9 @@ hi Search cterm=none ctermbg=lightblue
 " Don't join together lines with two spaces after each period.
 se nojoinspaces
 
+" Treat identifiers separated with `-` as words.
+se iskeyword=@,48-57,_,192-255,-
+
 " rust programming bindings
 au FileType rust nmap <buffer> <F4> :!cargo test<CR>
 au FileType rust nmap <buffer> <leader><CR> :!cargo test<CR>

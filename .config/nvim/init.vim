@@ -17,15 +17,16 @@ if portable_mode == 0
   call plug#begin('~/.vim/plugged')
 
   " Basic plugins
-  Plug 'gmarik/Vundle.vim'
   Plug 'tpope/vim-vinegar'               " Better file browser
   Plug 'tpope/vim-fugitive'              " git plugin
-  Plug 'ctrlpvim/ctrlp.vim'              " Fuzzy file matching
+  Plug 'tpope/vim-surround'              " quoting and parenthesizing
   Plug 'tpope/vim-unimpaired'            " Jump through error list with ]l
+  Plug 'ctrlpvim/ctrlp.vim'              " Fuzzy file matching
   Plug 'ntpeters/vim-better-whitespace'  " Highlight trailing whitespace
   Plug 'vim-scripts/AutoComplPop'        " Autocompletion as I type
   Plug 'sickill/vim-pasta'               " Better pasting
-  "Plug 'ajh17/VimCompletesMe'            " Autocompletion
+  Plug 'w0rp/ale'                        " In-editor linting
+  Plug 'sjl/gundo.vim'                   " Undo visualizer
 
   " Specific language support
   Plug 'fatih/vim-go'                    " Go language support
@@ -57,6 +58,11 @@ if portable_mode == 0
   let g:elm_format_autosave = 1
   let g:elm_format_fail_silently = 1
   let g:elm_setup_keybindings = 0
+  let g:ale_set_loclist = 0
+  let g:ale_set_quickfix = 1
+  let g:ale_sign_column_always = 1
+  let g:go_template_autocreate = 1
+
 
   au FileType rust nmap gd <Plug>(rust-def)
 endif

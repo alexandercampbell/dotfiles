@@ -96,6 +96,7 @@ alias gpre="hub pull-request"
 alias reload='exec zsh'
 alias pip='pip2'
 alias gs='gst'
+alias rg='rg -n' # ripgrep line numbers by default
 
 alias '..'='cd ..'
 alias '...'='cd ../..'

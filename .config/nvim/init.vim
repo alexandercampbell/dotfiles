@@ -175,6 +175,9 @@ nnoremap <leader><bar> <C-w><bar>
 nnoremap <leader>_ <C-w>_
 nnoremap <leader>= <C-w>=
 
+" Allow q to be used with leader-q
+nnoremap <leader>q q
+
 nnoremap <C-w>h <space>
 nnoremap <C-w>j <space>
 nnoremap <C-w>k <space>
@@ -242,7 +245,7 @@ se iskeyword=@,48-57,_,192-255,-
 
 " rust programming bindings
 au FileType rust nmap <buffer> <F4> :!cargo test<CR>
-au FileType rust nmap <buffer> <leader><CR> :!cargo test<CR>
+au FileType rust nmap <buffer> <CR> :!cargo test<CR>
 au FileType rust nmap <buffer> <F6> :!cargo test --verbose<CR>
 au FileType rust nmap <buffer> <F9> :!cargo run<CR>
 au FileType rust setl tw=92
@@ -251,6 +254,7 @@ au FileType rust setl ts=8 sw=8 noet
 " recognize file extensions as the correct filetypes
 au BufRead,BufNewFile *.md set ft=markdown
 au BufRead,BufNewFile *.yaml se ft=yaml
+au FileType markdown setl spell
 
 " Use the canonically accepted tab sizes for yaml, js, and python
 au FileType yaml                setl ts=4 sw=4 et
@@ -261,16 +265,12 @@ au FileType elixir              setl ts=4 sw=4 et
 au FileType lua                 setl ts=4 sw=4 et
 au FileType dart                setl ts=2 sw=2 et
 
-" random autocommand bindings for miscellaneous programming languages
+" Random autocommand bindings for miscellaneous programming languages.
+" I have a convention: pressing enter means 'give me feedback now'. Normally
+" this means running the unit tests.
 au FileType c,cpp nmap <buffer> gd <C-]>
-au FileType go nmap <buffer> <leader><CR> :GoTest<CR>
-au FileType python nmap <buffer> <F5> :!python %<CR>
-au FileType python nmap <buffer> <F9> :!python %<CR>
-au FileType python nmap gd <Plug>(go-def)
-au FileType lua nmap <buffer> <F5> :!love . --test<CR>
-au FileType lua nmap <buffer> <F9> :!love .<CR>
-au FileType markdown setl spell
-au FileType html nmap <buffer> <F9> :!open %<CR>
+au FileType go nmap <buffer> <CR> :GoTest<CR>
+au FileType moon nmap <buffer> <CR> :!make run<CR>
 
 " gui options
 if has("gui_running")

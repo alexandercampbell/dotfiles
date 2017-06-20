@@ -22,7 +22,7 @@ zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 zplug 'zsh-users/zsh-autosuggestions'
 zplug 'zsh-users/zsh-syntax-highlighting', defer:2
 zplug "b4b4r07/zsh-vimode-visual", defer:3 # defer for zsh-syntax-highlighting
-zplug 'themes/terminalparty', from:oh-my-zsh
+zplug 'themes/arrow', from:oh-my-zsh
 zplug 'plugins/git', from:oh-my-zsh
 zplug load
 
@@ -97,6 +97,7 @@ alias reload='exec zsh'
 alias pip='pip2'
 alias gs='gst'
 alias rg='rg -n' # ripgrep line numbers by default
+alias k='kubectl'
 
 alias '..'='cd ..'
 alias '...'='cd ../..'

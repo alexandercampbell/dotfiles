@@ -138,7 +138,9 @@ nnoremap = <C-w>=
 nnoremap <C-g> 1<C-g>
 nnoremap B ^
 nnoremap E $
-inoremap <C-c> <Esc>
+inoremap <C-c> <Nop>
+vnoremap <C-c> <Nop>
+nnoremap <C-c> <Nop>
 
 " NetRW registers some keybinds that interfere with my usage of `q` for `quit`.
 augroup netrw_mapping

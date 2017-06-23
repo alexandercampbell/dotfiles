@@ -63,6 +63,10 @@ export PATH="$PATH:$HOME/.cargo/bin"
 # yes show me what happened when a program crashes thanks
 export RUST_BACKTRACE=1
 
+# Ensure TERM is set to screen-256color.
+# Fixes some color issues that can happen with tmux and neovim.
+export TERM='screen-256color'
+
 alias ls="ls --color=tty --group-directories-first"
 alias l="ls"
 alias ll="ls -lh"
@@ -88,7 +92,6 @@ fi
 alias vi=nvim
 alias more=less
 alias info="info --vi-keys"
-alias irssi='TERM=screen-256color irssi'
 alias open="xdg-open"
 alias tree='tree -C'
 alias htop='htop -d 5' # More frequent updates

@@ -108,7 +108,7 @@ alias '....'='cd ../../..'
 
 # Why does zsh reserve "time" as a keyword?
 # I want to use the command.
-alias time='/usr/bin/time'
+alias time='/usr/bin/time -p'
 
 # Necessary to have an alias like this around since Docker fills up the disk so
 # quickly with intermediate images.

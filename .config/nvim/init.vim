@@ -121,6 +121,9 @@ if has("wildignorecase")
   set wildignorecase
 end
 
+" Disable swapfile
+se noswapfile
+
 " keep context around the edge of the screen when the cursor is moving
 set scrolloff=3
 set display=truncate,uhex
@@ -208,7 +211,7 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 " Color-related settings
 if portable_mode == 0
   se termguicolors
-  se bg=dark
+  se bg=light
   try
     colo gruvbox
   catch /^Vim\%((\a\+)\)\=:E185/
@@ -245,6 +248,9 @@ se nojoinspaces
 " Treat identifiers separated with `-` as words.
 se iskeyword=@,48-57,_,192-255,-
 
+" Recognize fold markers in the text
+se foldmethod=marker
+
 " rust programming bindings
 au FileType rust nmap <buffer> <F4> :!cargo test<CR>
 au FileType rust nmap <buffer> <CR> :!cargo test<CR>
@@ -257,6 +263,7 @@ au FileType rust setl ts=8 sw=8 noet
 au BufRead,BufNewFile *.md set ft=markdown
 au BufRead,BufNewFile *.yaml se ft=yaml
 au FileType markdown setl spell
+au FileType gitcommit setl spell
 
 " Use the canonically accepted tab sizes for yaml, js, and python
 au FileType yaml                setl ts=4 sw=4 et

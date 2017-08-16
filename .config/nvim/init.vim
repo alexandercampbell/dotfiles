@@ -212,7 +212,7 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 " Color-related settings
 if portable_mode == 0
   se termguicolors
-  se bg=light
+  se bg=dark
   try
     colo gruvbox
   catch /^Vim\%((\a\+)\)\=:E185/

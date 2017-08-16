@@ -34,6 +34,7 @@ if portable_mode == 0
   Plug 'racer-rust/vim-racer'            " Rust code completion / jump-to-def
   Plug 'ElmCast/elm-vim'                 " Elm support
   Plug 'cespare/vim-toml'                " TOML syntax highlighting
+  Plug 'tbastos/vim-lua'                 " Better Lua colors than what's builtin
 
   " Colorschemes
   Plug 'jnurmine/Zenburn'
@@ -280,6 +281,7 @@ au FileType dart                setl ts=2 sw=2 et
 au FileType c,cpp nmap <buffer> gd <C-]>
 au FileType go nmap <buffer> <CR> :GoTest<CR>
 au FileType moon nmap <buffer> <CR> :!make run<CR>
+au FileType lua nmap <buffer> <CR> :!love .<CR>
 
 " gui options
 if has("gui_running")

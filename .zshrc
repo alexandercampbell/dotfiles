@@ -34,7 +34,6 @@ export EDITOR=nvim
 export VISUAL=nvim
 export MANPAGER="nvim -c 'set ft=man' -"
 
-export GREP_OPTIONS='--color=auto'
 export SAVEHIST=2000
 export HISTFILE=~/.zsh_history
 

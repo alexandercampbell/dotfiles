@@ -88,7 +88,6 @@ if which nvim > /dev/null; then
 else
 	alias vi=vim
 fi
-alias vi=nvim
 alias more=less
 alias info="info --vi-keys"
 alias open="xdg-open"

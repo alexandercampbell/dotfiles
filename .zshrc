@@ -128,3 +128,11 @@ if [ -f "$HOME/.zshrc_local" ]; then
 	source "$HOME/.zshrc_local"
 fi
 
+if which fortune > /dev/null; then
+	if which cowthink > /dev/null; then
+		fortune | cowthink -t
+	else
+		fortune
+	fi
+fi
+

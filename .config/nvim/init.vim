@@ -263,6 +263,7 @@ au FileType rust setl ts=8 sw=8 noet
 " recognize file extensions as the correct filetypes
 au BufRead,BufNewFile *.md set ft=markdown
 au BufRead,BufNewFile *.yaml se ft=yaml
+au BufRead,BufNewFile README se spell
 au FileType markdown setl spell
 au FileType gitcommit setl spell
 

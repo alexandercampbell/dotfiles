@@ -270,11 +270,13 @@ au FileType gitcommit setl spell
 " Use the canonically accepted tab sizes for yaml, js, and python
 au FileType yaml                setl ts=4 sw=4 et
 au FileType javascript          setl ts=4 sw=4 et
+au FileType json                setl ts=4 sw=4 et
 au FileType python              setl ts=4 sw=4 et
 au FileType elm                 setl ts=4 sw=4 et
 au FileType elixir              setl ts=4 sw=4 et
 au FileType lua                 setl ts=4 sw=4 et
 au FileType dart                setl ts=2 sw=2 et
+au FileType html                setl ts=4 sw=4 et
 
 " Random autocommand bindings for miscellaneous programming languages.
 " I have a convention: pressing enter means 'give me feedback now'. Normally

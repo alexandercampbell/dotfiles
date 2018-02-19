@@ -214,7 +214,7 @@ if portable_mode == 0
   se termguicolors
   se bg=dark
   try
-    colo gruvbox
+    colo zenburn
   catch /^Vim\%((\a\+)\)\=:E185/
     " gruvbox hasn't been installed
   endtry
@@ -239,6 +239,8 @@ hi Visual ctermbg=white ctermfg=black
 " colorcolumn
 se colorcolumn=+1
 se cursorline
+hi ColorColumn guibg=#4f4f4f
+hi CursorLine guibg=#4f4f4f
 
 " Highlight searches with lightblue instead of annoyingly-bright yellow
 hi Search cterm=none ctermbg=lightblue

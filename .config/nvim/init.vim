@@ -135,16 +135,8 @@ set display=truncate,uhex
 " modal editor. In normal mode, a single key should save.
 nnoremap q :q<CR>
 nnoremap w :w<CR>
-nnoremap D C<Esc>
-nnoremap <Tab> <C-w>w
-nnoremap <S-Tab> <C-w><S-w>
 nnoremap = <C-w>=
 nnoremap <C-g> 1<C-g>
-nnoremap B ^
-nnoremap E $
-inoremap <C-c> <Nop>
-vnoremap <C-c> <Nop>
-nnoremap <C-c> <Nop>
 
 " NetRW registers some keybinds that interfere with my usage of `q` for `quit`.
 augroup netrw_mapping
@@ -255,10 +247,7 @@ se iskeyword=@,48-57,_,192-255,-
 se foldmethod=marker
 
 " rust programming bindings
-au FileType rust nmap <buffer> <F4> :!cargo test<CR>
 au FileType rust nmap <buffer> <CR> :!cargo test<CR>
-au FileType rust nmap <buffer> <F6> :!cargo test --verbose<CR>
-au FileType rust nmap <buffer> <F9> :!cargo run<CR>
 au FileType rust setl tw=92
 au FileType rust setl ts=8 sw=8 noet
 
@@ -280,6 +269,7 @@ au FileType elixir              setl ts=4 sw=4 et
 au FileType lua                 setl ts=4 sw=4 et
 au FileType dart                setl ts=2 sw=2 et
 au FileType html                setl ts=4 sw=4 et
+au FileType haskell             setl ts=4 sw=4 et
 
 " Random autocommand bindings for miscellaneous programming languages.
 " I have a convention: pressing enter means 'give me feedback now'. Normally
@@ -288,6 +278,8 @@ au FileType c,cpp nmap <buffer> gd <C-]>
 au FileType go nmap <buffer> <CR> :GoTest<CR>
 au FileType moon nmap <buffer> <CR> :!make run<CR>
 au FileType lua nmap <buffer> <CR> :!love .<CR>
+au FileType elm nmap <buffer> <CR> :ElmTest<CR>
+au FileType python nmap <buffer> <CR> :!python3 %<CR>
 
 " gui options
 if has("gui_running")

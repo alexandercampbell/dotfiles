@@ -23,6 +23,7 @@ zplug 'zsh-users/zsh-autosuggestions'
 zplug 'zsh-users/zsh-syntax-highlighting', defer:2
 zplug "b4b4r07/zsh-vimode-visual", defer:3 # defer for zsh-syntax-highlighting
 zplug 'themes/eastwood', from:oh-my-zsh
+#zplug 'themes/arrow', from:oh-my-zsh
 zplug 'plugins/git', from:oh-my-zsh
 zplug load
 
@@ -95,10 +96,10 @@ alias tree='tree -C'
 alias htop='htop -d 5' # More frequent updates
 alias gpre="hub pull-request"
 alias reload='exec zsh'
-alias pip='pip2'
 alias gs='gst'
 alias rg='rg -n' # ripgrep line numbers by default
 alias k='kubectl'
+alias gcc='gcc-7'
 
 alias '..'='cd ..'
 alias '...'='cd ../..'
@@ -120,7 +121,10 @@ docker-clean() {
 }
 
 # random_hash generates a random-ish list of uuid characters.
-alias random_hash="python2 -c 'from uuid import uuid4; print \"\".join(str(uuid4()).split(\"-\")[0:2])'"
+alias random_hash="python -c 'from uuid import uuid4; print \"\".join(str(uuid4()).split(\"-\")[0:2])'"
+
+# mk_pass generates a new password, prints it, and copies to the clipboard
+alias mk_pass='random_hash | tee /dev/tty | pbcopy'
 
 # Include local init script if it exists. This is for when the local computer
 # needs custom configuration that I don't want in my standard dotfiles.

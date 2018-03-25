@@ -16,6 +16,7 @@ Install:
 	ln -s dotfiles/.tmux.conf
 	ln -s dotfiles/.zshrc
 	ln -s dotfiles/.gitconfig
+	ln -s dotfiles/.spacemacs
 
 	cd dotfiles/scripts
 	./install_zplug.sh

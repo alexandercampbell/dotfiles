@@ -134,11 +134,14 @@ if [ -f "$HOME/.zshrc_local" ]; then
 	source "$HOME/.zshrc_local"
 fi
 
-if which fortune > /dev/null; then
-	if which cowthink > /dev/null; then
-		fortune | cowthink -t
+SCREENFETCH_CACHE="$HOME/dotfiles/.screenfetch_cache"
+if which screenfetch > /dev/null; then
+	if [ -f "$SCREENFETCH_CACHE" ]; then
+		cat "$SCREENFETCH_CACHE"
 	else
-		fortune
+		screenfetch | tee "$SCREENFETCH_CACHE"
 	fi
+else
+	uname -a
 fi
 

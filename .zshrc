@@ -11,9 +11,11 @@
 # without this option.
 #
 # Downside: shell startup now takes twice as long.
-if [ -z "$(setopt | grep noglobalrcs)" ]; then
-	# -d means NO_GLOBAL_RCS
-	exec zsh -d
+if [[ ${uname} == 'Linux' ]]; then
+	if [ -z "$(setopt | grep noglobalrcs)" ]; then
+		# -d means NO_GLOBAL_RCS
+		exec zsh -d
+	fi
 fi
 
 # zplug setup

@@ -1,23 +1,4 @@
 
-# Ubuntu includes some real dumb zsh scripts in /etc/zsh
-# By default, zsh loads those scripts.
-# See this thread: https://www.zsh.org/mla/users/2012/msg00074.html
-#
-# I don't want to just delete my local /etc/zsh since then I have to remember to
-# do that on every install of Ubuntu.
-#
-# Instead, determine whether the current shell was started with the option to
-# read from the global configuration directory. If yes, start the shell again
-# without this option.
-#
-# Downside: shell startup now takes twice as long.
-if [[ ${uname} == 'Linux' ]]; then
-	if [ -z "$(setopt | grep noglobalrcs)" ]; then
-		# -d means NO_GLOBAL_RCS
-		exec zsh -d
-	fi
-fi
-
 # zplug setup
 source ~/.zplug/init.zsh
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'

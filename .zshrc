@@ -103,6 +103,10 @@ docker-clean() {
 	)
 }
 
+# Increase the key repeat rate
+# I don't like to wait
+xset r rate 250 60
+
 # random_hash generates a random-ish list of uuid characters.
 alias random_hash="python -c 'from uuid import uuid4; print \"\".join(str(uuid4()).split(\"-\")[0:2])'"
 

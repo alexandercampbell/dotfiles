@@ -24,7 +24,6 @@ if portable_mode == 0
   Plug 'ctrlpvim/ctrlp.vim'              " Fuzzy file matching
   Plug 'ntpeters/vim-better-whitespace'  " Highlight trailing whitespace
   Plug 'vim-scripts/AutoComplPop'        " Autocompletion as I type
-  Plug 'sickill/vim-pasta'               " Better pasting
   Plug 'w0rp/ale'                        " In-editor linting
   Plug 'sjl/gundo.vim'                   " Undo visualizer
 
@@ -269,7 +268,7 @@ au FileType elm                 setl ts=4 sw=4 et
 au FileType elixir              setl ts=4 sw=4 et
 au FileType lua                 setl ts=4 sw=4 et
 au FileType dart                setl ts=2 sw=2 et
-au FileType html                setl ts=4 sw=4 et
+au FileType html                setl ts=2 sw=2 et
 au FileType haskell             setl ts=4 sw=4 et
 
 " Random autocommand bindings for miscellaneous programming languages.

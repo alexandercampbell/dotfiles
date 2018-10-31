@@ -272,6 +272,7 @@ au FileType lua                 setl ts=4 sw=4 et
 au FileType dart                setl ts=2 sw=2 et
 au FileType html                setl ts=2 sw=2 et
 au FileType haskell             setl ts=4 sw=4 et
+au FileType tex                 setl ts=4 sw=4 et
 
 " Random autocommand bindings for miscellaneous programming languages.
 " I have a convention: pressing enter means 'give me feedback now'. Normally

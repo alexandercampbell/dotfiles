@@ -31,11 +31,7 @@ unsetopt share_history
 # configure a workspace for Golang development
 export GOPATH=~/workspace
 export PATH="$PATH:$GOPATH/bin"
-
-# this shouldn't be necessary (iirc, all Go programs fall back to /usr/local/go
-# as a default value when GOROOT is unset), but it fixes jump-to-definition
-# using my vim-go plugin
-export GOROOT=/usr/local/go
+export GO111MODULE=on
 
 # add ~/bin to path
 export PATH="$PATH:$HOME/bin"

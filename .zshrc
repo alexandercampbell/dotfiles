@@ -13,6 +13,10 @@ zplug load
 # Repository status check for large repositories is much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
+autoload edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd ' ' edit-command-line
+
 export LS_COLORS=""
 export EDITOR=nvim
 export VISUAL=nvim

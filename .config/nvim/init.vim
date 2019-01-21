@@ -249,7 +249,7 @@ se foldmethod=marker
 " rust programming bindings
 au FileType rust nmap <buffer> <CR> :!cargo test<CR>
 au FileType rust setl tw=92
-au FileType rust setl ts=8 sw=8 noet
+au FileType rust setl ts=4 sw=4 et
 
 " recognize file extensions as the correct filetypes
 au BufRead,BufNewFile *.md set ft=markdown
@@ -259,7 +259,7 @@ au BufRead,BufNewFile README se spell
 au FileType markdown setl spell
 au FileType gitcommit setl spell
 
-" Use the canonically accepted tab sizes for yaml, js, and python
+" Use the canonically accepted indentation in certain filetypes.
 au FileType yaml                setl ts=4 sw=4 et
 au FileType tex                 setl ts=4 sw=4 et
 au FileType javascript          setl ts=4 sw=4 et

@@ -20,7 +20,7 @@ font pango:DejaVu Sans Mono 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec st
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -133,8 +133,8 @@ mode "resize" {
 }
 
 for_window [class="^.*"] border pixel 0
-gaps inner 17
-gaps outer 17
+gaps inner 32
+gaps outer 32
 
 bindsym $mod+r mode "resize"
 
@@ -150,7 +150,7 @@ bar {
 		statusline #dddddd
 		separator #444444
 
-		focused_workspace  #784c99 #ff0068 #000000
+		focused_workspace  #784c99 #552877 #000000
 		active_workspace   #333333 #5f676a #ffffff
 		inactive_workspace #333333 #222222 #888888
 		urgent_workspace   #2f343a #900000 #ffffff

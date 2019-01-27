@@ -34,7 +34,6 @@ if portable_mode == 0
   Plug 'ElmCast/elm-vim'                   " Elm support
   Plug 'cespare/vim-toml'                  " TOML syntax highlighting
   Plug 'tbastos/vim-lua'                   " Better Lua colors than builtin
-  Plug 'purescript-contrib/purescript-vim' " Purescript language support
 
   " Colorschemes
   Plug 'jnurmine/Zenburn'
@@ -45,7 +44,6 @@ if portable_mode == 0
   " Plugin configurations
   let g:rustfmt_autosave = 1
   let g:rustfmt_fail_silently = 1
-  let g:syntastic_always_populate_loc_list = 1
   let g:go_fmt_fail_silently = 1
   let g:go_fmt_command = "goimports"
   let g:zenburn_force_dark_Background = 0
@@ -55,7 +53,6 @@ if portable_mode == 0
         \ }
   let g:ctrlp_working_path_mode = 'a'
   let g:racer_cmd = $HOME . "/.cargo/bin/racer"
-  let $RUST_SRC_PATH = $HOME . "/workspace/src/github.com/rust-lang/rust/src"
   let g:elm_format_autosave = 1
   let g:elm_format_fail_silently = 1
   let g:elm_setup_keybindings = 0
@@ -63,9 +60,6 @@ if portable_mode == 0
   let g:ale_set_quickfix = 1
   let g:ale_sign_column_always = 1
   let g:go_template_autocreate = 1
-
-
-  au FileType rust nmap gd <Plug>(rust-def)
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -250,6 +244,7 @@ se foldmethod=marker
 au FileType rust nmap <buffer> <CR> :!cargo test<CR>
 au FileType rust setl tw=92
 au FileType rust setl ts=4 sw=4 et
+au FileType rust nmap gd <Plug>(rust-def)
 
 " recognize file extensions as the correct filetypes
 au BufRead,BufNewFile *.md set ft=markdown

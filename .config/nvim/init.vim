@@ -28,12 +28,13 @@ if portable_mode == 0
   Plug 'sjl/gundo.vim'                   " Undo visualizer
 
   " Specific language support
-  Plug 'fatih/vim-go'                      " Go language support
-  Plug 'rust-lang/rust.vim'                " Rust language support
-  Plug 'racer-rust/vim-racer'              " Rust code completion / jump-to-def
-  Plug 'ElmCast/elm-vim'                   " Elm support
-  Plug 'cespare/vim-toml'                  " TOML syntax highlighting
-  Plug 'tbastos/vim-lua'                   " Better Lua colors than builtin
+  Plug 'fatih/vim-go'           " Go language support
+  Plug 'rust-lang/rust.vim'     " Rust language support
+  Plug 'racer-rust/vim-racer'   " Rust code completion / jump-to-def
+  Plug 'ElmCast/elm-vim'        " Elm support
+  Plug 'cespare/vim-toml'       " TOML syntax highlighting
+  Plug 'tbastos/vim-lua'        " Better Lua colors than builtin
+  Plug 'zah/nim.vim'            " Nim-lang
 
   " Colorschemes
   Plug 'jnurmine/Zenburn'

@@ -33,6 +33,10 @@ export GOPATH=~/workspace
 export PATH="$PATH:$GOPATH/bin"
 export GO111MODULE=on
 
+# plan9, if I have it set up
+export PLAN9="$HOME/workspace/src/github.com/9fans/plan9"
+export PATH="$PATH:$PLAN9/bin"
+
 # add ~/bin to path
 export PATH="$PATH:$HOME/bin"
 

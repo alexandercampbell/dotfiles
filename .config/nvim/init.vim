@@ -1,21 +1,11 @@
 
-" Set this to 1 to use only options that can be set without plugins.
-let portable_mode=0
-
 " remove all autocommands to prevent them from being loaded twice
-au!
+autocmd!
 
-" Generally good idea with any plugin manager :)
 se nocompatible
 filetype off
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                  plugins
-"
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if portable_mode == 0
-  call plug#begin('~/.vim/plugged')
-
+call plug#begin('~/.vim/plugged')
   " Basic plugins
   Plug 'tpope/vim-vinegar'               " Better file browser
   Plug 'tpope/vim-fugitive'              " git plugin
@@ -26,43 +16,56 @@ if portable_mode == 0
   Plug 'vim-scripts/AutoComplPop'        " Autocompletion as I type
   Plug 'w0rp/ale'                        " In-editor linting
   Plug 'sjl/gundo.vim'                   " Undo visualizer
+  Plug 'junegunn/rainbow_parentheses.vim'
 
   " Specific language support
-  Plug 'fatih/vim-go'           " Go language support
-  Plug 'rust-lang/rust.vim'     " Rust language support
-  Plug 'racer-rust/vim-racer'   " Rust code completion / jump-to-def
-  Plug 'ElmCast/elm-vim'        " Elm support
-  Plug 'cespare/vim-toml'       " TOML syntax highlighting
-  Plug 'tbastos/vim-lua'        " Better Lua colors than builtin
-  Plug 'zah/nim.vim'            " Nim-lang
+  Plug 'ElmCast/elm-vim'                   " Elm support
+  Plug 'cespare/vim-toml'                  " TOML syntax highlighting
+  Plug 'digitaltoad/vim-pug'               " Pug support
+  Plug 'fatih/vim-go'                      " Go language support
+  Plug 'purescript-contrib/purescript-vim' " Purescript language support
+  Plug 'racer-rust/vim-racer'              " Rust code completion / jump-to-def
+  Plug 'rust-lang/rust.vim'                " Rust language support
+  Plug 'tbastos/vim-lua'                   " Better Lua colors than builtin
 
   " Colorschemes
   Plug 'jnurmine/Zenburn'
   Plug 'morhetz/gruvbox'
+call plug#end()
 
-  call plug#end()
+" Plugin configurations
+let g:rustfmt_autosave = 1
+let g:rustfmt_fail_silently = 1
+let g:syntastic_always_populate_loc_list = 1
+let g:go_fmt_fail_silently = 1
+let g:go_fmt_command = "goimports"
+let g:zenburn_force_dark_Background = 0
+let g:ctrlp_custom_ignore = {
+      \ 'dir': '\v[\/](target)|(dist)|(node_modules)|(Godeps)|(vendor)|(build)|(elm-stuff)$',
+      \ 'file': '\v\.*(.class)|\.*(.pyc)$',
+      \ }
+let g:ctrlp_working_path_mode = 'a'
+let g:racer_cmd = $HOME . "/.cargo/bin/racer"
+let g:elm_format_autosave = 1
+let g:elm_format_fail_silently = 1
+let g:elm_setup_keybindings = 0
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+let g:ale_sign_column_always = 1
+let g:go_template_autocreate = 1
 
-  " Plugin configurations
-  let g:rustfmt_autosave = 1
-  let g:rustfmt_fail_silently = 1
-  let g:go_fmt_fail_silently = 1
-  let g:go_fmt_command = "goimports"
-  let g:zenburn_force_dark_Background = 0
-  let g:ctrlp_custom_ignore = {
-        \ 'dir': '\v[\/](target)|(dist)|(node_modules)|(Godeps)|(vendor)|(build)|(elm-stuff)$',
-        \ 'file': '\v\.*(.class)|\.*(.pyc)$',
-        \ }
-  let g:ctrlp_working_path_mode = 'a'
-  let g:racer_cmd = $HOME . "/.cargo/bin/racer"
-  let g:elm_format_autosave = 1
-  let g:elm_format_fail_silently = 1
-  let g:elm_setup_keybindings = 0
-  let g:ale_set_loclist = 0
-  let g:ale_set_quickfix = 1
-  let g:ale_sign_column_always = 1
-  let g:go_template_autocreate = 1
-endif
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NetRW registers some keybinds that interfere with my usage of `q` for `quit`.
+augroup netrw_mapping
+  autocmd!
+  autocmd filetype netrw call CustomNetrwSetup()
+augroup END
+
+function! CustomNetrwSetup()
+  unmap <buffer> qF
+  unmap <buffer> qL
+  unmap <buffer> qf
+  unmap <buffer> qb
+endfunction
 
 " reenable filetype, syntax
 filetype plugin indent on
@@ -80,14 +83,13 @@ se smarttab
 " jump-to-definition should work even without saving the current file.
 se hidden
 
+" go past the ends of lines in visual block mode (^v)
 se virtualedit=block
 
-" status line improvements (probably overriden by my status line plugin, but
-" nice to have if plugins aren't working for some reason)
+" status line improvements
 set laststatus=2
-set ruler
-set showcmd
-set shortmess=t
+set ruler!
+set shortmess=at
 
 " highlight/incremental search
 se hlsearch incsearch
@@ -99,12 +101,8 @@ if maparg('<C-L>', 'n') ==# ''
   nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 endif
 
-" intuitive window splits
-se splitbelow
-se splitright
-
-" clear background in terminal so that colorschemes work without glitching
-se t_ut=
+" Intuitive window split directions
+se splitbelow splitright
 
 " enable mouse so accidental scrolling doesn't fuck up the terminal
 se mouse=a
@@ -122,6 +120,8 @@ se noswapfile
 
 " keep context around the edge of the screen when the cursor is moving
 set scrolloff=3
+
+" display unprintable characters as <xx>
 set display=truncate,uhex
 
 " faster custom keybindings. The important ones here are `q` and `w`. I
@@ -132,19 +132,6 @@ nnoremap q :q<CR>
 nnoremap w :w<CR>
 nnoremap = <C-w>=
 nnoremap <C-g> 1<C-g>
-
-" NetRW registers some keybinds that interfere with my usage of `q` for `quit`.
-augroup netrw_mapping
-  autocmd!
-  autocmd filetype netrw call CustomNetrwSetup()
-augroup END
-
-function! CustomNetrwSetup()
-  unmap <buffer> qF
-  unmap <buffer> qL
-  unmap <buffer> qf
-  unmap <buffer> qb
-endfunction
 
 " Consistency with my tmux bindings.
 "
@@ -183,11 +170,6 @@ nnoremap <C-w><bar> <space>
 nnoremap <C-w>_ <space>
 nnoremap <C-w>= <space>
 
-" Only necessary for portable mode, since this is also bound in vim-vinegar.
-if portable_mode == 0
-  nmap - :Explore<CR>
-endif
-
 " Hide introductory message when starting vim.
 se shm=aI
 
@@ -197,18 +179,9 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
   \| exe "normal! g'\"" | endif
 
 " Color-related settings
-if portable_mode == 0
-  se termguicolors
-  se bg=dark
-  try
-    colo zenburn
-  catch /^Vim\%((\a\+)\)\=:E185/
-    " gruvbox hasn't been installed
-  endtry
-else
-  se t_Co=8
-  colo slate
-endif
+se termguicolors
+se bg=dark
+colo zenburn
 
 " Line numbering, format options, color column, etc.
 se number
@@ -218,16 +191,8 @@ se wrapmargin=0
 se linebreak
 se textwidth=80
 se showmatch
-" highlight line containing the cursor
-"se cursorline
-" Highlight selection as black on white instead of whatever the colorscheme
-" does by default.
-hi Visual ctermbg=white ctermfg=black
-" colorcolumn
 se colorcolumn=+1
 se cursorline
-hi ColorColumn guibg=#4f4f4f
-hi CursorLine guibg=#4f4f4f
 
 " Highlight searches with lightblue instead of annoyingly-bright yellow
 hi Search cterm=none ctermbg=lightblue
@@ -269,10 +234,12 @@ au FileType dart                setl ts=2 sw=2 et
 au FileType html                setl ts=2 sw=2 et
 au FileType haskell             setl ts=4 sw=4 et
 au FileType tex                 setl ts=4 sw=4 et
+au FileType pug                 setl ts=4 sw=4 et
 
 " Random autocommand bindings for miscellaneous programming languages.
 " I have a convention: pressing enter means 'give me feedback now'. Normally
 " this means running the unit tests.
+au FileType rust nmap gd <Plug>(rust-def)
 au FileType c,cpp nmap <buffer> gd <C-]>
 au FileType go nmap <buffer> <CR> :GoTest<CR>
 au FileType moon nmap <buffer> <CR> :!make run<CR>

@@ -31,6 +31,7 @@ call plug#begin('~/.vim/plugged')
   " Colorschemes
   Plug 'jnurmine/Zenburn'
   Plug 'morhetz/gruvbox'
+  Plug 'nightsense/snow'
 call plug#end()
 
 " Plugin configurations
@@ -180,8 +181,8 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 
 " Color-related settings
 se termguicolors
-se bg=dark
-colo zenburn
+se bg=light
+colo snow
 
 " Line numbering, format options, color column, etc.
 se number

@@ -131,12 +131,12 @@ if [ -f "$HOME/.zshrc_local" ]; then
 	source "$HOME/.zshrc_local"
 fi
 
-SCREENFETCH_CACHE="$HOME/dotfiles/.screenfetch_cache"
-if which screenfetch > /dev/null; then
-	if [ -f "$SCREENFETCH_CACHE" ]; then
-		cat "$SCREENFETCH_CACHE"
+NEOFETCH_CACHE="$HOME/dotfiles/.neofetch_cache"
+if which neofetch > /dev/null; then
+	if [ -f "$NEOFETCH_CACHE" ]; then
+		cat "$NEOFETCH_CACHE"
 	else
-		screenfetch | tee "$SCREENFETCH_CACHE"
+		neofetch | tee "$NEOFETCH_CACHE"
 	fi
 else
 	uname -a

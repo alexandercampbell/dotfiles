@@ -117,6 +117,14 @@ alias random_hash="python -c 'from uuid import uuid4; print \"\".join(str(uuid4(
 # mk_pass generates a new password, prints it, and copies to the clipboard
 alias mk_pass='random_hash | tee /dev/tty | pbcopy'
 
+# load theme if it's there
+if [ -n "$PS1" ]; then
+	theme_path="$HOME/.vim/plugged/snow/shell/snow_light.sh"
+	if [ -f "$theme_path" ]; then
+		sh "$theme_path"
+	fi
+fi
+
 # Include local init script if it exists. This is for when the local computer
 # needs custom configuration that I don't want in my standard dotfiles.
 if [ -f "$HOME/.zshrc_local" ]; then

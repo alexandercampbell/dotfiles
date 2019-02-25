@@ -29,7 +29,8 @@ bindsym $mod+Shift+q kill
 bindsym $mod+p exec rofi -show run
 
 # lock screen
-bindsym $mod+q exec i3lock --color=aa0051 --ignore-empty-password --show-failed-attempts
+# aa0051 is a nice color
+bindsym $mod+q exec i3lock --color=cccccc --ignore-empty-password --show-failed-attempts
 
 # change focus
 bindsym $mod+h focus left
@@ -146,11 +147,11 @@ bar {
 	i3bar_command i3bar -t
 
 	colors {
-		background #000000
-		statusline #dddddd
+		background #eeeeee
+		statusline #222222
 		separator #444444
 
-		focused_workspace  #784c99 #552877 #000000
+		focused_workspace  #784c99 #88bbdd #000000
 		active_workspace   #333333 #5f676a #ffffff
 		inactive_workspace #333333 #222222 #888888
 		urgent_workspace   #2f343a #900000 #ffffff

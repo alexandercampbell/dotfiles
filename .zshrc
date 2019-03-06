@@ -30,7 +30,7 @@ export HISTFILE=~/.zsh_history
 unsetopt share_history
 
 # plan9, if I have it set up
-export PLAN9="$HOME/workspace/src/github.com/9fans/plan9"
+export PLAN9="$HOME/workspace/src/github.com/9fans/plan9port"
 export PATH="$PATH:$PLAN9/bin"
 
 # add ~/bin to path

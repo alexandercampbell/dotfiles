@@ -247,7 +247,8 @@ au FileType moon nmap <buffer> <CR> :!make run<CR>
 au FileType lua nmap <buffer> <CR> :!love .<CR>
 au FileType elm nmap <buffer> <CR> :!elm-test<CR>
 au FileType python nmap <buffer> <CR> :!python3 %<CR>
-au FileType haskell nmap <buffer> <CR> :!runhaskell %<CR>
+au FileType haskell nmap <buffer> <CR> :!runghc %<CR>
+au FileType tex nmap <buffer> <CR> :!pdflatex %<CR>
 
 " gui options
 if has("gui_running")

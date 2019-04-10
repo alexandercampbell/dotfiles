@@ -30,7 +30,7 @@ bindsym $mod+p exec rofi -show run -lines 16 -width -40
 
 # lock screen
 # aa0051 is a nice color
-bindsym $mod+q exec i3lock --color=cccccc --ignore-empty-password --show-failed-attempts
+bindsym $mod+q exec i3lock --color=222222 --ignore-empty-password --show-failed-attempts
 
 # change focus
 bindsym $mod+h focus left
@@ -107,13 +107,14 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Really exit?' -b 'Exit i3' 'i3-msg exit'"
 
 # volume wheel controls volume
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +2%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -2%
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_01_00.1.hdmi-stereo-extra1 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_01_00.1.hdmi-stereo-extra1 -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86Forward exec playerctl next
+bindsym XF86Back exec playerctl previous
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -137,24 +138,20 @@ for_window [class="^.*"] border pixel 0
 
 bindsym $mod+r mode "resize"
 
+gaps inner 50
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
         status_command i3status
-	position bottom
+	position top
 	i3bar_command i3bar -t
 
-	colors {
-		background #eeeeee
-		statusline #222222
-		separator #444444
-
-		focused_workspace  #784c99 #88bbdd #000000
-		active_workspace   #333333 #5f676a #ffffff
-		inactive_workspace #333333 #222222 #888888
-		urgent_workspace   #2f343a #900000 #ffffff
-		binding_mode       #2f343a #900000 #ffffff
-	}
+	bindsym button1 nop
+	bindsym button2 nop
+	bindsym button3 nop
+	bindsym button4 nop
+	bindsym button5 nop
 }
 
 # When i3 starts (or restarts), set the background image according to ~/.fehbg

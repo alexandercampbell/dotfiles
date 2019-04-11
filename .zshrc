@@ -20,8 +20,7 @@ bindkey -M vicmd ' ' edit-command-line
 export LS_COLORS=""
 export EDITOR=nvim
 export VISUAL=nvim
-export PAGER="nvim -c 'set ft=man' -"
-export MANPAGER="$PAGER"
+export MANPAGER="nvim -c 'set ft=man' -"
 
 export SAVEHIST=2000
 export HISTFILE=~/.zsh_history
@@ -42,10 +41,6 @@ export PATH="$PATH:$HOME/bin"
 #	cargo install --git "https://some_url"
 #
 export PATH="$PATH:$HOME/.cargo/bin"
-
-# Ensure TERM is set to screen-256color.
-# Fixes some color issues that can happen with tmux and neovim.
-export TERM='screen-256color'
 
 alias ls='ls --color=tty --group-directories-first'
 alias l='ls'

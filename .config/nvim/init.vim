@@ -9,21 +9,16 @@ call plug#begin('~/.vim/plugged')
   " Basic plugins
   Plug 'tpope/vim-vinegar'               " Better file browser
   Plug 'tpope/vim-fugitive'              " git plugin
-  Plug 'tpope/vim-surround'              " quoting and parenthesizing
   Plug 'tpope/vim-unimpaired'            " Jump through error list with ]l
   Plug 'ctrlpvim/ctrlp.vim'              " Fuzzy file matching
   Plug 'ntpeters/vim-better-whitespace'  " Highlight trailing whitespace
   Plug 'vim-scripts/AutoComplPop'        " Autocompletion as I type
   Plug 'w0rp/ale'                        " In-editor linting
-  Plug 'sjl/gundo.vim'                   " Undo visualizer
-  Plug 'junegunn/rainbow_parentheses.vim'
 
   " Specific language support
   Plug 'ElmCast/elm-vim'                   " Elm support
   Plug 'cespare/vim-toml'                  " TOML syntax highlighting
-  Plug 'digitaltoad/vim-pug'               " Pug support
   Plug 'fatih/vim-go'                      " Go language support
-  Plug 'purescript-contrib/purescript-vim' " Purescript language support
   Plug 'racer-rust/vim-racer'              " Rust code completion / jump-to-def
   Plug 'rust-lang/rust.vim'                " Rust language support
   Plug 'tbastos/vim-lua'                   " Better Lua colors than builtin

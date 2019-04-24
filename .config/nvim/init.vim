@@ -138,7 +138,7 @@ let mapleader = " "
 nnoremap <leader>r :source $MYVIMRC<CR>
 nnoremap <leader>s :sp<CR>
 nnoremap <leader>v :vs<CR>
-nnoremap <leader>d <C-z>
+nnoremap <leader>d :r !date '+\%Y\%m\%d'<CR>
 nnoremap <leader>h <C-w>h
 nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k

@@ -28,6 +28,10 @@ export HISTFILE=~/.zsh_history
 # each terminal has its own command-line history
 unsetopt share_history
 
+# gnupg told me that I should add these lines
+GPG_TTY=$(tty)
+export GPG_TTY
+
 # plan9, if I have it set up
 export PLAN9="$HOME/workspace/src/github.com/9fans/plan9port"
 export PATH="$PATH:$PLAN9/bin"

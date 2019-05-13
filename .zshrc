@@ -108,14 +108,3 @@ if [ -f "$HOME/.zshrc_local" ]; then
 	source "$HOME/.zshrc_local"
 fi
 
-NEOFETCH_CACHE="$HOME/dotfiles/.neofetch_cache"
-if which neofetch > /dev/null; then
-	if [ -f "$NEOFETCH_CACHE" ]; then
-		cat "$NEOFETCH_CACHE"
-	else
-		neofetch | tee "$NEOFETCH_CACHE"
-	fi
-else
-	uname -a
-fi
-

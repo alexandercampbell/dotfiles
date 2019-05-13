@@ -182,7 +182,8 @@ colo snow
 " Line numbering, format options, color column, etc.
 se number
 se formatoptions+=c
-se formatoptions-=t
+se formatoptions+=t
+se formatoptions+=n
 se wrapmargin=0
 se linebreak
 se textwidth=80

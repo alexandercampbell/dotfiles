@@ -95,7 +95,7 @@ fi
 
 # load theme if it's there
 if [ -n "$PS1" ]; then
-	theme_path="$HOME/.vim/plugged/snow/shell/snow_light.sh"
+	theme_path="$HOME/.config/nvim/plugged/snow/shell/snow_light.sh"
 	if [ -f "$theme_path" ]; then
 		sh "$theme_path"
 	fi

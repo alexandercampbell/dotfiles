@@ -5,7 +5,7 @@ autocmd!
 se nocompatible
 filetype off
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
   " Basic plugins
   Plug 'tpope/vim-vinegar'               " Better file browser
   Plug 'tpope/vim-fugitive'              " git plugin

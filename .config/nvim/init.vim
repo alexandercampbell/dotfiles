@@ -27,6 +27,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'jnurmine/Zenburn'
   Plug 'morhetz/gruvbox'
   Plug 'nightsense/snow'
+  Plug 'letorbi/vim-colors-modern-borland'
 call plug#end()
 
 " Plugin configurations
@@ -49,6 +50,7 @@ let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 let g:ale_sign_column_always = 1
 let g:go_template_autocreate = 1
+let g:BorlandStyle = "classic"
 
 " NetRW registers some keybinds that interfere with my usage of `q` for `quit`.
 augroup netrw_mapping
@@ -177,7 +179,7 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 " Color-related settings
 se termguicolors
 se bg=light
-colo snow
+colo borland
 
 " Line numbering, format options, color column, etc.
 se number
@@ -253,7 +255,6 @@ if has("gui_running")
   se guioptions-=r
   se guioptions-=L
   se guifont=Monaco\ 9
-  se noantialias
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

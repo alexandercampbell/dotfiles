@@ -12,8 +12,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'tpope/vim-unimpaired'            " Jump through error list with ]l
   Plug 'ctrlpvim/ctrlp.vim'              " Fuzzy file matching
   Plug 'ntpeters/vim-better-whitespace'  " Highlight trailing whitespace
-  Plug 'vim-scripts/AutoComplPop'        " Autocompletion as I type
   Plug 'w0rp/ale'                        " In-editor linting
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Autocomplete
 
   " Specific language support
   Plug 'ElmCast/elm-vim'                   " Elm support
@@ -51,6 +51,7 @@ let g:ale_set_quickfix = 1
 let g:ale_sign_column_always = 1
 let g:go_template_autocreate = 1
 let g:BorlandStyle = "classic"
+let g:deoplete#enable_at_startup = 1
 
 " NetRW registers some keybinds that interfere with my usage of `q` for `quit`.
 augroup netrw_mapping
@@ -179,7 +180,7 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 " Color-related settings
 se termguicolors
 se bg=light
-colo borland
+colo gruvbox
 
 " Line numbering, format options, color column, etc.
 se number
@@ -242,8 +243,8 @@ au FileType rust nmap gd <Plug>(rust-def)
 au FileType c,cpp nmap <buffer> gd <C-]>
 au FileType go nmap <buffer> <CR> :GoTest<CR>
 au FileType moon nmap <buffer> <CR> :!make run<CR>
-au FileType lua nmap <buffer> <CR> :!love .<CR>
-au FileType elm nmap <buffer> <CR> :!elm-test<CR>
+au FileType lua nmap <buffer> <CR> :!love .<CR><CR>
+au FileType elm nmap <buffer> <CR> :!make<CR>
 au FileType python nmap <buffer> <CR> :!python3 %<CR>
 au FileType haskell nmap <buffer> <CR> :!runghc %<CR>
 au FileType tex nmap <buffer> <CR> :!pdflatex %<CR>

@@ -46,6 +46,10 @@ export PATH="$PATH:$HOME/bin"
 #
 export PATH="$PATH:$HOME/.cargo/bin"
 
+export GOPATH="$HOME/workspace"
+export GOROOT=/usr/local/go
+export PATH="$PATH:$GOROOT/bin"
+
 alias ls='ls --color=tty --group-directories-first'
 alias l='ls'
 alias ll='ls -lh'

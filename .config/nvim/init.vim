@@ -180,6 +180,7 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 " Color-related settings
 se termguicolors
 se bg=light
+se guicursor=
 colo gruvbox
 
 " Line numbering, format options, color column, etc.
@@ -193,9 +194,7 @@ se textwidth=80
 se showmatch
 se colorcolumn=+1
 se cursorline
-
-" Highlight searches with lightblue instead of annoyingly-bright yellow
-hi Search cterm=none ctermbg=lightblue
+se list
 
 " Don't join together lines with two spaces after each period.
 se nojoinspaces
@@ -248,15 +247,6 @@ au FileType elm nmap <buffer> <CR> :!make<CR>
 au FileType python nmap <buffer> <CR> :!python3 %<CR>
 au FileType haskell nmap <buffer> <CR> :!runghc %<CR>
 au FileType tex nmap <buffer> <CR> :!pdflatex %<CR>
-
-" gui options
-if has("gui_running")
-  se guioptions-=m
-  se guioptions-=T
-  se guioptions-=r
-  se guioptions-=L
-  se guifont=Monaco\ 9
-endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Everything below this line was copied from vim-sensible. I don't need all of

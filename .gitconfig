@@ -3,5 +3,6 @@
 	email = alexanderhcampbell@gmail.com
 [core]
 	pager = "less -F -X"
+	excludesfile = ~/.gitignore
 [commit]
 	verbose = true

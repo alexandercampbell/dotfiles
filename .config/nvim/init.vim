@@ -12,16 +12,17 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'tpope/vim-unimpaired'            " Jump through error list with ]l
   Plug 'ctrlpvim/ctrlp.vim'              " Fuzzy file matching
   Plug 'ntpeters/vim-better-whitespace'  " Highlight trailing whitespace
-  Plug 'w0rp/ale'                        " In-editor linting
+  Plug 'dense-analysis/ale'                        " In-editor linting
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Autocomplete
+  Plug 'sbdchd/neoformat'
 
   " Specific language support
-  Plug 'ElmCast/elm-vim'                   " Elm support
-  Plug 'cespare/vim-toml'                  " TOML syntax highlighting
-  Plug 'fatih/vim-go'                      " Go language support
-  Plug 'racer-rust/vim-racer'              " Rust code completion / jump-to-def
-  Plug 'rust-lang/rust.vim'                " Rust language support
-  Plug 'tbastos/vim-lua'                   " Better Lua colors than builtin
+  Plug 'ElmCast/elm-vim'                " Elm support
+  Plug 'fatih/vim-go'                   " Go language support
+  Plug 'racer-rust/vim-racer'           " Rust code completion / jump-to-def
+  Plug 'rust-lang/rust.vim'             " Rust language support
+  Plug 'tbastos/vim-lua'                " Better Lua colors than builtin
+  Plug 'leafo/moonscript-vim'           " Moonscript
 
   " Colorschemes
   Plug 'jnurmine/Zenburn'
@@ -49,9 +50,11 @@ let g:elm_setup_keybindings = 0
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 let g:ale_sign_column_always = 1
+let g:ale_linters = { 'haskell': ['stack-ghc'] }
 let g:go_template_autocreate = 1
 let g:BorlandStyle = "classic"
 let g:deoplete#enable_at_startup = 1
+let g:neoformat_only_msg_on_error = 1
 
 " NetRW registers some keybinds that interfere with my usage of `q` for `quit`.
 augroup netrw_mapping
@@ -179,9 +182,9 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 
 " Color-related settings
 se termguicolors
-se bg=light
 se guicursor=
-colo gruvbox
+se bg=light
+colo snow
 
 " Line numbering, format options, color column, etc.
 se number
@@ -245,8 +248,10 @@ au FileType moon nmap <buffer> <CR> :!make run<CR>
 au FileType lua nmap <buffer> <CR> :!love .<CR><CR>
 au FileType elm nmap <buffer> <CR> :!make<CR>
 au FileType python nmap <buffer> <CR> :!python3 %<CR>
-au FileType haskell nmap <buffer> <CR> :!runghc %<CR>
+au FileType haskell nmap <buffer> <CR> :!make build run<CR>
 au FileType tex nmap <buffer> <CR> :!pdflatex %<CR>
+
+"au FileType haskell au BufWritePre * undojoin | Neoformat brittany
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Everything below this line was copied from vim-sensible. I don't need all of

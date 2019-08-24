@@ -55,6 +55,7 @@ let g:go_template_autocreate = 1
 let g:BorlandStyle = "classic"
 let g:deoplete#enable_at_startup = 1
 let g:neoformat_only_msg_on_error = 1
+let g:neoformat_enabled_haskell = ['brittany']
 
 " NetRW registers some keybinds that interfere with my usage of `q` for `quit`.
 augroup netrw_mapping
@@ -197,7 +198,6 @@ se textwidth=80
 se showmatch
 se colorcolumn=+1
 se cursorline
-se list
 
 " Don't join together lines with two spaces after each period.
 se nojoinspaces
@@ -244,14 +244,17 @@ au FileType pug                 setl ts=4 sw=4 et
 au FileType rust nmap gd <Plug>(rust-def)
 au FileType c,cpp nmap <buffer> gd <C-]>
 au FileType go nmap <buffer> <CR> :GoTest<CR>
-au FileType moon nmap <buffer> <CR> :!make run<CR>
+au FileType moon nmap <buffer> <CR> :!make build run<CR>
 au FileType lua nmap <buffer> <CR> :!love .<CR><CR>
 au FileType elm nmap <buffer> <CR> :!make<CR>
 au FileType python nmap <buffer> <CR> :!python3 %<CR>
 au FileType haskell nmap <buffer> <CR> :!make build run<CR>
 au FileType tex nmap <buffer> <CR> :!pdflatex %<CR>
 
-"au FileType haskell au BufWritePre * undojoin | Neoformat brittany
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * Neoformat
+augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Everything below this line was copied from vim-sensible. I don't need all of

@@ -32,12 +32,8 @@ unsetopt share_history
 GPG_TTY=$(tty)
 export GPG_TTY
 
-# plan9, if I have it set up
-export PLAN9="$HOME/workspace/src/github.com/9fans/plan9port"
-export PATH="$PATH:$PLAN9/bin"
-
-# add ~/bin to path
 export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 # add cargo (rust) bin directory to path
 # allows simple cargo installs with
@@ -49,6 +45,10 @@ export PATH="$PATH:$HOME/.cargo/bin"
 export GOPATH="$HOME/workspace"
 export GOROOT=/usr/local/go
 export PATH="$PATH:$GOROOT/bin"
+
+# plan9, if I have it set up
+export PLAN9="$HOME/workspace/src/github.com/9fans/plan9port"
+export PATH="$PATH:$PLAN9/bin"
 
 alias ls='ls --color=tty --group-directories-first'
 alias l='ls'
@@ -99,11 +99,7 @@ fi
 
 # load theme if it's there
 if [ -n "$PS1" ]; then
-	theme_path="$HOME/.config/nvim/plugged/snow/shell/snow_light.sh"
-	if [ -f "$theme_path" ]; then
-		sh "$theme_path"
-	fi
-	unset theme_path
+	sh "$HOME/.config/nvim/plugged/snow/shell/snow_dark.sh"
 fi
 
 # Include local init script if it exists. This is for when the local computer

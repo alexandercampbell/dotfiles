@@ -1,14 +1,12 @@
 
 # zplug setup
-source ~/.zplug/init.zsh
-zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-zplug 'zsh-users/zsh-autosuggestions'
-#zplug 'zsh-users/zsh-syntax-highlighting', defer:2
-zplug "b4b4r07/zsh-vimode-visual", defer:3 # defer for zsh-syntax-highlighting
-zplug 'themes/eastwood', from:oh-my-zsh
-#zplug 'themes/arrow', from:oh-my-zsh
-zplug 'plugins/git', from:oh-my-zsh
-zplug load
+source "$HOME/dotfiles/vendor/antigen.zsh"
+antigen use oh-my-zsh
+antigen bundle 'git'
+antigen bundle 'zsh-users/zsh-autosuggestions'
+antigen bundle 'zsh-users/zsh-syntax-highlighting'
+antigen theme eastwood
+antigen apply
 
 # Repository status check for large repositories is much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"

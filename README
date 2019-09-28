@@ -2,11 +2,10 @@
 This repo expects to live at ~/dotfiles
 Don't install these dotfiles.
 
+programs: curl git zsh neovim tmux stack i3-gaps st
+
 Instructions
 ------------
-
-	curl https://nixos.org/nix/install | sh
-	nix-env -i git zsh neovim tmux stack i3-gaps st
 
 	cd
 	git clone git@github.com:alexandercampbell/dotfiles.git

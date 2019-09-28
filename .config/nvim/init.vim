@@ -12,7 +12,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'tpope/vim-unimpaired'            " Jump through error list with ]l
   Plug 'ctrlpvim/ctrlp.vim'              " Fuzzy file matching
   Plug 'ntpeters/vim-better-whitespace'  " Highlight trailing whitespace
-  Plug 'dense-analysis/ale'                        " In-editor linting
+  Plug 'dense-analysis/ale'              " In-editor linting
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Autocomplete
   Plug 'sbdchd/neoformat'
 
@@ -23,6 +23,15 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'rust-lang/rust.vim'             " Rust language support
   Plug 'tbastos/vim-lua'                " Better Lua colors than builtin
   Plug 'leafo/moonscript-vim'           " Moonscript
+
+  " Clojure
+  Plug 'tpope/vim-fireplace'
+  Plug 'tpope/vim-salve'
+  Plug 'tpope/vim-sexp-mappings-for-regular-people'
+  Plug 'guns/vim-sexp'
+  Plug 'tpope/vim-repeat'
+  Plug 'tpope/vim-surround'
+  Plug 'junegunn/rainbow_parentheses.vim'
 
   " Colorschemes
   Plug 'jnurmine/Zenburn'
@@ -184,7 +193,7 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 " Color-related settings
 se termguicolors
 se guicursor=
-se bg=light
+se bg=dark
 colo snow
 
 " Line numbering, format options, color column, etc.
@@ -221,6 +230,7 @@ au BufRead,BufNewFile *.py3 se ft=python
 au BufRead,BufNewFile README se spell
 au FileType markdown setl spell
 au FileType gitcommit setl spell
+au FileType tex setl spell
 
 " Use the canonically accepted indentation in certain filetypes.
 au FileType yaml                setl ts=4 sw=4 et
@@ -235,20 +245,22 @@ au FileType lua                 setl ts=4 sw=4 et
 au FileType dart                setl ts=2 sw=2 et
 au FileType html                setl ts=2 sw=2 et
 au FileType haskell             setl ts=4 sw=4 et
-au FileType tex                 setl ts=4 sw=4 et
 au FileType pug                 setl ts=4 sw=4 et
 
 " Random autocommand bindings for miscellaneous programming languages.
 " I have a convention: pressing enter means 'give me feedback now'. Normally
 " this means running the unit tests.
-au FileType rust nmap gd <Plug>(rust-def)
 au FileType c,cpp nmap <buffer> gd <C-]>
 au FileType go nmap <buffer> <CR> :GoTest<CR>
 au FileType moon nmap <buffer> <CR> :!make build run<CR>
 au FileType lua nmap <buffer> <CR> :!love .<CR><CR>
 au FileType elm nmap <buffer> <CR> :!make<CR>
 au FileType python nmap <buffer> <CR> :!python3 %<CR>
-au FileType haskell nmap <buffer> <CR> :!make build run<CR>
+"au FileType haskell nmap <buffer> <CR> :!stack build && stack test<CR>
+au FileType haskell nmap <buffer> <CR> :!stack run<CR>
+au FileType clojure nmap <buffer> <CR> :Require<CR>
+au FileType clojure nmap <buffer> gd [<C-D>
+au FileType clojure RainbowParentheses
 au FileType tex nmap <buffer> <CR> :!pdflatex %<CR>
 
 augroup fmt

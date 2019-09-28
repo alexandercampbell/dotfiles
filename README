@@ -5,20 +5,18 @@ Don't install these dotfiles.
 Instructions
 ------------
 
-Prereqs: curl, git, zsh, nvim, tmux
-
-Install:
+	curl https://nixos.org/nix/install | sh
+	nix-env -i git zsh neovim tmux stack i3-gaps st
 
 	cd
 	git clone git@github.com:alexandercampbell/dotfiles.git
 	ln -s dotfiles/.config
-	ln -s dotfiles/.vimrc
 	ln -s dotfiles/.tmux.conf
 	ln -s dotfiles/.zshrc
 	ln -s dotfiles/.gitconfig
 
 	cd dotfiles/scripts
-	./install_zplug.sh
 	./install_vim-plug.sh
+	cd
 	exec zsh
 

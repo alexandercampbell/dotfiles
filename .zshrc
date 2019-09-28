@@ -11,10 +11,6 @@ antigen apply
 # Repository status check for large repositories is much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-autoload edit-command-line
-zle -N edit-command-line
-bindkey -M vicmd ' ' edit-command-line
-
 export LS_COLORS=""
 export EDITOR=nvim
 export VISUAL=nvim
@@ -26,27 +22,11 @@ export HISTFILE=~/.zsh_history
 # each terminal has its own command-line history
 unsetopt share_history
 
-# gnupg told me that I should add these lines
-GPG_TTY=$(tty)
-export GPG_TTY
-
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$HOME/.local/bin"
-
-# add cargo (rust) bin directory to path
-# allows simple cargo installs with
-#
-#	cargo install --git "https://some_url"
-#
 export PATH="$PATH:$HOME/.cargo/bin"
 
 export GOPATH="$HOME/workspace"
-export GOROOT=/usr/local/go
-export PATH="$PATH:$GOROOT/bin"
-
-# plan9, if I have it set up
-export PLAN9="$HOME/workspace/src/github.com/9fans/plan9port"
-export PATH="$PATH:$PLAN9/bin"
 
 alias ls='ls --color=tty --group-directories-first'
 alias l='ls'
@@ -78,16 +58,7 @@ alias '....'='cd ../../..'
 # I want to use the command.
 alias time='/usr/bin/time'
 
-# Necessary to have an alias like this around since Docker fills up the disk so
-# quickly with intermediate images.
-docker-clean() {
-	(
-	set -o xtrace
-	docker rm $(docker ps -a -q)
-	docker rm -v $(docker ps -a -q -f status=exited)
-	docker rmi $(docker images -q -f dangling=true)
-	)
-}
+alias nrepl='clj -A:cider-clj'
 
 if which xset > /dev/null; then
 	# Increase the key repeat rate
@@ -95,7 +66,6 @@ if which xset > /dev/null; then
 	xset r rate 250 60
 fi
 
-# load theme if it's there
 if [ -n "$PS1" ]; then
 	sh "$HOME/.config/nvim/plugged/snow/shell/snow_dark.sh"
 fi
@@ -105,4 +75,6 @@ fi
 if [ -f "$HOME/.zshrc_local" ]; then
 	source "$HOME/.zshrc_local"
 fi
+
+. "$HOME/.nix-profile/etc/profile.d/nix.sh"
 

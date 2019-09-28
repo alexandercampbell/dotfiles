@@ -156,4 +156,5 @@ bar {
 
 # When i3 starts (or restarts), set the background image according to ~/.fehbg
 exec_always --no-startup-id bash "$HOME/.fehbg"
+exec_always --no-startup-id redshift
 

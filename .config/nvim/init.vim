@@ -23,6 +23,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'rust-lang/rust.vim'             " Rust language support
   Plug 'tbastos/vim-lua'                " Better Lua colors than builtin
   Plug 'leafo/moonscript-vim'           " Moonscript
+  Plug 'wlangstroth/vim-racket'         " Racket
 
   " Clojure
   Plug 'tpope/vim-fireplace'
@@ -262,6 +263,7 @@ au FileType clojure nmap <buffer> <CR> :Require<CR>
 au FileType clojure nmap <buffer> gd [<C-D>
 au FileType clojure RainbowParentheses
 au FileType tex nmap <buffer> <CR> :!pdflatex %<CR>
+au FileType racket nmap <buffer> <CR> :!racket %<CR>
 
 augroup fmt
   autocmd!

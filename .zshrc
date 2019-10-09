@@ -68,7 +68,7 @@ if which xset > /dev/null; then
 fi
 
 if [ -n "$PS1" ]; then
-	sh "$HOME/.config/nvim/plugged/snow/shell/snow_dark.sh"
+	sh "$HOME/dotfiles/vendor/base16-zenburn.sh"
 fi
 
 # Include local init script if it exists. This is for when the local computer

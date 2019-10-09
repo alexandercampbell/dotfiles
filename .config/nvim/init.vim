@@ -194,7 +194,7 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 se termguicolors
 se guicursor=
 se bg=dark
-colo snow
+colo zenburn
 
 " Line numbering, format options, color column, etc.
 se number

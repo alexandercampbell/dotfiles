@@ -66,6 +66,7 @@ let g:BorlandStyle = "classic"
 let g:deoplete#enable_at_startup = 1
 let g:neoformat_only_msg_on_error = 1
 let g:neoformat_enabled_haskell = ['brittany']
+let g:sexp_enable_insert_mode_mappings = 0
 
 " NetRW registers some keybinds that interfere with my usage of `q` for `quit`.
 augroup netrw_mapping

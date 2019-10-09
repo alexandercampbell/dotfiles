@@ -30,7 +30,7 @@ bindsym $mod+p exec rofi -show run -lines 16 -width -40
 
 # lock screen
 # aa0051 is a nice color
-bindsym $mod+q exec i3lock --color=222222 --ignore-empty-password --show-failed-attempts
+bindsym $mod+q exec i3lock --color=000000 --ignore-empty-password --show-failed-attempts
 
 # change focus
 bindsym $mod+h focus left

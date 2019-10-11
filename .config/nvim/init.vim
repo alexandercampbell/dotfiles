@@ -48,6 +48,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:go_fmt_fail_silently = 1
 let g:go_fmt_command = "goimports"
 let g:zenburn_force_dark_Background = 0
+let g:zenburn_unified_CursorColumn = 1
 let g:ctrlp_custom_ignore = {
       \ 'dir': '\v[\/](target)|(dist)|(node_modules)|(Godeps)|(vendor)|(build)|(elm-stuff)$',
       \ 'file': '\v\.*(.class)|\.*(.pyc)$',
@@ -208,6 +209,8 @@ se linebreak
 se textwidth=80
 se showmatch
 se colorcolumn=+1
+hi ColorColumn guibg=#3a3a3a
+hi CursorLine guibg=#3a3a3a
 se cursorline
 
 " Don't join together lines with two spaces after each period.

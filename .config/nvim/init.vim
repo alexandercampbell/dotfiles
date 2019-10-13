@@ -33,6 +33,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
   Plug 'junegunn/rainbow_parentheses.vim'
+  Plug 'venantius/vim-cljfmt'
 
   " Colorschemes
   Plug 'jnurmine/Zenburn'

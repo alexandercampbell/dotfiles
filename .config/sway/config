@@ -20,8 +20,9 @@ bindsym $mod+Shift+q kill
 bindsym $mod+p exec rofi -show run -lines 16 -width -40
 
 # lock screen
-# aa0051 is a nice color
-bindsym $mod+q exec i3lock --color=000000 --ignore-empty-password --show-failed-attempts
+bindsym $mod+q exec swaylock --screenshots \
+	--clock --indicator --effect-blur 5x10 \
+	--effect-scale 0.5
 
 # change focus
 bindsym $mod+h focus left
@@ -51,8 +52,8 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-# focus the child container
-#bindsym $mod+d focus child
+# screenshot
+bindsym $mod+s exec grim -g "$(slurp -d)" "$HOME/screenshots/Screenshot $(date).png"
 
 # switch to workspace
 bindsym F1 workspace 1

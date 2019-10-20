@@ -17,7 +17,8 @@ bindsym $mod+Return exec st
 bindsym $mod+Shift+q kill
 
 # run program (similar to ctrlp)
-bindsym $mod+p exec rofi -show run -lines 16 -width -40
+bindsym $mod+p exec rofi -show run -lines 16 -width -80 \
+	-theme "$HOME/dotfiles/vendor/purple.rasi"
 
 # lock screen
 bindsym $mod+q exec swaylock --screenshots \

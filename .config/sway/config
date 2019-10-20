@@ -1,0 +1,133 @@
+
+# Mod1 = Alt
+# Mod4 = Windows
+set $mod Mod4
+
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+font pango:DejaVu Sans Mono 10
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec st
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# run program (similar to ctrlp)
+bindsym $mod+p exec rofi -show run -lines 16 -width -40
+
+# lock screen
+# aa0051 is a nice color
+bindsym $mod+q exec i3lock --color=000000 --ignore-empty-password --show-failed-attempts
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# focus config
+focus_wrapping no
+focus_on_window_activation focus
+
+# don't focus new windows on popup
+no_focus [window_role="pop-up"]
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# switch to workspace
+bindsym F1 workspace 1
+bindsym F2 workspace 2
+bindsym F3 workspace 3
+bindsym F4 workspace 4
+bindsym F5 workspace 5
+bindsym F6 workspace 6
+bindsym F7 workspace 7
+bindsym F8 workspace 8
+bindsym F9 workspace 9
+bindsym F10 workspace 10
+
+# move focused container to workspace
+bindsym Shift+F1 move container to workspace 1
+bindsym Shift+F2 move container to workspace 2
+bindsym Shift+F3 move container to workspace 3
+bindsym Shift+F4 move container to workspace 4
+bindsym Shift+F5 move container to workspace 5
+bindsym Shift+F6 move container to workspace 6
+bindsym Shift+F7 move container to workspace 7
+bindsym Shift+F8 move container to workspace 8
+bindsym Shift+F9 move container to workspace 9
+bindsym Shift+F10 move container to workspace 10
+
+# reload the configuration file
+bindsym $mod+Shift+r exec swaymsg reload
+
+# volume wheel controls volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_01_00.1.hdmi-stereo-extra1 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_01_00.1.hdmi-stereo-extra1 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86Forward exec playerctl next
+bindsym XF86Back exec playerctl previous
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+for_window [class="^.*"] border pixel 0
+
+bindsym $mod+r mode "resize"
+
+gaps inner 50
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+        status_command i3status
+	position top
+	# i3bar_command i3bar -t
+}
+
+# hardware config
+output HDMI-A-1 pos 1280 0 res 1920 1080 bg ~/Downloads/QoUOLVH.jpg stretch
+output DVI-D-1 pos 0 0 res 1280 1024 bg ~/Downloads/QoUOLVH.jpg stretch
+input 10730:258:Kinesis_Freestyle_Edge_Keyboard {
+	repeat_rate 60
+	repeat_delay 250
+}
+

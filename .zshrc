@@ -63,7 +63,7 @@ alias '....'='cd ../../..'
 # I want to use the command.
 alias time='/usr/bin/time'
 
-alias nrepl='clj -A:cider-clj'
+alias nrepl="$HOME/dotfiles/scripts/nrepl.sh"
 
 if which xset > /dev/null; then
 	# Increase the key repeat rate

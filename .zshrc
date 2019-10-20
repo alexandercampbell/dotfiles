@@ -9,10 +9,14 @@ antigen bundle 'zsh-users/zsh-syntax-highlighting'
 antigen theme eastwood
 antigen apply
 
+# Taken from the arrow zsh theme
+# See https://geoff.greer.fm/lscolors/
+export LSCOLORS="exfxcxdxbxbxbxbxbxbxbx"
+export LS_COLORS="di=34;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=31;40:cd=31;40:su=31;40:sg=31;40:tw=31;40:ow=31;40:"
+
 # Repository status check for large repositories is much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-export LS_COLORS=""
 export EDITOR=nvim
 export VISUAL=nvim
 export MANPAGER="nvim -c 'set ft=man' -"

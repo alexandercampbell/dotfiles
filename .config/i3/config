@@ -9,13 +9,6 @@ set $mod Mod4
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:DejaVu Sans Mono 10
 
-# Before i3 v4.8, we used to recommend this one as the default:
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn’t scale on retina/hidpi displays.
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -26,7 +19,8 @@ bindsym $mod+Return exec st
 bindsym $mod+Shift+q kill
 
 # run program (similar to ctrlp)
-bindsym $mod+p exec rofi -show run -lines 16 -width -40
+bindsym $mod+p exec rofi -show run -lines 16 -width -80 \
+	-theme "$HOME/dotfiles/vendor/purple.rasi"
 
 # lock screen
 # aa0051 is a nice color
@@ -51,29 +45,14 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# split with orientation
-bindsym $mod+s split vertical
-bindsym $mod+v split horizontal
-
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
-
-# change container layout (stacked, tabbed, toggle split)
-#bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
 
 # switch to workspace
 bindsym F1 workspace 1
@@ -107,14 +86,11 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Really exit?' -b 'Exit i3' 'i3-msg exit'"
 
 # volume wheel controls volume
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_01_00.1.hdmi-stereo-extra1 +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_01_00.1.hdmi-stereo-extra1 -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
-bindsym XF86Forward exec playerctl next
-bindsym XF86Back exec playerctl previous
+bindsym $mod+Up exec amixer -D pulse sset Master 5%+
+bindsym $mod+Down exec amixer -D pulse sset Master 5%-
+bindsym $mod+Left exec playerctl previous
+bindsym $mod+Right exec playerctl next
+bindsym $mod+period exec playerctl play-pause
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -146,15 +122,9 @@ bar {
         status_command i3status
 	position top
 	i3bar_command i3bar -t
-
-	bindsym button1 nop
-	bindsym button2 nop
-	bindsym button3 nop
-	bindsym button4 nop
-	bindsym button5 nop
 }
 
 # When i3 starts (or restarts), set the background image according to ~/.fehbg
 exec_always --no-startup-id bash "$HOME/.fehbg"
-exec_always --no-startup-id redshift
+exec_always --no-startup-id redshift -o -P
 

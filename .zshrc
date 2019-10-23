@@ -72,7 +72,7 @@ if which xset > /dev/null; then
 fi
 
 if [ -n "$PS1" ]; then
-	sh "$HOME/dotfiles/vendor/base16-zenburn.sh"
+	sh "$HOME/dotfiles/vendor/snow_light.sh"
 fi
 
 # Include local init script if it exists. This is for when the local computer

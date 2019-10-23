@@ -197,8 +197,8 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 " Color-related settings
 se termguicolors
 se guicursor=
-se bg=dark
-colo zenburn
+se bg=light
+colo snow
 
 " Line numbering, format options, color column, etc.
 se number
@@ -210,8 +210,6 @@ se linebreak
 se textwidth=80
 se showmatch
 se colorcolumn=+1
-hi ColorColumn guibg=#3a3a3a
-hi CursorLine guibg=#3a3a3a
 se cursorline
 
 " Don't join together lines with two spaces after each period.

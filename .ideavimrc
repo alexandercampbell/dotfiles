@@ -1,0 +1,23 @@
+
+let mapleader = " "
+nnoremap <leader>s :sp<CR>
+nnoremap <leader>v :vs<CR>
+nnoremap <leader>d :r !date '+\%Y\%m\%d'<CR>
+nnoremap <leader>h <C-w>h
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>l <C-w>l
+nnoremap <leader><S-h> <C-w><S-h>
+nnoremap <leader><S-j> <C-w><S-j>
+nnoremap <leader><S-k> <C-w><S-k>
+nnoremap <leader><S-l> <C-w><S-l>
+nnoremap <leader><bar> <C-w><bar>
+nnoremap <leader>_ <C-w>_
+nnoremap <leader>= <C-w>=
+
+nnoremap w :w<CR>
+nnoremap q :q<CR>
+vnoremap X x
+
+set ideajoin
+

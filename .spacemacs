@@ -8,6 +8,7 @@
    dotspacemacs-configuration-layer-path '()
    dotspacemacs-configuration-layers
    '(emacs-lisp
+     rust
      clojure
      helm
      auto-completion
@@ -50,11 +51,13 @@
   "Runs after packages are loaded."
   (setq create-lockfiles nil)
   (setq vc-follow-symlinks t)
+  (setq rust-format-on-save t)
 
-  ; For some reason I have to do this. Don't know why. I get an error when
-  ; solarized-gruvbox-dark appears in dotspacemacs-themes.
-  ;(load-file "$HOME/dotfiles/vendor/solarized-gruvbox-dark-theme.el")
+  (setq-default tab-width 8)
+  (setq-default standard-indent 8)
+  (setq-default indent-tabs-mode t)
 
+  (define-key evil-normal-state-map (kbd "SPC w v") 'split-window-right-and-focus)
+  (define-key evil-normal-state-map (kbd "SPC w s") 'split-window-below-and-focus)
   (define-key evil-normal-state-map (kbd "q") 'delete-window)
   (define-key evil-normal-state-map (kbd "w") 'save-buffer))
-

@@ -7,9 +7,11 @@
    dotspacemacs-ask-for-lazy-installation t
    dotspacemacs-configuration-layer-path '()
    dotspacemacs-configuration-layers
-   '(emacs-lisp
+   '(
+     yaml
      rust
      clojure
+     haskell
      helm
      auto-completion
      better-defaults
@@ -32,14 +34,14 @@
    dotspacemacs-startup-buffer-responsive t
    dotspacemacs-scratch-mode 'text-mode
    dotspacemacs-themes '(spacemacs-light spacemacs-dark)
-   dotspacemacs-default-font '("Iosevka" :size 13 :weight normal :width normal
+   dotspacemacs-default-font '("Iosevka" :size 12 :weight normal :width normal
                                :powerline-scale 1.1)
    dotspacemacs-leader-key "SPC"
    dotspacemacs-emacs-command-key "SPC"
    dotspacemacs-emacs-leader-key "M-m"
    dotspacemacs-ex-command-key ":"
    dotspacemacs-remap-Y-to-y$ t
-   dotspacemacs-loading-progress-bar t
+   dotspacemacs-loading-progress-bar nil
    dotspacemacs-fullscreen-use-non-native t
    dotspacemacs-line-numbers t
    dotspacemacs-whitespace-cleanup 'changed
@@ -56,6 +58,9 @@
   (setq-default tab-width 8)
   (setq-default standard-indent 8)
   (setq-default indent-tabs-mode t)
+  (setq-default fill-column 80)
+  (spacemacs/toggle-fill-column-indicator-on)
+  (spacemacs/toggle-vi-tilde-fringe-off)
 
   (define-key evil-normal-state-map (kbd "SPC w v") 'split-window-right-and-focus)
   (define-key evil-normal-state-map (kbd "SPC w s") 'split-window-below-and-focus)

@@ -17,9 +17,19 @@ export LS_COLORS="di=34;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=31;40:cd=31;40
 # Repository status check for large repositories is much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-export EDITOR=nvim
-export VISUAL=nvim
-export MANPAGER="nvim -c 'set ft=man' -"
+# Can't use the -s switch to `which` in certain implementations, so pipe to
+# /dev/null instead.
+if which nvim > /dev/null; then
+	alias vi=nvim
+	export MANPAGER="nvim -c 'set ft=man' -"
+	export EDITOR=nvim
+	export VISUAL=nvim
+fi
+
+if which fk > /dev/null; then
+	export EDITOR=fk
+	export VISUAL=fk
+fi
 
 export SAVEHIST=2000
 export HISTFILE=~/.zsh_history
@@ -45,12 +55,6 @@ alias dc='cd'
 # more sense for my usages of symbolic links.
 alias cd='cd -P'
 
-# Can't use the -s switch to `which` in certain implementations, so pipe to
-# /dev/null instead.
-if which nvim > /dev/null; then
-	alias vi=nvim
-fi
-
 alias tree='tree -C'
 alias htop='htop -d 5' # More frequent updates
 alias gs='gst'
@@ -72,7 +76,11 @@ if which xset > /dev/null; then
 fi
 
 if [ -n "$PS1" ]; then
-	sh "$HOME/dotfiles/vendor/snow_light.sh"
+	if (($(date '+%H') < 8)) || (($(date '+%H') >= 19)) then
+		sh "$HOME/dotfiles/vendor/snow_dark.sh"
+	else
+		sh "$HOME/dotfiles/vendor/snow_light.sh"
+	fi
 fi
 
 # Include local init script if it exists. This is for when the local computer

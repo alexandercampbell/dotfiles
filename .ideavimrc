@@ -1,4 +1,9 @@
 
+nnoremap w :w<CR>
+nnoremap q :q<CR>
+vnoremap X x
+inoremap jk <Esc>
+
 let mapleader = " "
 nnoremap <leader>s :sp<CR>
 nnoremap <leader>v :vs<CR>
@@ -14,10 +19,6 @@ nnoremap <leader><S-l> <C-w><S-l>
 nnoremap <leader><bar> <C-w><bar>
 nnoremap <leader>_ <C-w>_
 nnoremap <leader>= <C-w>=
-
-nnoremap w :w<CR>
-nnoremap q :q<CR>
-vnoremap X x
+nnoremap <leader>f :action SearchEverywhere<CR>
 
 set ideajoin
-

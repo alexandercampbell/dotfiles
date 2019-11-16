@@ -186,6 +186,11 @@ nnoremap <C-w><bar> <space>
 nnoremap <C-w>_ <space>
 nnoremap <C-w>= <space>
 
+" more similar to fk
+inoremap <C-[> <Nop>
+nmap <leader>f <C-p>
+inoremap jk <Esc>
+
 " Hide introductory message when starting vim.
 se shm=aI
 

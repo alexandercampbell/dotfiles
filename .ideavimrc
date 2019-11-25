@@ -20,6 +20,7 @@ nnoremap <leader><bar> <C-w><bar>
 nnoremap <leader>_ <C-w>_
 nnoremap <leader>= <C-w>=
 nnoremap <leader>f :action SearchEverywhere<CR>
+nnoremap <leader>z :action ToggleDistractionFreeMode<CR>
 nnoremap <C-l> :noh<CR>
 
 set ignorecase

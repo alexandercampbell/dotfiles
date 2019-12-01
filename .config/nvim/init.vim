@@ -24,6 +24,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'tbastos/vim-lua'                " Better Lua colors than builtin
   Plug 'leafo/moonscript-vim'           " Moonscript
   Plug 'wlangstroth/vim-racket'         " Racket
+  Plug 'leafgarland/typescript-vim'     " Typescript
 
   " Clojure
   Plug 'tpope/vim-fireplace'
@@ -52,7 +53,7 @@ let g:zenburn_force_dark_Background = 0
 let g:zenburn_unified_CursorColumn = 1
 let g:ctrlp_custom_ignore = {
       \ 'dir': '\v[\/](target)|(dist)|(node_modules)|(Godeps)|(vendor)|(build)|(elm-stuff)$',
-      \ 'file': '\v\.*(.class)|\.*(.pyc)$',
+      \ 'file': '\v\.*(.class)|\.*(.pyc)|\.*(.aux)|\.*(.pdf)|\.*(.log)$',
       \ }
 let g:ctrlp_working_path_mode = 'a'
 let g:racer_cmd = $HOME . "/.cargo/bin/racer"
@@ -62,7 +63,7 @@ let g:elm_setup_keybindings = 0
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 let g:ale_sign_column_always = 1
-let g:ale_linters = { 'haskell': ['stack-ghc'] }
+let g:ale_linters = { 'haskell': ['stack-build'] }
 let g:go_template_autocreate = 1
 let g:BorlandStyle = "classic"
 let g:deoplete#enable_at_startup = 1
@@ -227,7 +228,7 @@ se iskeyword=@,48-57,_,192-255,-
 se foldmethod=marker
 
 " rust programming bindings
-au FileType rust nmap <buffer> <CR> :!cargo test<CR>
+au FileType rust nmap <buffer> <CR> :!cargo run<CR>
 au FileType rust setl tw=92
 au FileType rust setl ts=4 sw=4 et
 au FileType rust nmap gd <Plug>(rust-def)

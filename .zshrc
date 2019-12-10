@@ -26,11 +26,6 @@ if which nvim > /dev/null; then
 	export VISUAL=nvim
 fi
 
-if which fk > /dev/null; then
-	export EDITOR=fk
-	export VISUAL=fk
-fi
-
 export SAVEHIST=2000
 export HISTFILE=~/.zsh_history
 

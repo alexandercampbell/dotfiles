@@ -71,10 +71,10 @@ if which xset > /dev/null; then
 fi
 
 if [ -n "$PS1" ]; then
-	if (($(date '+%H') < 8)) || (($(date '+%H') >= 19)) then
-		sh "$HOME/dotfiles/vendor/snow_dark.sh"
+	if (($(date '+%H') >= 7)) && (($(date '+%H') < 19)) then
+		sh "$HOME/dotfiles/vendor/cosmic_latte_light.sh"
 	else
-		sh "$HOME/dotfiles/vendor/snow_light.sh"
+		sh "$HOME/dotfiles/vendor/cosmic_latte_dark.sh"
 	fi
 fi
 

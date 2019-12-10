@@ -40,6 +40,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'jnurmine/Zenburn'
   Plug 'morhetz/gruvbox'
   Plug 'nightsense/snow'
+  Plug 'nightsense/cosmic_latte'
   Plug 'letorbi/vim-colors-modern-borland'
 call plug#end()
 
@@ -203,8 +204,12 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 " Color-related settings
 se termguicolors
 se guicursor=
-se bg=light
-colo snow
+if strftime('%H') >= 7 && strftime('%H') < 19
+  set background=light
+else
+  set background=dark
+endif
+colorscheme snow
 
 " Line numbering, format options, color column, etc.
 se number
@@ -261,6 +266,7 @@ au FileType pug                 setl ts=4 sw=4 et
 " I have a convention: pressing enter means 'give me feedback now'. Normally
 " this means running the unit tests.
 au FileType c,cpp nmap <buffer> gd <C-]>
+au FileType c,cpp nmap <buffer> <CR> :!make run<CR>
 au FileType go nmap <buffer> <CR> :GoTest<CR>
 au FileType moon nmap <buffer> <CR> :!make build run<CR>
 au FileType lua nmap <buffer> <CR> :!love .<CR><CR>

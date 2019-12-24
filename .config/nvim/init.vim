@@ -14,6 +14,9 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'ctrlpvim/ctrlp.vim'              " Fuzzy file matching
   Plug 'ntpeters/vim-better-whitespace'  " Highlight trailing whitespace
 
+  " Elm syntax highlighting
+  Plug 'ElmCast/elm-vim'
+
   " Clojure
   Plug 'tpope/vim-fireplace'
   Plug 'tpope/vim-salve'
@@ -42,6 +45,9 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_working_path_mode = 'a'
 let g:BorlandStyle = "classic"
 let g:sexp_enable_insert_mode_mappings = 0
+let g:elm_detailed_complete = 0
+let g:elm_format_autosave = 0
+let g:elm_setup_keybindings = 0
 
 " COC / Intellisense bindings
 
@@ -173,6 +179,7 @@ nnoremap q :q<CR>
 nnoremap w :w<CR>
 nnoremap = <C-w>=
 nnoremap <C-g> 1<C-g>
+inoremap jk <Esc>
 
 " Consistency with my tmux bindings.
 "
@@ -180,7 +187,8 @@ nnoremap <C-g> 1<C-g>
 " a new vertical split in vim, while '<C-space>v' creates a new vertical split
 " in tmux.
 let mapleader = " "
-nnoremap <leader>r :source $MYVIMRC<CR>
+nnoremap <leader>ed :e $MYVIMRC<CR>
+nnoremap <leader>f :CtrlP<CR>
 nnoremap <leader>s :sp<CR>
 nnoremap <leader>v :vs<CR>
 nnoremap <leader>d :r !date '+\%Y\%m\%d'<CR>
@@ -210,11 +218,6 @@ nnoremap <C-w><S-l> <space>
 nnoremap <C-w><bar> <space>
 nnoremap <C-w>_ <space>
 nnoremap <C-w>= <space>
-
-" more similar to fk
-inoremap <C-[> <Nop>
-nmap <leader>f <C-p>
-inoremap jk <Esc>
 
 " Hide introductory message when starting vim.
 se shm=aI

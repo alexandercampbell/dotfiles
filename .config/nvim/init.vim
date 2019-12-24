@@ -7,24 +7,12 @@ filetype off
 
 call plug#begin('~/.config/nvim/plugged')
   " Basic plugins
+  Plug 'neoclide/coc.nvim', {'branch': 'release'} " Intellisense
   Plug 'tpope/vim-vinegar'               " Better file browser
   Plug 'tpope/vim-fugitive'              " git plugin
   Plug 'tpope/vim-unimpaired'            " Jump through error list with ]l
   Plug 'ctrlpvim/ctrlp.vim'              " Fuzzy file matching
   Plug 'ntpeters/vim-better-whitespace'  " Highlight trailing whitespace
-  Plug 'dense-analysis/ale'              " In-editor linting
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Autocomplete
-  Plug 'sbdchd/neoformat'
-
-  " Specific language support
-  Plug 'ElmCast/elm-vim'                " Elm support
-  Plug 'fatih/vim-go'                   " Go language support
-  Plug 'racer-rust/vim-racer'           " Rust code completion / jump-to-def
-  Plug 'rust-lang/rust.vim'             " Rust language support
-  Plug 'tbastos/vim-lua'                " Better Lua colors than builtin
-  Plug 'leafo/moonscript-vim'           " Moonscript
-  Plug 'wlangstroth/vim-racket'         " Racket
-  Plug 'leafgarland/typescript-vim'     " Typescript
 
   " Clojure
   Plug 'tpope/vim-fireplace'
@@ -45,11 +33,6 @@ call plug#begin('~/.config/nvim/plugged')
 call plug#end()
 
 " Plugin configurations
-let g:rustfmt_autosave = 1
-let g:rustfmt_fail_silently = 1
-let g:syntastic_always_populate_loc_list = 1
-let g:go_fmt_fail_silently = 1
-let g:go_fmt_command = "goimports"
 let g:zenburn_force_dark_Background = 0
 let g:zenburn_unified_CursorColumn = 1
 let g:ctrlp_custom_ignore = {
@@ -57,20 +40,60 @@ let g:ctrlp_custom_ignore = {
       \ 'file': '\v\.*(.class)|\.*(.pyc)|\.*(.aux)|\.*(.pdf)|\.*(.log)$',
       \ }
 let g:ctrlp_working_path_mode = 'a'
-let g:racer_cmd = $HOME . "/.cargo/bin/racer"
-let g:elm_format_autosave = 1
-let g:elm_format_fail_silently = 1
-let g:elm_setup_keybindings = 0
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
-let g:ale_sign_column_always = 1
-let g:ale_linters = { 'haskell': ['stack-build'] }
-let g:go_template_autocreate = 1
 let g:BorlandStyle = "classic"
-let g:deoplete#enable_at_startup = 1
-let g:neoformat_only_msg_on_error = 1
-let g:neoformat_enabled_haskell = ['brittany']
 let g:sexp_enable_insert_mode_mappings = 0
+
+" COC / Intellisense bindings
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <C-o> coc#refresh()
+
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+command! -nargs=0 Format :call CocAction('format')
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+au BufWritePre * :call CocAction('format')
 
 " NetRW registers some keybinds that interfere with my usage of `q` for `quit`.
 augroup netrw_mapping
@@ -234,9 +257,7 @@ se foldmethod=marker
 
 " rust programming bindings
 au FileType rust nmap <buffer> <CR> :!cargo run<CR>
-au FileType rust setl tw=92
 au FileType rust setl ts=4 sw=4 et
-au FileType rust nmap gd <Plug>(rust-def)
 
 " recognize file extensions as the correct filetypes
 au BufRead,BufNewFile *.md set ft=markdown
@@ -265,25 +286,14 @@ au FileType pug                 setl ts=4 sw=4 et
 " Random autocommand bindings for miscellaneous programming languages.
 " I have a convention: pressing enter means 'give me feedback now'. Normally
 " this means running the unit tests.
-au FileType c,cpp nmap <buffer> gd <C-]>
 au FileType c,cpp nmap <buffer> <CR> :!make run<CR>
-au FileType go nmap <buffer> <CR> :GoTest<CR>
 au FileType moon nmap <buffer> <CR> :!make build run<CR>
 au FileType lua nmap <buffer> <CR> :!love .<CR><CR>
 au FileType elm nmap <buffer> <CR> :!make<CR>
 au FileType python nmap <buffer> <CR> :!python3 %<CR>
-"au FileType haskell nmap <buffer> <CR> :!stack build && stack test<CR>
 au FileType haskell nmap <buffer> <CR> :!stack run<CR>
-au FileType clojure nmap <buffer> <CR> :Require<CR>
-au FileType clojure nmap <buffer> gd [<C-D>
-au FileType clojure RainbowParentheses
 au FileType tex nmap <buffer> <CR> :!pdflatex %<CR>
 au FileType racket nmap <buffer> <CR> :!racket %<CR>
-
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * Neoformat
-augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Everything below this line was copied from vim-sensible. I don't need all of

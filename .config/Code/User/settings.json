@@ -156,4 +156,6 @@
     ],
     "elmLS.elmPath": "/home/alexander/.yarn/bin/elm",
     "elmLS.elmFormatPath": "/home/alexander/.yarn/bin/elm-format",
+    "window.nativeFullScreen": false,
+    "window.restoreFullscreen": true,
 }

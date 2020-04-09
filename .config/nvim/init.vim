@@ -67,7 +67,6 @@ let g:elm_setup_keybindings = 0
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 let g:ale_sign_column_always = 1
-let g:ale_linters = { 'haskell': ['stack-build'] }
 let g:go_template_autocreate = 1
 let g:BorlandStyle = "classic"
 let g:deoplete#enable_at_startup = 1
@@ -77,6 +76,10 @@ let g:sexp_enable_insert_mode_mappings = 0
 let g:elm_detailed_complete = 0
 let g:elm_format_autosave = 0
 let g:elm_setup_keybindings = 0
+
+" One can set this to stack-build for a build time improvement-- however, this
+" requires your project -W flags to match the linter -W flags exactly.
+"let g:ale_linters = { 'haskell': ['stack-build'] }
 
 " NetRW registers some keybinds that interfere with my usage of `q` for `quit`.
 augroup netrw_mapping
@@ -275,7 +278,6 @@ au FileType moon nmap <buffer> <CR> :!make build run<CR>
 au FileType lua nmap <buffer> <CR> :!love .<CR><CR>
 au FileType elm nmap <buffer> <CR> :!make<CR>
 au FileType python nmap <buffer> <CR> :!python3 %<CR>
-"au FileType haskell nmap <buffer> <CR> :!stack build && stack test<CR>
 au FileType haskell nmap <buffer> <CR> :!stack run<CR>
 au FileType clojure nmap <buffer> <CR> :Require<CR>
 au FileType clojure nmap <buffer> gd [<C-D>

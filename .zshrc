@@ -72,9 +72,9 @@ fi
 
 if [ -n "$PS1" ]; then
 	if (($(date '+%H') >= 7)) && (($(date '+%H') < 19)) then
-		sh "$HOME/dotfiles/vendor/cosmic_latte_light.sh"
+		sh "$HOME/dotfiles/vendor/base16-gruvbox-light-medium.sh"
 	else
-		sh "$HOME/dotfiles/vendor/cosmic_latte_dark.sh"
+		sh "$HOME/dotfiles/vendor/base16-gruvbox-dark-medium.sh"
 	fi
 fi
 

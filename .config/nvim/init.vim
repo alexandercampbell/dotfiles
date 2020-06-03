@@ -215,7 +215,7 @@ if strftime('%H') >= 7 && strftime('%H') < 19
 else
   set background=dark
 endif
-colorscheme cosmic_latte
+colorscheme gruvbox
 
 " Line numbering, format options, color column, etc.
 se number

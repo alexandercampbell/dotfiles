@@ -7,41 +7,20 @@ filetype off
 
 call plug#begin('~/.config/nvim/plugged')
   " Basic plugins
-  Plug 'tpope/vim-vinegar'               " Better file browser
-  Plug 'tpope/vim-fugitive'              " git plugin
-  Plug 'tpope/vim-unimpaired'            " Jump through error list with ]l
-  Plug 'ctrlpvim/ctrlp.vim'              " Fuzzy file matching
-  Plug 'ntpeters/vim-better-whitespace'  " Highlight trailing whitespace
-  Plug 'dense-analysis/ale'              " In-editor linting
+  Plug 'tpope/vim-vinegar'              " Better file browser
+  Plug 'tpope/vim-fugitive'             " git plugin
+  Plug 'tpope/vim-unimpaired'           " Jump through error list with ]l
+  Plug 'ctrlpvim/ctrlp.vim'             " Fuzzy file matching
+  Plug 'ntpeters/vim-better-whitespace' " Highlight trailing whitespace
+  Plug 'dense-analysis/ale'             " In-editor linting
+  Plug 'sbdchd/neoformat'               " Autoformat on save
+  Plug 'sheerun/vim-polyglot'           " Various language supports
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Autocomplete
-  Plug 'sbdchd/neoformat'
-
-  " Specific language support
-  Plug 'ElmCast/elm-vim'                " Elm support
-  Plug 'fatih/vim-go'                   " Go language support
-  Plug 'racer-rust/vim-racer'           " Rust code completion / jump-to-def
-  Plug 'rust-lang/rust.vim'             " Rust language support
-  Plug 'tbastos/vim-lua'                " Better Lua colors than builtin
-  Plug 'leafo/moonscript-vim'           " Moonscript
-  Plug 'wlangstroth/vim-racket'         " Racket
-  Plug 'leafgarland/typescript-vim'     " Typescript
-
-  " Elm syntax highlighting
-  Plug 'ElmCast/elm-vim'
-
-  " Clojure
-  Plug 'tpope/vim-fireplace'
-  Plug 'tpope/vim-salve'
-  Plug 'tpope/vim-sexp-mappings-for-regular-people'
-  Plug 'guns/vim-sexp'
-  Plug 'tpope/vim-repeat'
-  Plug 'tpope/vim-surround'
-  Plug 'junegunn/rainbow_parentheses.vim'
-  Plug 'venantius/vim-cljfmt'
 
   " Colorschemes
   Plug 'jnurmine/Zenburn'
   Plug 'morhetz/gruvbox'
+  Plug 'sainnhe/gruvbox-material'
   Plug 'nightsense/snow'
   Plug 'nightsense/cosmic_latte'
   Plug 'letorbi/vim-colors-modern-borland'
@@ -61,8 +40,6 @@ let g:ctrlp_custom_ignore = {
       \ }
 let g:ctrlp_working_path_mode = 'a'
 let g:racer_cmd = $HOME . "/.cargo/bin/racer"
-let g:elm_format_autosave = 1
-let g:elm_format_fail_silently = 1
 let g:elm_setup_keybindings = 0
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
@@ -72,20 +49,22 @@ let g:BorlandStyle = "classic"
 let g:deoplete#enable_at_startup = 1
 let g:neoformat_only_msg_on_error = 1
 let g:neoformat_enabled_haskell = ['brittany']
+let g:neoformat_enabled_markdown = []
 let g:sexp_enable_insert_mode_mappings = 0
 let g:elm_detailed_complete = 0
 let g:elm_format_autosave = 0
 let g:elm_setup_keybindings = 0
+let g:gruvbox_contrast_light = "medium"
 
 " One can set this to stack-build for a build time improvement-- however, this
 " requires your project -W flags to match the linter -W flags exactly.
 "let g:ale_linters = { 'haskell': ['stack-build'] }
 
 " NetRW registers some keybinds that interfere with my usage of `q` for `quit`.
-augroup netrw_mapping
-  autocmd!
-  autocmd filetype netrw call CustomNetrwSetup()
-augroup END
+"augroup netrw_mapping
+"  autocmd!
+"  autocmd filetype netrw call CustomNetrwSetup()
+"augroup END
 
 function! CustomNetrwSetup()
   unmap <buffer> qF
@@ -215,7 +194,7 @@ if strftime('%H') >= 7 && strftime('%H') < 19
 else
   set background=dark
 endif
-colorscheme gruvbox
+colorscheme gruvbox-material
 
 " Line numbering, format options, color column, etc.
 se number
@@ -228,6 +207,7 @@ se textwidth=80
 se showmatch
 se colorcolumn=+1
 se cursorline
+se list
 
 " Don't join together lines with two spaces after each period.
 se nojoinspaces
@@ -256,9 +236,10 @@ au FileType tex setl spell
 " Use the canonically accepted indentation in certain filetypes.
 au FileType yaml                setl ts=4 sw=4 et
 au FileType tex                 setl ts=4 sw=4 et
-au FileType javascript          setl ts=4 sw=4 et
 au FileType java                setl ts=4 sw=4 et
-au FileType json                setl ts=4 sw=4 et
+au FileType javascript          setl ts=2 sw=2 et
+au FileType typescript          setl ts=2 sw=2 et
+au FileType json                setl ts=2 sw=2 et
 au FileType python              setl ts=4 sw=4 et
 au FileType elm                 setl ts=4 sw=4 et
 au FileType elixir              setl ts=4 sw=4 et
@@ -279,7 +260,6 @@ au FileType lua nmap <buffer> <CR> :!love .<CR><CR>
 au FileType elm nmap <buffer> <CR> :!make<CR>
 au FileType python nmap <buffer> <CR> :!python3 %<CR>
 au FileType haskell nmap <buffer> <CR> :!stack run<CR>
-au FileType clojure nmap <buffer> <CR> :Require<CR>
 au FileType clojure nmap <buffer> gd [<C-D>
 au FileType clojure RainbowParentheses
 au FileType tex nmap <buffer> <CR> :!pdflatex %<CR>

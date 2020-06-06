@@ -63,20 +63,18 @@ alias '....'='cd ../../..'
 alias time='/usr/bin/time'
 
 alias nrepl="$HOME/dotfiles/scripts/nrepl.sh"
+alias uberdeps="$HOME/dotfiles/scripts/uberdeps.sh"
 
 if which xset > /dev/null; then
 	# Increase the key repeat rate
 	# I don't like to wait
 	xset r rate 250 60
+
+	# attempt to disable mouse acceleration
+	xset m 0 0
 fi
 
-if [ -n "$PS1" ]; then
-	if (($(date '+%H') >= 7)) && (($(date '+%H') < 19)) then
-		sh "$HOME/dotfiles/vendor/base16-gruvbox-light-medium.sh"
-	else
-		sh "$HOME/dotfiles/vendor/base16-gruvbox-dark-medium.sh"
-	fi
-fi
+sh "$HOME/dotfiles/vendor/base16-gruvbox-dark-medium.sh"
 
 # Include local init script if it exists. This is for when the local computer
 # needs custom configuration that I don't want in my standard dotfiles.

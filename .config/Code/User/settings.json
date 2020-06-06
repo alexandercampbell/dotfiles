@@ -1,161 +1,96 @@
 {
-    "window.customMenuBarAltFocus": false,
-    "window.menuBarVisibility": "toggle",
-    "go.formatTool": "goimports",
-    "workbench.colorTheme": "Solarized Light",
-    "editor.formatOnSave": true,
-    "editor.fontFamily": "'Iosevka', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-    "vim.incsearch": true,
-    "vim.insertModeKeyBindings": [
-        {
-            "before": [
-                "j",
-                "k"
-            ],
-            "after": [
-                "<Esc>"
-            ]
-        }
-    ],
-    "vim.leader": "<space>",
-    "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "w"
-            ],
-            "commands": [
-                ":w"
-            ],
-        },
-        {
-            "before": [
-                "<leader>",
-                "v"
-            ],
-            "commands": [
-                ":vs"
-            ],
-        },
-        {
-            "before": [
-                "<leader>",
-                "s"
-            ],
-            "commands": [
-                ":sp"
-            ],
-        },
-        {
-            "before": [
-                "q"
-            ],
-            "commands": [
-                ":q"
-            ],
-        },
-        {
-            "before": [
-                ":"
-            ],
-            "commands": [
-                "workbench.action.showCommands"
-            ],
-        },
-        {
-            "before": [
-                "<leader>",
-                "f"
-            ],
-            "commands": [
-                "workbench.action.quickOpen"
-            ],
-        },
-        {
-            "before": [
-                "<leader>",
-                "p"
-            ],
-            "commands": [
-                ":tabp"
-            ],
-        },
-        {
-            "before": [
-                "<leader>",
-                "n"
-            ],
-            "commands": [
-                ":tabn"
-            ],
-        },
-        {
-            "before": [
-                "<leader>",
-                "h"
-            ],
-            "after": [
-                "C-w",
-                "h"
-            ],
-        },
-        {
-            "before": [
-                "<leader>",
-                "j"
-            ],
-            "after": [
-                "C-w",
-                "j"
-            ],
-        },
-        {
-            "before": [
-                "<leader>",
-                "k"
-            ],
-            "after": [
-                "C-w",
-                "k"
-            ],
-        },
-        {
-            "before": [
-                "<leader>",
-                "l"
-            ],
-            "after": [
-                "C-w",
-                "l"
-            ],
-        },
-        {
-            "before": [
-                "<leader>",
-                ":"
-            ],
-            "after": [
-                ":"
-            ],
-        },
-        {
-            "before": [
-                ">"
-            ],
-            "commands": [
-                "editor.action.indentlines"
-            ]
-        },
-        {
-            "before": [
-                "<"
-            ],
-            "commands": [
-                "editor.action.outdentlines"
-            ]
-        },
-    ],
-    "elmLS.elmPath": "/home/alexander/.yarn/bin/elm",
-    "elmLS.elmFormatPath": "/home/alexander/.yarn/bin/elm-format",
-    "window.nativeFullScreen": false,
-    "window.restoreFullscreen": true,
+  "window.customMenuBarAltFocus": false,
+  "window.menuBarVisibility": "toggle",
+  "workbench.colorTheme": "Gruvbox Material Dark",
+  "editor.formatOnSave": true,
+  "editor.fontFamily": "'Iosevka', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "vim.incsearch": true,
+  "vim.hlsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "k"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.leader": "<space>",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["w"],
+      "commands": [":w"]
+    },
+    {
+      "before": ["<leader>", "v"],
+      "commands": [":vs"]
+    },
+    {
+      "before": ["<leader>", "s"],
+      "commands": [":sp"]
+    },
+    {
+      "before": ["q"],
+      "commands": [":q"]
+    },
+    {
+      "before": [":"],
+      "commands": ["workbench.action.showCommands"]
+    },
+    {
+      "before": ["<leader>", "f"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["<leader>", "p"],
+      "commands": [":tabp"]
+    },
+    {
+      "before": ["<leader>", "n"],
+      "commands": [":tabn"]
+    },
+    {
+      "before": ["<leader>", "h"],
+      "after": ["C-w", "h"]
+    },
+    {
+      "before": ["<leader>", "j"],
+      "after": ["C-w", "j"]
+    },
+    {
+      "before": ["<leader>", "k"],
+      "after": ["C-w", "k"]
+    },
+    {
+      "before": ["<leader>", "l"],
+      "after": ["C-w", "l"]
+    },
+    {
+      "before": ["<leader>", ":"],
+      "after": [":"]
+    },
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentlines"]
+    },
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentlines"]
+    }
+  ],
+  "window.nativeFullScreen": false,
+  "window.restoreFullscreen": true,
+  "elmLS.elmPath": "/home/alexander/.yarn/bin/elm",
+  "elmLS.elmFormatPath": "/home/alexander/.yarn/bin/elm-format",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[elm]": {
+    "editor.defaultFormatter": "elmTooling.elm-ls-vscode"
+  },
+  "[markdown]": {
+    "editor.formatOnSave": false,
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 80
+  },
+  "editor.cursorSurroundingLines": 3,
+  "editor.renderIndentGuides": false,
+  "editor.tabSize": 8,
+  "git.enableSmartCommit": true,
+  "workbench.activityBar.visible": true
 }

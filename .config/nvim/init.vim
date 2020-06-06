@@ -13,6 +13,8 @@ augroup fmt
   autocmd BufWritePre * undojoin | Neoformat
 augroup END
 
+let g:neoformat_enabled_markdown = []
+
 set background=dark
 colorscheme gruvbox
 
@@ -23,6 +25,7 @@ set splitbelow splitright
 set colorcolumn=+1
 set textwidth=80
 set modeline
+set mouse=a
 
 inoremap jk <Esc>
 nnoremap w :w<CR>

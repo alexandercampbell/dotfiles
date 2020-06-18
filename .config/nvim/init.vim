@@ -6,6 +6,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'farmergreg/vim-lastplace'
 call plug#end()
 
 let g:neoformat_enabled_markdown = []

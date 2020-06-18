@@ -32,7 +32,7 @@ export HISTFILE=~/.zsh_history
 # each terminal has its own command-line history
 unsetopt share_history
 
-export PATH="$PATH:$HOME/bin"
+export PATH="$HOME/bin:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 

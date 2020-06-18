@@ -2,14 +2,11 @@
 call plug#begin('~/.local/share/nvim/plug')
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'gruvbox-community/gruvbox'
-Plug 'sbdchd/neoformat'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
-Plug 'ycm-core/YouCompleteMe'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
-
-autocmd BufWritePre * | silent Neoformat
 
 let g:neoformat_enabled_markdown = []
 let g:elm_setup_keybindings = 0
@@ -28,7 +25,8 @@ set textwidth=80
 set modeline
 set mouse=a
 set smartindent
-set shortmess+=I
+set shortmess+=Ic
+set nobackup nowritebackup hidden cmdheight=2
 
 au FileType javascript setl ts=2 sw=2 et
 
@@ -52,5 +50,9 @@ nnoremap <Leader>_ <C-w>_
 nmap <Leader>f <C-p>
 nnoremap - :Explore<CR>
 nnoremap <C-l> :noh<CR>
-nnoremap gd :YcmCompleter GoTo<CR>
+
+" COC bindings
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> K :call <SID>show_documentation()<CR>
+autocmd CursorHold * silent call CocActionAsync('highlight')
 

@@ -1,18 +1,17 @@
 
 call plug#begin('~/.local/share/nvim/plug')
-Plug 'gruvbox-community/gruvbox'
-Plug 'sheerun/vim-polyglot'
-Plug 'ycm-core/YouCompleteMe'
-Plug 'sbdchd/neoformat'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'gruvbox-community/gruvbox'
+Plug 'sbdchd/neoformat'
+Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
-Plug 'ElmCast/elm-vim'
+Plug 'tpope/vim-unimpaired'
+Plug 'ycm-core/YouCompleteMe'
 call plug#end()
 
 autocmd BufWritePre * | silent Neoformat
 
 let g:neoformat_enabled_markdown = []
-let g:polyglot_disabled = ['elm']
 let g:elm_setup_keybindings = 0
 let g:ycm_semantic_triggers = {'elm' : ['.']}
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
@@ -30,6 +29,8 @@ set modeline
 set mouse=a
 set smartindent
 set shortmess+=I
+
+au FileType javascript setl ts=2 sw=2 et
 
 inoremap jk <Esc>
 nnoremap w :w<CR>

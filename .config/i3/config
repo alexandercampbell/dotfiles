@@ -19,7 +19,7 @@ bindsym $mod+Return exec st
 bindsym $mod+Shift+q kill
 
 # run program (similar to ctrlp)
-bindsym $mod+p exec rofi -show run -lines 16 -width -80 \
+bindsym $mod+space exec rofi -show run -lines 16 -width -80 \
 	-theme "$HOME/dotfiles/vendor/purple.rasi"
 
 # lock screen
@@ -50,9 +50,6 @@ bindsym $mod+f fullscreen toggle
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
 
 # switch to workspace
 bindsym $mod+1 workspace 1

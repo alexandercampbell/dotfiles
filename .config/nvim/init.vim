@@ -9,10 +9,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'farmergreg/vim-lastplace'
 call plug#end()
 
-let g:neoformat_enabled_markdown = []
-let g:elm_setup_keybindings = 0
-let g:ycm_semantic_triggers = {'elm' : ['.']}
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-json', 'coc-vimlsp', 'coc-prettier', 'coc-eslint']
 
 set background=dark
 colorscheme gruvbox

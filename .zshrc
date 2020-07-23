@@ -75,6 +75,7 @@ if which xset > /dev/null; then
 fi
 
 sh "$HOME/dotfiles/vendor/base16-gruvbox-dark-medium.sh"
+sh "$HOME/dotfiles/vendor/gruvbox_256palette.sh"
 
 # Include local init script if it exists. This is for when the local computer
 # needs custom configuration that I don't want in my standard dotfiles.

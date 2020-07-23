@@ -52,6 +52,7 @@ nnoremap <C-l> :noh<CR>
 
 " COC bindings
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gr <Plug>(coc-references)
 nmap <silent> K :call <SID>show_documentation()<CR>
 autocmd CursorHold * silent call CocActionAsync('highlight')
 

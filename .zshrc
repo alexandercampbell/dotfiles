@@ -77,6 +77,9 @@ fi
 sh "$HOME/dotfiles/vendor/base16-gruvbox-dark-medium.sh"
 sh "$HOME/dotfiles/vendor/gruvbox_256palette.sh"
 
+alias prettify-json='bb -i "(-> (str/join \\n *input*) json/parse-string (json/generate-string {:pretty true}) println)"'
+
+
 # Include local init script if it exists. This is for when the local computer
 # needs custom configuration that I don't want in my standard dotfiles.
 if [ -f "$HOME/.zshrc_local" ]; then

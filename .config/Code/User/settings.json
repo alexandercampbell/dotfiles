@@ -1,9 +1,6 @@
 {
-  "window.customMenuBarAltFocus": false,
-  "window.menuBarVisibility": "toggle",
-  "workbench.colorTheme": "Horizon Bright",
   "editor.fontFamily": "'Iosevka Term', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-  "editor.fontSize": 14,
+  "editor.fontSize": 13,
   "vim.incsearch": true,
   "vim.hlsearch": true,
   "vim.insertModeKeyBindings": [
@@ -73,11 +70,11 @@
     {
       "before": ["<"],
       "commands": ["editor.action.outdentlines"]
-    }
+    },
     {
       "before": ["g", "r"],
       "commands": ["editor.action.goToReferences"]
-    },
+    }
   ],
   "window.restoreFullscreen": true,
   "elmLS.elmPath": "/Users/alexander/.nvm/versions/node/v8.15.0/bin/elm",
@@ -93,10 +90,21 @@
     "editor.wordWrapColumn": 80
   },
   "editor.cursorSurroundingLines": 3,
-  "editor.renderIndentGuides": true,
+  "editor.renderIndentGuides": false,
   "editor.tabSize": 8,
   "editor.detectIndentation": true,
   "git.enableSmartCommit": true,
-  "workbench.activityBar.visible": true,
-  "window.nativeFullScreen": false
+  "window.nativeFullScreen": false,
+  "extensions.ignoreRecommendations": true,
+  "workbench.colorTheme": "Default Light+",
+  "editor.minimap.scale": 1,
+  "editor.minimap.renderCharacters": false,
+  "workbench.fontAliasing": "antialiased",
+  "workbench.iconTheme": "vs-minimal",
+  "workbench.statusBar.visible": false,
+  "workbench.tree.renderIndentGuides": "always",
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.editor.limit.enabled": true,
+  "telemetry.enableTelemetry": false,
+  "workbench.activityBar.visible": false
 }

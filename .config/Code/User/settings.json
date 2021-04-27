@@ -94,6 +94,7 @@
       "editor.background": "#ffdfea",
       "panel.background": "#ffdfea",
       "sideBar.background": "#ffdfea",
+      "editorGroupHeader.tabsBackground": "#ffbbcf",
       "terminal.background": "#ffc5da",
       "menu.background": "#ffbbcf",
       "activityBar.background": "#ffbbcf",

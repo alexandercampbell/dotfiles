@@ -89,22 +89,33 @@
     "editor.wordWrap": "wordWrapColumn",
     "editor.wordWrapColumn": 80
   },
-  "editor.cursorSurroundingLines": 3,
+  "workbench.colorCustomizations": {
+    "[Cute]": {
+      "editor.background": "#ffdfea",
+      "panel.background": "#ffdfea",
+      "sideBar.background": "#ffdfea",
+      "terminal.background": "#ffc5da",
+      "menu.background": "#ffbbcf",
+      "activityBar.background": "#ffbbcf",
+      "activityBar.foreground": "#dd0000",
+      "activityBar.inactiveForeground": "#770000"
+    }
+  },
+  "bbcfor.cursorSurroundingLines": 3,
   "editor.renderIndentGuides": false,
   "editor.tabSize": 8,
   "editor.detectIndentation": true,
   "git.enableSmartCommit": true,
   "window.nativeFullScreen": false,
   "extensions.ignoreRecommendations": true,
-  "workbench.colorTheme": "Default Light+",
+  "workbench.colorTheme": "Cute",
   "editor.minimap.scale": 1,
   "editor.minimap.renderCharacters": false,
   "workbench.fontAliasing": "antialiased",
   "workbench.iconTheme": "vs-minimal",
-  "workbench.statusBar.visible": false,
+  "workbench.statusBar.visible": true,
   "workbench.tree.renderIndentGuides": "always",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.limit.enabled": true,
-  "telemetry.enableTelemetry": false,
-  "workbench.activityBar.visible": false
+  "telemetry.enableTelemetry": false
 }

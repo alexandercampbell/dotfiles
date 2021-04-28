@@ -1,89 +1,34 @@
 {
-  "editor.fontFamily": "'Iosevka Term', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-  "editor.fontSize": 13,
+  "editor.fontFamily": "'Iosevka Term', monospace",
+  "editor.fontSize": 12,
   "vim.incsearch": true,
   "vim.hlsearch": true,
-  "vim.insertModeKeyBindings": [
-    {
-      "before": ["j", "k"],
-      "after": ["<Esc>"]
-    }
-  ],
+  "vim.insertModeKeyBindings": [{ "before": ["j", "k"], "after": ["<Esc>"] }],
   "vim.leader": "<space>",
   "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      "before": ["w"],
-      "commands": [":w"]
-    },
-    {
-      "before": ["<leader>", "v"],
-      "commands": [":vs"]
-    },
-    {
-      "before": ["<leader>", "s"],
-      "commands": [":sp"]
-    },
-    {
-      "before": ["q"],
-      "commands": [":q"]
-    },
-    {
-      "before": [":"],
-      "commands": ["workbench.action.showCommands"]
-    },
-    {
-      "before": ["<leader>", "f"],
-      "commands": ["workbench.action.quickOpen"]
-    },
-    {
-      "before": ["<leader>", "p"],
-      "commands": [":tabp"]
-    },
-    {
-      "before": ["<leader>", "n"],
-      "commands": [":tabn"]
-    },
-    {
-      "before": ["<leader>", "h"],
-      "after": ["C-w", "h"]
-    },
-    {
-      "before": ["<leader>", "j"],
-      "after": ["C-w", "j"]
-    },
-    {
-      "before": ["<leader>", "k"],
-      "after": ["C-w", "k"]
-    },
-    {
-      "before": ["<leader>", "l"],
-      "after": ["C-w", "l"]
-    },
-    {
-      "before": ["<leader>", ":"],
-      "after": [":"]
-    },
-    {
-      "before": [">"],
-      "commands": ["editor.action.indentlines"]
-    },
-    {
-      "before": ["<"],
-      "commands": ["editor.action.outdentlines"]
-    },
-    {
-      "before": ["g", "r"],
-      "commands": ["editor.action.goToReferences"]
-    }
+    { "before": ["w"], "commands": [":w"] },
+    { "before": ["<leader>", "v"], "commands": [":vs"] },
+    { "before": ["<leader>", "s"], "commands": [":sp"] },
+    { "before": ["q"], "commands": [":q"] },
+    { "before": [":"], "commands": ["workbench.action.showCommands"] },
+    { "before": ["<leader>", "f"], "commands": ["workbench.action.quickOpen"] },
+    { "before": ["<leader>", "p"], "commands": [":tabp"] },
+    { "before": ["<leader>", "n"], "commands": [":tabn"] },
+    { "before": ["<leader>", "h"], "after": ["C-w", "h"] },
+    { "before": ["<leader>", "j"], "after": ["C-w", "j"] },
+    { "before": ["<leader>", "k"], "after": ["C-w", "k"] },
+    { "before": ["<leader>", "l"], "after": ["C-w", "l"] },
+    { "before": ["<leader>", ":"], "after": [":"] },
+    { "before": [">"], "commands": ["editor.action.indentlines"] },
+    { "before": ["<"], "commands": ["editor.action.outdentlines"] },
+    { "before": ["g", "r"], "commands": ["editor.action.goToReferences"] }
   ],
-  "window.restoreFullscreen": true,
+  "window.restoreFullscreen": false,
   "elmLS.elmPath": "/Users/alexander/.nvm/versions/node/v8.15.0/bin/elm",
   "elmLS.elmFormatPath": "/Users/alexander/.nvm/versions/node/v8.15.0/bin/elm-format",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "[elm]": {
-    "editor.defaultFormatter": "elmTooling.elm-ls-vscode"
-  },
+  "[elm]": { "editor.defaultFormatter": "elmTooling.elm-ls-vscode" },
   "[markdown]": {
     "editor.formatOnSave": false,
     "editor.wordWrap": "wordWrapColumn",
@@ -102,10 +47,11 @@
       "activityBar.inactiveForeground": "#770000"
     }
   },
-  "bbcfor.cursorSurroundingLines": 3,
+  "editor.cursorSurroundingLines": 3,
   "editor.renderIndentGuides": false,
   "editor.tabSize": 8,
   "editor.detectIndentation": true,
+  "editor.rulers": [80],
   "git.enableSmartCommit": true,
   "window.nativeFullScreen": false,
   "extensions.ignoreRecommendations": true,
@@ -118,5 +64,6 @@
   "workbench.tree.renderIndentGuides": "always",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.limit.enabled": true,
-  "telemetry.enableTelemetry": false
+  "telemetry.enableTelemetry": false,
+  "git.confirmSync": false
 }

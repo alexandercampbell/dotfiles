@@ -1,6 +1,7 @@
 {
   "editor.fontFamily": "'Iosevka Term', monospace",
   "editor.fontSize": 12,
+  "terminal.integrated.fontSize": 12,
   "vim.incsearch": true,
   "vim.hlsearch": true,
   "vim.insertModeKeyBindings": [{ "before": ["j", "k"], "after": ["<Esc>"] }],
@@ -9,7 +10,7 @@
     { "before": ["w"], "commands": [":w"] },
     { "before": ["<leader>", "v"], "commands": [":vs"] },
     { "before": ["<leader>", "s"], "commands": [":sp"] },
-    { "before": ["q"], "commands": [":q"] },
+    { "before": ["q"], "after": ["C-w", "q"] },
     { "before": [":"], "commands": ["workbench.action.showCommands"] },
     { "before": ["<leader>", "f"], "commands": ["workbench.action.quickOpen"] },
     { "before": ["<leader>", "p"], "commands": [":tabp"] },
@@ -27,8 +28,8 @@
   "elmLS.elmPath": "/Users/alexander/.nvm/versions/node/v8.15.0/bin/elm",
   "elmLS.elmFormatPath": "/Users/alexander/.nvm/versions/node/v8.15.0/bin/elm-format",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
   "[elm]": { "editor.defaultFormatter": "elmTooling.elm-ls-vscode" },
+  "editor.formatOnSave": true,
   "[markdown]": {
     "editor.formatOnSave": false,
     "editor.wordWrap": "wordWrapColumn",
@@ -55,15 +56,18 @@
   "git.enableSmartCommit": true,
   "window.nativeFullScreen": false,
   "extensions.ignoreRecommendations": true,
-  "workbench.colorTheme": "Cute",
+  "workbench.colorTheme": "Gruvbox Material Light",
   "editor.minimap.scale": 1,
   "editor.minimap.renderCharacters": false,
   "workbench.fontAliasing": "antialiased",
-  "workbench.iconTheme": "vs-minimal",
+  "workbench.iconTheme": "Monokai Pro Icons",
   "workbench.statusBar.visible": true,
   "workbench.tree.renderIndentGuides": "always",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.limit.enabled": true,
   "telemetry.enableTelemetry": false,
-  "git.confirmSync": false
+  "git.confirmSync": false,
+  "editor.renderControlCharacters": true,
+  "breadcrumbs.enabled": false,
+  "editor.minimap.enabled": false
 }

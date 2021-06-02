@@ -6,3 +6,5 @@
 	excludesfile = ~/.gitignore
 [commit]
 	verbose = true
+[pull]
+	ff = only

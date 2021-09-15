@@ -7,13 +7,14 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'farmergreg/vim-lastplace'
+Plug 'haystackandroid/snow'
 call plug#end()
 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 let g:coc_global_extensions = ['coc-tsserver', 'coc-json', 'coc-vimlsp', 'coc-prettier', 'coc-eslint']
 
 set background=dark
-colorscheme gruvbox
+colorscheme snow
 
 let g:netrw_banner=0
 set number list
@@ -26,6 +27,7 @@ set mouse=a
 set smartindent
 set shortmess+=Ic
 set nobackup nowritebackup hidden cmdheight=2
+set termguicolors
 
 au FileType javascript setl ts=2 sw=2 et
 

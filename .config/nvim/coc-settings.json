@@ -3,7 +3,9 @@
     "elm",
     "json",
     "javascript",
-    "typescript"
+    "typescript",
+    "typescriptreact",
+    "css"
   ],
   "languageserver": {
     "elmLS": {

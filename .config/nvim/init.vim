@@ -28,6 +28,8 @@ set smartindent
 set shortmess+=Ic
 set nobackup nowritebackup hidden cmdheight=2
 set termguicolors
+set formatoptions+=l " Prevent autowrapping while editing long lines.
+set nojoinspaces     " I only use one space after punctuation marks.
 
 au FileType javascript setl ts=2 sw=2 et
 

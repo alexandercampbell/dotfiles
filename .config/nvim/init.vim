@@ -13,7 +13,11 @@ call plug#end()
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 let g:coc_global_extensions = ['coc-tsserver', 'coc-json', 'coc-vimlsp', 'coc-prettier', 'coc-eslint']
 
-set background=dark
+if $DARK_MODE
+	set background=dark
+else
+	set background=light
+endif
 colorscheme snow
 
 let g:netrw_banner=0

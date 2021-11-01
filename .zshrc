@@ -65,7 +65,27 @@ if which xset > /dev/null; then
 	xset m 0 0
 fi
 
-sh "$HOME/dotfiles/vendor/snow_dark.sh"
+if [[ "$(uname)" = 'Darwin' ]]
+then
+	APPLE_INTERFACE_STYLE=$(defaults read -g AppleInterfaceStyle 2>/dev/null)
+	if [[ $APPLE_INTERFACE_STYLE = 'Dark' ]]
+	then
+		export DARK_MODE=1
+	else
+		export DARK_MODE=0
+	fi
+else
+	# not on MacOS-- not sure how you detect dark theme on ubuntu
+	# default to dark
+	export DARK_MODE=1
+fi
+
+if [[ $DARK_MODE -eq 1 ]]
+then
+	sh "$HOME/dotfiles/vendor/snow_dark.sh"
+else
+	sh "$HOME/dotfiles/vendor/snow_light.sh"
+fi
 
 # Include local init script if it exists. This is for when the local computer
 # needs custom configuration that I don't want in my standard dotfiles.

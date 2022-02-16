@@ -58,6 +58,8 @@ nmap <Leader>f <C-p>
 nnoremap - :Explore<CR>
 nnoremap <C-l> :noh<CR>
 
+au FileType rust nnoremap <CR> :!cargo run<CR>
+
 " COC bindings
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)

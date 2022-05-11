@@ -1,0 +1,10 @@
+font:
+  normal:
+    family: Iosevka
+
+window:
+  decorations: none
+  startup_mode: SimpleFullscreen
+
+key_bindings:
+  - { key: Return, mods: Command, action: ToggleSimpleFullscreen }

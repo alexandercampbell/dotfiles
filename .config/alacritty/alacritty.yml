@@ -1,6 +1,8 @@
 font:
   normal:
     family: Iosevka
+  size: 14
+  use_thin_strokes: true
 
 window:
   decorations: none

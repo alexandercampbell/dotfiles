@@ -4,6 +4,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-surround'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'farmergreg/vim-lastplace'
 Plug 'itchyny/lightline.vim'
@@ -23,7 +24,7 @@ let g:ctrlp_switch_buffer = 0
 let g:ctrlp_map = '<Leader>f'
 
 let g:coc_global_extensions = ['coc-tsserver', 'coc-json', 'coc-vimlsp', 'coc-prettier', 'coc-eslint']
-let g:lightline = { 'colorscheme': 'PaperColor' }
+let g:lightline = { 'colorscheme': 'gruvbox' }
 
 let g:netrw_banner = 0
 set number
@@ -78,4 +79,4 @@ if $DARK_MODE
 else
 	set background=light
 endif
-colorscheme PaperColor
+colorscheme gruvbox

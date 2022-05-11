@@ -82,9 +82,9 @@ fi
 
 if [[ $DARK_MODE -eq 1 ]]
 then
-	sh "$HOME/dotfiles/vendor/snow_dark.sh"
+	sh "$HOME/dotfiles/vendor/base16-gruvbox-dark-medium.sh"
 else
-	sh "$HOME/dotfiles/vendor/snow_light.sh"
+	sh "$HOME/dotfiles/vendor/base16-gruvbox-light-medium.sh"
 fi
 
 # Include local init script if it exists. This is for when the local computer

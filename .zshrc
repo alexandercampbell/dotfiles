@@ -43,6 +43,7 @@ alias dc='cd'
 alias cd='cd -P'
 
 alias gs='gst'
+alias gdt='git difftool'
 
 alias '..'='cd ..'
 alias '...'='cd ../..'
@@ -55,6 +56,7 @@ alias time='/usr/bin/time'
 alias nrepl="$HOME/dotfiles/scripts/nrepl.sh"
 alias uberdeps="$HOME/dotfiles/scripts/uberdeps.sh"
 alias prettify-json='bb -i "(-> (str/join \\n *input*) json/parse-string (json/generate-string {:pretty true}) println)"'
+alias screenshot="scrot '%Y-%m-%d_%H:%M.png' -sz"
 
 if which xset > /dev/null; then
 	# Increase the key repeat rate

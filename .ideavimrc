@@ -25,7 +25,7 @@ nnoremap <leader>= <C-w>=
 nnoremap <leader>f :action SearchEverywhere<CR>
 nnoremap <leader>z :action ToggleDistractionFreeMode<CR>
 nnoremap <C-l> :noh<CR>
-nnoremap <leader><CR> :action Run<CR>
+nnoremap <CR> :action Run<CR>
 
 set ignorecase
 set smartcase

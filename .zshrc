@@ -15,7 +15,6 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # /dev/null instead.
 if which nvim > /dev/null; then
 	alias vi=nvim
-	export MANPAGER="nvim -c 'set ft=man' -"
 	export EDITOR=nvim
 	export VISUAL=nvim
 fi

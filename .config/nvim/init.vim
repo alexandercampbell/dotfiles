@@ -62,8 +62,9 @@ nnoremap <leader>_ <c-w>_
 nnoremap - :Explore<cr>
 nnoremap <c-/> :noh<cr>
 
-au FileType rust nnoremap <cr> :!cargo run<cr>
-au FileType lua  nnoremap <cr> :!love .<cr>
+au FileType rust    nnoremap <cr> :!cargo run<cr>
+au FileType lua     nnoremap <cr> :!love .<cr>
+au FileType clojure nnoremap <cr> :!bb %<cr>
 
 " Theme at the bottom of the file because some themes don't initialize properly
 " otherwise.
@@ -72,4 +73,4 @@ if $DARK_MODE
 else
 	set background=light
 endif
-colorscheme nord
+colorscheme snow

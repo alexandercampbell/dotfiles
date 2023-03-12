@@ -1,0 +1,17 @@
+#theme = "meliora"
+#theme = "boo_berry"
+#theme = "zenburn"
+
+[editor]
+color-modes = true
+idle-timeout = 0
+rulers = [81, 93] # put ruler one past the final permissible character
+
+[keys.insert]
+j = { k = "normal_mode" }
+
+[keys.normal]
+w = ":w"
+q = ":q"
+'{' = 'goto_prev_paragraph'
+'}' = 'goto_next_paragraph'

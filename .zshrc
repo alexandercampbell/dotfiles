@@ -13,7 +13,10 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Can't use the -s switch to `which` in certain implementations, so pipe to
 # /dev/null instead.
-if which nvim > /dev/null; then
+if which hx > /dev/null; then
+	export EDITOR=hx
+	export VISUAL=hx
+elif which nvim > /dev/null; then
 	alias vi=nvim
 	export EDITOR=nvim
 	export VISUAL=nvim

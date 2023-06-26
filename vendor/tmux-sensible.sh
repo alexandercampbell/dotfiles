@@ -1,28 +1,4 @@
 #!/usr/bin/env bash
-#
-# tmux-sensible -- https://github.com/tmux-plugins/tmux-sensible
-#
-# Copyright (C) 2014 Bruno Sutic
-# 
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-# 
-# The above copyright notice and this permission notice shall be included in all
-# copies or substantial portions of the Software.
-# 
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
-#
-
 
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -35,7 +11,7 @@ is_osx() {
 }
 
 iterm_terminal() {
-	[[ "$TERM_PROGRAM" =~ ^iTerm ]]
+	[[ "${TERM_PROGRAM}" =~ ^iTerm || "${LC_TERMINAL}" =~ ^iTerm ]]
 }
 
 command_exists() {
@@ -69,7 +45,7 @@ server_option_value_not_changed() {
 }
 
 key_binding_not_set() {
-	local key="$1"
+	local key="${1//\\/\\\\}"
 	if $(tmux list-keys | grep -q "${KEY_BINDING_REGEX}${key}[[:space:]]"); then
 		return 1
 	else
@@ -88,14 +64,19 @@ key_binding_not_changed() {
 	fi
 }
 
+get_tmux_config() {
+	local tmux_config_xdg="${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf"
+	local tmux_config="$HOME/.tmux.conf"
+
+	if [ -f "${tmux_config_xdg}" ]; then
+		echo "${tmux_config_xdg}"
+	else
+		echo ${tmux_config}
+	fi
+}
+
 main() {
 	# OPTIONS
-
-	# enable utf8 (option removed in tmux 2.2)
-	tmux set-option -g utf8 on 2>/dev/null
-
-	# enable utf8 in tmux status-left and status-right (option removed in tmux 2.2)
-	tmux set-option -g status-utf8 on 2>/dev/null
 
 	# address vim mode switching delay (http://superuser.com/a/252717/65504)
 	if server_option_value_not_changed "escape-time" "500"; then
@@ -150,7 +131,7 @@ main() {
 
 	# if C-b is not prefix
 	if [ $prefix != "C-b" ]; then
-		# unbind obsolte default binding
+		# unbind obsolete default binding
 		if key_binding_not_changed "C-b" "send-prefix"; then
 			tmux unbind-key C-b
 		fi
@@ -177,9 +158,11 @@ main() {
 
 	# source `.tmux.conf` file - as suggested in `man tmux`
 	if key_binding_not_set "R"; then
-		tmux bind-key R run-shell ' \
-			tmux source-file ~/.tmux.conf > /dev/null; \
-			tmux display-message "Sourced .tmux.conf!"'
+		local tmux_config=$(get_tmux_config)
+
+		tmux bind-key R run-shell " \
+			tmux source-file ${tmux_config} > /dev/null; \
+			tmux display-message 'Sourced ${tmux_config}!'"
 	fi
 }
 main

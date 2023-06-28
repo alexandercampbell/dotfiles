@@ -11,16 +11,8 @@ antigen apply
 # Repository status check for large repositories is much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Can't use the -s switch to `which` in certain implementations, so pipe to
-# /dev/null instead.
-if which hx > /dev/null; then
-	export EDITOR=hx
-	export VISUAL=hx
-elif which nvim > /dev/null; then
-	alias vi=nvim
-	export EDITOR=nvim
-	export VISUAL=nvim
-fi
+export EDITOR=hx
+export VISUAL=hx
 
 export SAVEHIST=2000
 export HISTFILE=~/.zsh_history
@@ -63,11 +55,6 @@ alias '....'='cd ../../..'
 # I want to use the command.
 alias time='/usr/bin/time'
 
-alias nrepl="$HOME/dotfiles/scripts/nrepl.sh"
-alias uberdeps="$HOME/dotfiles/scripts/uberdeps.sh"
-alias prettify-json='bb -i "(-> (str/join \\n *input*) json/parse-string (json/generate-string {:pretty true}) println)"'
-alias screenshot="scrot '%Y-%m-%d_%H:%M.png' -sz"
-
 if which xset > /dev/null; then
 	# Increase the key repeat rate
 	# I don't like to wait
@@ -92,12 +79,13 @@ else
 	export DARK_MODE=1
 fi
 
-if [[ $DARK_MODE -eq 1 ]]
-then
-	sh "$HOME/dotfiles/vendor/base16-gruvbox-dark-medium.sh"
-else
-	sh "$HOME/dotfiles/vendor/base16-gruvbox-light-medium.sh"
-fi
+# if [[ $DARK_MODE -eq 1 ]]
+# then
+# 	#sh "$HOME/dotfiles/vendor/snow_dark.sh"
+# 	sh "$HOME/dotfiles/vendor/base16-zenburn.sh"
+# else
+# 	sh "$HOME/dotfiles/vendor/snow_light.sh"
+# fi
 
 # Include local init script if it exists. This is for when the local computer
 # needs custom configuration that I don't want in my standard dotfiles.

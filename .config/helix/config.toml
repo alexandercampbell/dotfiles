@@ -1,11 +1,13 @@
-#theme = "meliora"
-#theme = "boo_berry"
-#theme = "zenburn"
+theme = "rose_pine_dawn"
 
 [editor]
+cursorline = true
 color-modes = true
 idle-timeout = 0
 rulers = [81, 93] # put ruler one past the final permissible character
+
+[editor.lsp]
+display-messages = true
 
 [keys.insert]
 j = { k = "normal_mode" }
@@ -13,5 +15,3 @@ j = { k = "normal_mode" }
 [keys.normal]
 w = ":w"
 q = ":q"
-'{' = 'goto_prev_paragraph'
-'}' = 'goto_next_paragraph'

@@ -1,0 +1,16 @@
+import = ["~/.config/alacritty/rose-pine-dawn.toml"]
+
+[keyboard]
+bindings = [
+  { key = "Return", mods = "Command", action = "ToggleSimpleFullscreen" }
+]
+
+[font.normal]
+family = "Iosevka"
+
+[font]
+size = 15
+
+[window]
+decorations = "none"
+startup_mode = "SimpleFullscreen"

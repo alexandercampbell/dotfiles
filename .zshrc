@@ -5,8 +5,11 @@ antigen bundle 'git'
 antigen bundle 'vi-mode'
 antigen bundle 'zsh-users/zsh-autosuggestions'
 antigen bundle 'zsh-users/zsh-syntax-highlighting'
-antigen theme eastwood
 antigen apply
+
+setopt promptsubst
+export PROMPT='$($HOME/dotfiles/zsh-prompt.clj)'
+export RPROMPT=''
 
 # Repository status check for large repositories is much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"

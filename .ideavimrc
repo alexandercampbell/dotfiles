@@ -2,28 +2,39 @@
 nnoremap w :w<CR>
 nnoremap q :q<CR>
 nnoremap gr :action FindUsages<CR>
+" Don't recall why I have this bound this way. I never use X in visual mode.
 vnoremap X x
 inoremap jk <Esc>
 
 let mapleader = " "
-nnoremap <leader>s :sp<CR>
-nnoremap <leader>v :vs<CR>
-nnoremap <leader>d :r !date '+\%Y\%m\%d'<CR>
-nnoremap <leader>h <C-w>h
-nnoremap <leader>j <C-w>j
-nnoremap <leader>k <C-w>k
-nnoremap <leader>l <C-w>l
-nnoremap <leader>n :tabn<CR>
-nnoremap <leader>p :tabp<CR>
-nnoremap <leader><S-h> <C-w><S-h>
-nnoremap <leader><S-j> <C-w><S-j>
-nnoremap <leader><S-k> <C-w><S-k>
-nnoremap <leader><S-l> <C-w><S-l>
-nnoremap <leader><bar> <C-w><bar>
-nnoremap <leader>_ <C-w>_
-nnoremap <leader>= <C-w>=
-nnoremap <leader>f :action SearchEverywhere<CR>
+
+" More like Helix
+nnoremap U <C-r>
+nnoremap gl $
+nnoremap gh ^
+nnoremap ge G
+nnoremap x V
+vnoremap x j
+nnoremap m v
+nnoremap mm %
+nnoremap <leader>ws :sp<CR>
+nnoremap <leader>wv :vs<CR>
+nnoremap <leader>wh <C-w>h
+nnoremap <leader>wj <C-w>j
+nnoremap <leader>wk <C-w>k
+nnoremap <leader>wl <C-w>l
+nnoremap <leader>y "+y
+nnoremap <leader>p "+p
+
+" I don't think these work anyway
+nnoremap <leader>w<S-h> <C-w><S-h>
+nnoremap <leader>w<S-j> <C-w><S-j>
+nnoremap <leader>w<S-k> <C-w><S-k>
+nnoremap <leader>w<S-l> <C-w><S-l>
+noremap <leader>f :action SearchEverywhere<CR>
 nnoremap <leader>z :action ToggleDistractionFreeMode<CR>
+nnoremap <leader>r :action RenameElement<CR>
+nnoremap <leader>b :action Annotate<CR>
 nnoremap <C-l> :noh<CR>
 nnoremap <CR> :action Run<CR>
 

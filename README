@@ -14,9 +14,8 @@ Instructions
 	ln -s dotfiles/.tmux.conf
 	ln -s dotfiles/.zshrc
 	ln -s dotfiles/.gitconfig
+	ln -s dotfiles/.zprintrc
 
-	cd dotfiles/scripts
-	./install_vim-plug.sh
 	cd
 	exec zsh
 

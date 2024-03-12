@@ -1,8 +1,6 @@
 
 source "$HOME/dotfiles/vendor/antigen.zsh"
-antigen use oh-my-zsh
 antigen bundle 'git'
-antigen bundle 'vi-mode'
 antigen bundle 'zsh-users/zsh-autosuggestions'
 antigen bundle 'zsh-users/zsh-syntax-highlighting'
 antigen apply
@@ -27,12 +25,19 @@ export PATH="$HOME/bin:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 
+export GOPATH="$HOME/workspace/gopath"
+
 alias ls='ls --color=auto --group-directories-first'
 alias l='ls'
 alias ll='ls -lh'
 alias la='ls -la'
 alias sl='ls'
 alias dc='cd'
+
+alias bb='rlwrap bb'
+
+# Ref https://stackoverflow.com/a/24005600
+alias strip-ansi="sed -r 's/\x1b\[[^@-~]*[@-~]//g'"
 
 # Treat symbolic links to directories as jumps.
 # This may not fit with traditional Linux model of a filesystem, but it makes

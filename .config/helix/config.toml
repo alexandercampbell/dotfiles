@@ -6,6 +6,9 @@ color-modes = true
 idle-timeout = 0
 rulers = [81, 93] # put ruler one past the final permissible character
 
+[editor.soft-wrap]
+enable = true
+
 [editor.lsp]
 display-messages = true
 

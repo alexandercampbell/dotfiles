@@ -46,12 +46,6 @@
   ; https://stackoverflow.com/a/2534676
   (str "%{" \u001b (get ansi-codes kw (get ansi :reset)) "%}"))
 
-(defn shout
-  [cmd & args]
-  (-> (apply shell/sh cmd args)
-      (get :out)
-      (str/trim)))
-
 (def now (.now java.time.LocalTime))
 (def time-formatter (.ofPattern java.time.format.DateTimeFormatter "kk:mm:ss"))
 (def now-formatted (.format now time-formatter))
@@ -60,8 +54,9 @@
   (let [{exit :exit, out :out} (shell/sh "git" "branch" "--show-current")]
     (when (zero? exit) (str/trim out))))
 
+(def pwd (System/getenv "PWD"))
 (def home (System/getenv "HOME"))
-(def abbrev-pwd (str/replace-first (shout "pwd") home "~"))
+(def abbrev-pwd (str/replace-first pwd home "~"))
 
 (def prompt-components
   [(ansi :magenta) now-formatted " "

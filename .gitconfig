@@ -10,3 +10,5 @@
 	ff = only
 [init]
 	defaultBranch = master
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/

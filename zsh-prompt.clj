@@ -3,7 +3,7 @@
 ; Use with
 ;
 ;   setopt promptsubst
-;   export PROMPT='$(zsh-prompt.clj)'
+;   export PROMPT='$(zsh-prompt.clj $?)'
 ;
 
 (require '[clojure.string :as str])
@@ -46,9 +46,8 @@
   ; https://stackoverflow.com/a/2534676
   (str "%{" \u001b (get ansi-codes kw) "%}"))
 
-(def now (.now java.time.LocalTime))
 (def time-formatter (.ofPattern java.time.format.DateTimeFormatter "kk:mm:ss"))
-(def now-formatted (.format now time-formatter))
+(def time-str (-> java.time.LocalTime .now (.format time-formatter)))
 
 (def current-git-branch
   (let [{exit :exit out :out} (shell/sh "git" "branch" "--show-current")]
@@ -58,9 +57,13 @@
 (def home (System/getenv "HOME"))
 (def abbrev-pwd (str/replace-first pwd home "~"))
 
+(def exit-code (first *command-line-args*))
+
 (def prompt-components
-  [(ansi :magenta) now-formatted " "
+  [(ansi :magenta) time-str " "
    (when current-git-branch (str (ansi :green) current-git-branch " "))
-   (ansi :blue) abbrev-pwd (ansi :reset) " λ "])
+   (ansi :blue) abbrev-pwd " "
+   (some-> exit-code (= "0") (if :green :red) (ansi) (str exit-code))
+   (ansi :reset) " λ "])
 
 (->> prompt-components (filter some?) (apply str) print)

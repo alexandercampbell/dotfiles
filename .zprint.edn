@@ -1,0 +1,3 @@
+{:fn-map {"->" :none "->>" :none "as->" :none "some->" :none "some->>" :none}
+ :map    {:comma? false :sort? false}
+ :style  [:justified-original :require-justify]}

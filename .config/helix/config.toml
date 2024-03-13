@@ -1,4 +1,4 @@
-theme = "rose_pine_dawn"
+theme = "modus_vivendi"
 
 [editor]
 cursorline = true
@@ -8,6 +8,9 @@ rulers = [81, 93] # put ruler one past the final permissible character
 
 [editor.soft-wrap]
 enable = true
+
+[editor.file-picker]
+follow-symlinks = false
 
 [editor.lsp]
 display-messages = true

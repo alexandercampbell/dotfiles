@@ -2,25 +2,5 @@
 name = "clojure"
 auto-format = true
 formatter = {command = "zprint"}
-
-[[language]]
-name = "typescript"
-auto-format = true
-formatter = {command = "yarn", args = ["run", "--silent", "prettier", "--parser", "typescript"]}
-[[language]]
-name = "tsx"
-auto-format = true
-formatter = {command = "yarn", args = ["run", "--silent", "prettier", "--parser", "typescript"]}
-[[language]]
-name = "javascript"
-auto-format = true
-formatter = {command = "yarn", args = ["run", "--silent", "prettier", "--parser", "typescript"]}
-[[language]]
-name = "jsx"
-auto-format = true
-formatter = {command = "yarn", args = ["run", "--silent", "prettier", "--parser", "typescript"]}
-
-[[language]]
-name = "json"
-auto-format = true
-formatter = {command = "yarn", args = ["run", "--silent", "prettier", "--parser", "json"]}
+[language.auto-pairs]
+# empty

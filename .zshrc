@@ -6,7 +6,7 @@ antigen bundle 'zsh-users/zsh-syntax-highlighting'
 antigen apply
 
 setopt promptsubst
-export PROMPT='$($HOME/dotfiles/zsh-prompt.clj $?)'
+export PROMPT='$($HOME/dotfiles/tool/zsh-prompt.clj $?)'
 export RPROMPT=''
 
 # Repository status check for large repositories is much faster.
@@ -87,13 +87,7 @@ else
 	export DARK_MODE=1
 fi
 
-# if [[ $DARK_MODE -eq 1 ]]
-# then
-# 	#sh "$HOME/dotfiles/vendor/snow_dark.sh"
-# 	sh "$HOME/dotfiles/vendor/base16-zenburn.sh"
-# else
-# 	sh "$HOME/dotfiles/vendor/snow_light.sh"
-# fi
+"$HOME/dotfiles/tool/theme-switcher.clj"
 
 # Include local init script if it exists. This is for when the local computer
 # needs custom configuration that I don't want in my standard dotfiles.

@@ -1,4 +1,4 @@
-import = ["~/.config/alacritty/rose-pine-dawn.toml"]
+import = ["~/dotfiles/vendor/alacritty-theme/themes/github_dark_dimmed.toml"]
 
 [keyboard]
 bindings = [
@@ -6,7 +6,7 @@ bindings = [
 ]
 
 [font.normal]
-family = "Iosevka"
+family = "Iosevka Light"
 
 [font]
 size = 15

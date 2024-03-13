@@ -1,0 +1,3 @@
+[submodule "alacritty-theme"]
+	path = vendor/alacritty-theme
+	url = git@github.com:alacritty/alacritty-theme.git

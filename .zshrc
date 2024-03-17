@@ -6,7 +6,8 @@ antigen bundle 'zsh-users/zsh-syntax-highlighting'
 antigen apply
 
 setopt promptsubst
-export PROMPT='$($HOME/dotfiles/tool/zsh-prompt.clj $?)'
+#export PROMPT='$($HOME/dotfiles/tool/zsh-prompt.clj $?)'
+export PROMPT='$(zsh-prompt-rs $?)'
 export RPROMPT=''
 
 # Repository status check for large repositories is much faster.

@@ -1,5 +1,4 @@
 #!/usr/bin/env bb
-
 (require '[clojure.string :as str])
 
 (def home (System/getenv "HOME"))

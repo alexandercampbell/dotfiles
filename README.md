@@ -15,6 +15,7 @@ ln -s dotfiles/.gitconfig
 ln -s dotfiles/.zshrc
 ln -s dotfiles/.zprint.edn
 ln -s dotfiles/.ideavimrc
+ln -s dotfiles/.rustfmt.toml
 
 cd
 exec zsh

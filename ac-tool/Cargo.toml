@@ -1,7 +1,8 @@
 [package]
-name = "zsh-prompt-rs"
+name = "ac-tool"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
 chrono = "0.4.35"
+clap = { version = "4.5.3", features = ["derive"] }

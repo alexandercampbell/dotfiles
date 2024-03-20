@@ -6,8 +6,9 @@ antigen bundle 'zsh-users/zsh-syntax-highlighting'
 antigen apply
 
 setopt promptsubst
-#export PROMPT='$($HOME/dotfiles/tool/zsh-prompt.clj $?)'
-export PROMPT='$(ac-tool prompt $?)'
+export PROMPT='$($HOME/dotfiles/tool/zsh-prompt.clj $?)'
+# Rust implementation is much faster but harder to modify.
+#export PROMPT='$(ac-tool prompt $?)'
 export RPROMPT=''
 
 # Repository status check for large repositories is much faster.

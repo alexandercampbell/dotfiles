@@ -1,6 +1,7 @@
 
 source "$HOME/dotfiles/vendor/antigen.zsh"
 antigen bundle 'git'
+antigen bundle 'vi-mode'
 antigen bundle 'zsh-users/zsh-autosuggestions'
 antigen bundle 'zsh-users/zsh-syntax-highlighting'
 antigen apply
@@ -46,6 +47,7 @@ alias strip-ansi="sed -r 's/\x1b\[[^@-~]*[@-~]//g'"
 # more sense for my usages of symbolic links.
 alias cd='cd -P'
 
+alias gb='git branch -vv'
 alias gs='gst'
 alias gdt='git difftool'
 alias git-watcher='watch -n 1 --no-title --color "

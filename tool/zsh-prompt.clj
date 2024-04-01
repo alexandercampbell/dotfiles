@@ -46,9 +46,14 @@
 (def time-formatter (java.time.format.DateTimeFormatter/ofPattern "kk:mm:ss"))
 (def time-str (.format (java.time.LocalTime/now) time-formatter))
 
-(def current-git-branch
-  (let [{:keys [exit out]} (shell/sh "git" "branch" "--show-current")]
-    (when (zero? exit) (str/trim out))))
+(defn shout
+  [cmd & args]
+  (let [{:keys [exit out]} (apply shell/sh cmd args)]
+    (when (and (zero? exit) (not (str/blank? out))) (str/trim out))))
+
+(defn current-git-branch [] (shout "git" "branch" "--show-current"))
+(defn current-git-hash [] (shout "git" "rev-parse" "--short" "HEAD"))
+(def git-descriptor (or (current-git-branch) (current-git-hash)))
 
 (def pwd (System/getenv "PWD"))
 (def home (System/getenv "HOME"))
@@ -57,7 +62,7 @@
 (def exit-code (first *command-line-args*))
 
 (def prompt-components
-  [(ansi-wrap :magenta time-str) (some->> current-git-branch (ansi-wrap :green))
+  [(ansi-wrap :magenta time-str) (some->> git-descriptor (ansi-wrap :green))
    (ansi-wrap :blue abbrev-pwd)
    (some-> exit-code (= "0") (if :green :red) (ansi-wrap exit-code)) "λ "])
 

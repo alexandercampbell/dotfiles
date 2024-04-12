@@ -62,8 +62,10 @@
 (def exit-code (first *command-line-args*))
 
 (def prompt-components
-  [(ansi-wrap :magenta time-str) (some->> git-descriptor (ansi-wrap :green))
-   (ansi-wrap :blue abbrev-pwd)
-   (some-> exit-code (= "0") (if :green :red) (ansi-wrap exit-code)) "λ "])
+  [(ansi-wrap :magenta time-str) ; time
+   (some->> git-descriptor (ansi-wrap :green)) ; git branch
+   (ansi-wrap :blue abbrev-pwd) ; pwd
+   (some-> exit-code (= "0") (if :green :red) (ansi-wrap exit-code)) ; exit code
+   (ansi-wrap :yellow "λ ")])
 
 (->> prompt-components (filter some?) (interpose " ") (apply str) print)

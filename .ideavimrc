@@ -17,6 +17,10 @@ nnoremap x V
 vnoremap x j
 nnoremap m v
 nnoremap mm %
+nnoremap % ggvG
+nnoremap C <C-v>j
+vnoremap C j
+vnoremap , <Esc>
 nnoremap <leader>ws :sp<CR>
 nnoremap <leader>wv :vs<CR>
 nnoremap <leader>wh <C-w>h

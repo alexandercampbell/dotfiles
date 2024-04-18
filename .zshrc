@@ -37,6 +37,7 @@ alias la='ls -la'
 alias sl='ls'
 alias dc='cd'
 
+alias static-serve="$HOME/dotfiles/tool/static-serve.clj :port 8000"
 alias bb='rlwrap bb'
 
 # Ref https://stackoverflow.com/a/24005600

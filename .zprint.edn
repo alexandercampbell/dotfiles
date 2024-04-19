@@ -1,6 +1,18 @@
-{:fn-map         {"->" :none "->>" :none "as->" :none "some->" :none "some->>" :none}
- :map            {:comma? false :sort? false}
- :style          [:justified-original :sort-require :ns-justify]
+{:fn-map         {"->"      :none
+                  "->>"     :none
+                  "as->"    :none
+                  "some->"  :none
+                  "some->>" :none}
+
+ :map            {:comma? false
+                  :sort?  false}
+
+ :style          [:justified-original
+                  :sort-require
+                  :ns-justify
+                  :respect-nl]
+
  :width          92
+
  ; use local zprintrc if available
  :search-config? true}

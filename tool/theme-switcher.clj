@@ -11,7 +11,7 @@
              :helix     {:dark "gruvbox_dark_hard" :light "gruvbox_light_hard"}
              :zellij    {:dark "gruvbox-dark" :light "gruvbox-light"}}
    :clean   {:alacritty {:dark "kanagawa_dragon" :light "atom_one_light"}
-             :helix     {:dark "monokai_pro_ristretto" :light "modus_operandi"}
+             :helix     {:dark "kanagawa" :light "modus_operandi"}
              :zellij    {:dark "kanagawa" :light "catppuccin-latte"}}})
 
 (def program-configs

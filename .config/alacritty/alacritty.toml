@@ -1,4 +1,4 @@
-import = ["~/dotfiles/vendor/alacritty-theme/themes/github_dark_dimmed.toml"]
+import = ["~/dotfiles/vendor/alacritty-theme/themes/kanagawa_dragon.toml"]
 
 [keyboard]
 bindings = [
@@ -6,10 +6,12 @@ bindings = [
 ]
 
 [font.normal]
-family = "Iosevka Light"
+family = "Menlo"
+# family = "Iosevka"
+# family = "Monaco"
 
 [font]
-size = 15
+size = 12
 
 [window]
 decorations = "none"

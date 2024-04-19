@@ -40,17 +40,28 @@
 ; Escape sequences must be wrapped in %{ %}. Otherwise, Zsh will not correctly
 ; compute the cursor position for wrapping.
 ; Ref: https://stackoverflow.com/a/2534676
-(defn ansi [kw] (str "%{" \u001b \[ (get ansi-codes kw) \m "%}"))
+(defn ansi
+  [kw]
+  (str "%{"
+       \u001b
+       \[
+       (get ansi-codes kw)
+       \m
+       "%}"))
+
 (defn ansi-wrap
   [code & elts]
-  (str (ansi code) (apply str (filter some? elts)) (ansi :reset)))
+  (str (ansi code)
+       (apply str (filter some? elts))
+       (ansi :reset)))
 
-(def fmt-time (java.time.format.DateTimeFormatter/ofPattern "kk:mm:ss"))
+(def fmt-time
+  (java.time.format.DateTimeFormatter/ofPattern "kk:mm:ss"))
 
 (defn shout
   [cmd & args]
   (let [{:keys [exit out]} (apply shell/sh cmd args)]
-    (when (and ;
+    (when (and
             (zero? exit)
             (not (str/blank? out)))
       (str/trim out))))
@@ -65,11 +76,22 @@
 (def exit-code (first *command-line-args*))
 
 (def prompt-components
-  (let [time   (ansi-wrap :magenta (.format (java.time.LocalTime/now) fmt-time))
-        branch (ansi-wrap :green (or (current-git-branch) (current-git-hash)))
-        pwd    (ansi-wrap :blue abbrev-pwd)
-        exit   (some-> exit-code (= "0") (if :green :red) (ansi-wrap exit-code))
-        lambda (ansi-wrap :yellow "λ ")]
-    [time branch pwd exit lambda]))
+  [(ansi-wrap :magenta
+              (.format (java.time.LocalTime/now) fmt-time))
 
-(->> prompt-components (filter some?) (interpose " ") (apply str) print)
+   (ansi-wrap :green
+              (or (current-git-branch)
+                  (current-git-hash)))
+
+   (ansi-wrap :blue abbrev-pwd)
+
+   (ansi-wrap (if (= exit-code "0") :green :red)
+              exit-code)
+
+   (ansi-wrap :yellow "λ ")])
+
+(->> prompt-components
+     (filter some?)
+     (interpose " ")
+     (apply str)
+     print)

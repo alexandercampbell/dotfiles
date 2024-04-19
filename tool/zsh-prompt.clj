@@ -41,19 +41,22 @@
 ; compute the cursor position for wrapping.
 ; Ref: https://stackoverflow.com/a/2534676
 (defn ansi [kw] (str "%{" \u001b \[ (get ansi-codes kw) \m "%}"))
-(defn ansi-wrap [kw & elts] (str (ansi kw) (apply str elts) (ansi :reset)))
+(defn ansi-wrap
+  [code & elts]
+  (str (ansi code) (apply str (filter some? elts)) (ansi :reset)))
 
-(def time-formatter (java.time.format.DateTimeFormatter/ofPattern "kk:mm:ss"))
-(def time-str (.format (java.time.LocalTime/now) time-formatter))
+(def fmt-time (java.time.format.DateTimeFormatter/ofPattern "kk:mm:ss"))
 
 (defn shout
   [cmd & args]
   (let [{:keys [exit out]} (apply shell/sh cmd args)]
-    (when (and (zero? exit) (not (str/blank? out))) (str/trim out))))
+    (when (and ;
+            (zero? exit)
+            (not (str/blank? out)))
+      (str/trim out))))
 
 (defn current-git-branch [] (shout "git" "branch" "--show-current"))
 (defn current-git-hash [] (shout "git" "rev-parse" "--short" "HEAD"))
-(def git-descriptor (or (current-git-branch) (current-git-hash)))
 
 (def pwd (System/getenv "PWD"))
 (def home (System/getenv "HOME"))
@@ -62,10 +65,11 @@
 (def exit-code (first *command-line-args*))
 
 (def prompt-components
-  [(ansi-wrap :magenta time-str) ; time
-   (some->> git-descriptor (ansi-wrap :green)) ; git branch
-   (ansi-wrap :blue abbrev-pwd) ; pwd
-   (some-> exit-code (= "0") (if :green :red) (ansi-wrap exit-code)) ; exit code
-   (ansi-wrap :yellow "λ ")])
+  (let [time   (ansi-wrap :magenta (.format (java.time.LocalTime/now) fmt-time))
+        branch (ansi-wrap :green (or (current-git-branch) (current-git-hash)))
+        pwd    (ansi-wrap :blue abbrev-pwd)
+        exit   (some-> exit-code (= "0") (if :green :red) (ansi-wrap exit-code))
+        lambda (ansi-wrap :yellow "λ ")]
+    [time branch pwd exit lambda]))
 
 (->> prompt-components (filter some?) (interpose " ") (apply str) print)

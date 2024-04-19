@@ -2,34 +2,40 @@
 (require '[clojure.string :as str])
 
 (def home (System/getenv "HOME"))
-(def os-dark (-> (System/getenv "DARK_MODE") (= "1")))
-
-(defn replace-in-file
-  [path pattern replacement]
-  (let [original (slurp path)
-        updated  (str/replace-first original pattern replacement)]
-    (spit path updated)))
+(def chosen-theme :clean)
+(def themes
+  {:hacker  {:alacritty {:dark "alabaster_dark" :light "ayu_light"}
+             :helix     {:dark "modus_vivendi" :light "emacs"}
+             :zellij    {:dark "retro-wave" :light "pencil-light"}}
+   :gruvbox {:alacritty {:dark "gruvbox_dark" :light "gruvbox_light"}
+             :helix     {:dark "gruvbox_dark_hard" :light "gruvbox_light_hard"}
+             :zellij    {:dark "gruvbox-dark" :light "gruvbox-light"}}
+   :clean   {:alacritty {:dark "kanagawa_dragon" :light "atom_one_light"}
+             :helix     {:dark "monokai_pro_ristretto" :light "modus_operandi"}
+             :zellij    {:dark "kanagawa" :light "catppuccin-latte"}}})
 
 (def program-configs
   ; NOTE: regexes are expected to have three groups. The middle group ($2)
   ; will be replaced with the new value.
   {:alacritty {:path  (str home "/.config/alacritty/alacritty.toml")
-               :regex #"(alacritty-theme/themes/)([^\".]+)(.toml\")"
-               :dark  "github_dark_dimmed"
-               :light "ashes_light"}
+               :regex #"(alacritty-theme/themes/)([^\".]+)(.toml\")"}
    :helix     {:path  (str home "/.config/helix/config.toml")
-               :regex #"(theme = \")([^\"]+)(\")"
-               :dark  "modus_vivendi"
-               :light "modus_operandi_tinted"}
+               :regex #"(theme = \")([^\"]+)(\")"}
    :zellij    {:path  (str home "/.config/zellij/config.kdl")
-               :regex #"(theme \")([^\"]+)(\")"
-               :dark  "terafox"
-               :light "dayfox"}})
+               :regex #"(theme \")([^\"]+)(\")"}})
+
+(def os-is-dark (= "1" (System/getenv "DARK_MODE")))
+
+(defn replace-in-file
+  [path pattern replacement]
+  (spit path (str/replace-first (slurp path) pattern replacement)))
 
 (defn update-program-config
-  [program-config]
-  (let [{:keys [path regex dark light]} program-config
-        replacement                     (str "$1" (if os-dark dark light) "$3")]
+  [program-id]
+  (let [{:keys [path regex]} (get program-configs program-id)
+        theme                (get themes chosen-theme)
+        {:keys [dark light]} (get theme program-id)
+        replacement          (str "$1" (if os-is-dark dark light) "$3")]
     (replace-in-file path regex replacement)))
 
-(->> program-configs vals (map update-program-config) dorun)
+(dorun (map update-program-config (keys program-configs)))

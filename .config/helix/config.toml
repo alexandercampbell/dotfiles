@@ -4,7 +4,11 @@ theme = "kanagawa-dragon"
 cursorline = true
 color-modes = true
 idle-timeout = 0
-rulers = [81, 93] # put ruler one past the final permissible character
+rulers = [81, 93, 121] # put ruler one past the final permissible character
+
+[editor.statusline]
+left = ["mode", "spinner", "file-base-name", "read-only-indicator", "file-modification-indicator"]
+center = ["file-absolute-path"]
 
 [editor.soft-wrap]
 enable = true

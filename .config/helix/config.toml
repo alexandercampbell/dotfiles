@@ -1,4 +1,4 @@
-theme = "kanagawa"
+theme = "kanagawa-dragon"
 
 [editor]
 cursorline = true
@@ -19,5 +19,9 @@ display-messages = true
 j = { k = "normal_mode" }
 
 [keys.normal]
+"b" = "select_prev_sibling"
+"e" = "select_next_sibling"
+"tab" = "expand_selection"
+"S-tab" = "shrink_selection"
 w = ":w"
 q = ":q"

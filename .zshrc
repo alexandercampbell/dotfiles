@@ -8,9 +8,6 @@ antigen apply
 
 setopt promptsubst
 export PROMPT='$($HOME/dotfiles/tool/zsh-prompt.clj $?)'
-# Rust implementation is much faster but harder to modify.
-#export PROMPT='$(ac-tool prompt $?)'
-export RPROMPT=''
 
 # Repository status check for large repositories is much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"

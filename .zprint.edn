@@ -1,18 +1,19 @@
-{:fn-map {"->"      :none
-          "->>"     :none
-          "as->"    :none
-          "some->"  :none
-          "some->>" :none
-          "defn"    :arg2
-          "def"     :arg2
-          "defonce" :arg2}
+{:fn-map {"->"          :none
+          "->>"         :none
+          "as->"        :none
+          "some->"      :none
+          "some->>"     :none
+          "defn"        :arg2
+          "def"         :arg2
+          "defonce"     :arg2
+          "defprotocol" :arg1}
 
  :map    {:comma? false
           :sort?  false}
 
  :style  [:justified-original
-           :sort-require
-           :ns-justify
-           :respect-nl]
+          :sort-require
+          :ns-justify
+          :respect-nl]
 
  :width  92}

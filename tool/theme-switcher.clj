@@ -3,7 +3,7 @@
 
 (def home (System/getenv "HOME"))
 
-(def chosen-theme :clean)
+(def chosen-theme :red)
 
 (def themes
   {:hacker
@@ -20,6 +20,11 @@
      {:alacritty {:dark "kanagawa_dragon" :light "atom_one_light"}
       :helix     {:dark "kanagawa" :light "modus_operandi"}
       :zellij    {:dark "kanagawa" :light "catppuccin-latte"}}
+
+   :red
+     {:alacritty {:dark "inferno" :light "atom_one_light"}
+      :helix     {:dark "merionette" :light "boo_berry"}
+      :zellij    {:dark "gruvbox-dark" :light "catppuccin-latte"}}
   })
 
 (def program-configs

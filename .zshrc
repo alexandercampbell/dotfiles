@@ -27,6 +27,11 @@ export PATH="$PATH:$HOME/.cargo/bin"
 
 export GOPATH="$HOME/workspace/gopath"
 
+# Fix GPG ioctl error described in https://github.com/keybase/keybase-issues/issues/2798
+# Setting this env var in the shell rc file is recommended by the GPG manual.
+# https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html
+export GPG_TTY=$(tty)
+
 alias ls='ls --color=auto --group-directories-first'
 alias l='ls'
 alias ll='ls -lh'

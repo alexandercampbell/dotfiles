@@ -1,5 +1,3 @@
-import = ["~/dotfiles/vendor/alacritty-theme/themes/kanagawa_dragon.toml"]
-
 [keyboard]
 bindings = [
   { key = "Return", mods = "Command", action = "ToggleSimpleFullscreen" }
@@ -7,12 +5,15 @@ bindings = [
 
 [font.normal]
 family = "Menlo"
-# family = "Iosevka"
+# family = "Iosevka Extralight"
 # family = "Monaco"
 
 [font]
-size = 12
+size = 11
 
 [window]
 decorations = "none"
 startup_mode = "SimpleFullscreen"
+
+[general]
+import = ["~/dotfiles/vendor/alacritty-theme/themes/kanagawa_dragon.toml"]

@@ -9,6 +9,9 @@ antigen apply
 setopt promptsubst
 export PROMPT='$($HOME/dotfiles/tool/zsh-prompt.clj $?)'
 
+autoload -U select-word-style
+select-word-style bash
+
 # Repository status check for large repositories is much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 

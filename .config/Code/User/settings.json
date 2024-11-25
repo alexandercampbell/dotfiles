@@ -25,10 +25,6 @@
     { "before": ["g", "r"], "commands": ["editor.action.goToReferences"] }
   ],
   "window.restoreFullscreen": false,
-  "elmLS.elmPath": "/Users/alexander/.nvm/versions/node/v8.15.0/bin/elm",
-  "elmLS.elmFormatPath": "/Users/alexander/.nvm/versions/node/v8.15.0/bin/elm-format",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[elm]": { "editor.defaultFormatter": "elmTooling.elm-ls-vscode" },
   "editor.formatOnSave": true,
   "[markdown]": {
     "editor.formatOnSave": false,
@@ -48,26 +44,15 @@
       "activityBar.inactiveForeground": "#770000"
     }
   },
-  "editor.cursorSurroundingLines": 3,
-  "editor.renderIndentGuides": false,
-  "editor.tabSize": 8,
-  "editor.detectIndentation": true,
-  "editor.rulers": [80],
-  "git.enableSmartCommit": true,
   "window.nativeFullScreen": false,
-  "extensions.ignoreRecommendations": true,
-  "workbench.colorTheme": "Gruvbox Material Light",
   "editor.minimap.scale": 1,
   "editor.minimap.renderCharacters": false,
-  "workbench.fontAliasing": "antialiased",
-  "workbench.iconTheme": "Monokai Pro Icons",
   "workbench.statusBar.visible": true,
   "workbench.tree.renderIndentGuides": "always",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.limit.enabled": true,
-  "telemetry.enableTelemetry": false,
   "git.confirmSync": false,
   "editor.renderControlCharacters": true,
   "breadcrumbs.enabled": false,
-  "editor.minimap.enabled": false
+  "telemetry.enableTelemetry": false,
 }

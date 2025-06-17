@@ -56,14 +56,6 @@ alias cd='cd -P'
 alias gb='git branch -vv'
 alias gs='gst'
 alias gdt='git difftool'
-alias git-watcher='watch -n 1 --no-title --color "
-   echo === LAST COMMIT === &&
-   git -c color.ui=always show --stat &&
-   echo && echo && echo === STATUS === &&
-   git -c color.ui=always status &&
-   echo && echo && echo === UNSTAGED === &&
-   git -c color.ui=always diff --stat
-   "'
 
 alias '..'='cd ..'
 alias '...'='cd ../..'

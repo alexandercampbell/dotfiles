@@ -4,12 +4,12 @@ bindings = [
 ]
 
 [font.normal]
-family = "Menlo"
-# family = "Iosevka Extralight"
+# family = "Menlo"
 # family = "Monaco"
+family = "Iosevka Light"
 
 [font]
-size = 11
+size = 16
 
 [window]
 decorations = "none"

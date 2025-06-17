@@ -3,8 +3,9 @@
           "as->"        :none
           "some->"      :none
           "some->>"     :none
-          "defn"        :arg2
           "def"         :arg2
+          "defn"        :arg2
+          "defui"       :arg2 ; for https://github.com/pitch-io/uix
           "defonce"     :arg2
           "defprotocol" :arg1}
 

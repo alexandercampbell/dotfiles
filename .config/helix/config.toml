@@ -7,8 +7,7 @@ idle-timeout = 0
 rulers = [81, 93, 121] # put ruler one past the final permissible character
 
 [editor.statusline]
-left = ["mode", "spinner", "file-base-name", "read-only-indicator", "file-modification-indicator"]
-center = ["file-absolute-path"]
+left = ["mode", "spinner", "file-name", "read-only-indicator", "file-modification-indicator"]
 
 [editor.soft-wrap]
 enable = true
@@ -18,12 +17,11 @@ follow-symlinks = false
 
 [editor.lsp]
 display-messages = true
+display-progress-messages = true
 
 [keys.insert]
 j = { k = "normal_mode" }
 
 [keys.normal]
-"tab" = "expand_selection"
-"S-tab" = "shrink_selection"
 w = ":w"
 q = ":q"

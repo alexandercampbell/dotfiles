@@ -1,39 +1,77 @@
+# ─── Helper ───────────────────────────────────────────────────────────────────
 
-source "$HOME/dotfiles/vendor/antigen.zsh"
-antigen bundle 'git'
-antigen bundle 'vi-mode'
-antigen bundle 'zsh-users/zsh-autosuggestions'
-antigen bundle 'zsh-users/zsh-syntax-highlighting'
-antigen apply
+has_cmd() { command -v "$1" &>/dev/null }
+
+# ─── Homebrew ─────────────────────────────────────────────────────────────────
+
+if [ -d /home/linuxbrew/.linuxbrew ]; then
+	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+elif [ -d /opt/homebrew ]; then
+	eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+# ─── Antigen ──────────────────────────────────────────────────────────────────
+
+if [ -f "$HOME/dotfiles/vendor/antigen.zsh" ]; then
+	source "$HOME/dotfiles/vendor/antigen.zsh"
+	antigen bundle 'git'
+	antigen bundle 'vi-mode'
+	antigen bundle 'zsh-users/zsh-autosuggestions'
+	antigen bundle 'zsh-users/zsh-syntax-highlighting'
+	antigen apply
+fi
+
+# ─── Prompt ───────────────────────────────────────────────────────────────────
 
 setopt promptsubst
-export PROMPT='$($HOME/dotfiles/tool/zsh-prompt.clj $?)'
+
+if has_cmd fk; then
+	export PROMPT='$(fk prompt $?)'
+else
+	export PROMPT='%F{blue}%~%f %F{yellow}λ%f '
+fi
+
+# ─── Shell Options ────────────────────────────────────────────────────────────
 
 autoload -U select-word-style
 select-word-style bash
 
-# Repository status check for large repositories is much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-export EDITOR=hx
-export VISUAL=hx
 
 export SAVEHIST=2000
 export HISTFILE=~/.zsh_history
-
-# make each instance of zsh have its own command-line history
 unsetopt share_history
 
-export PATH="$HOME/bin:$PATH"
-export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/.cargo/bin"
+# ─── Editor ───────────────────────────────────────────────────────────────────
 
-export GOPATH="$HOME/workspace/gopath"
+if has_cmd hx; then
+	export EDITOR=hx
+	export VISUAL=hx
+elif has_cmd nvim; then
+	export EDITOR=nvim
+	export VISUAL=nvim
+else
+	export EDITOR=vi
+	export VISUAL=vi
+fi
 
-# Fix GPG ioctl error described in https://github.com/keybase/keybase-issues/issues/2798
-# Setting this env var in the shell rc file is recommended by the GPG manual.
-# https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html
+# ─── PATH ─────────────────────────────────────────────────────────────────────
+
+[ -d "$HOME/bin" ] && export PATH="$HOME/bin:$PATH"
+[ -d "$HOME/.local/bin" ] && export PATH="$PATH:$HOME/.local/bin"
+[ -d "$HOME/.cargo/bin" ] && export PATH="$PATH:$HOME/.cargo/bin"
+
+# ─── Go ───────────────────────────────────────────────────────────────────────
+
+if has_cmd go; then
+	export GOPATH="$HOME/workspace/gopath"
+fi
+
+# ─── GPG ──────────────────────────────────────────────────────────────────────
+
 export GPG_TTY=$(tty)
+
+# ─── Aliases ──────────────────────────────────────────────────────────────────
 
 alias ls='ls --color=auto --group-directories-first'
 alias l='ls'
@@ -42,15 +80,6 @@ alias la='ls -la'
 alias sl='ls'
 alias dc='cd'
 
-alias static-serve="$HOME/dotfiles/tool/static-serve.clj :port 8000"
-alias bb='rlwrap bb'
-
-# Ref https://stackoverflow.com/a/24005600
-alias strip-ansi="sed -r 's/\x1b\[[^@-~]*[@-~]//g'"
-
-# Treat symbolic links to directories as jumps.
-# This may not fit with traditional Linux model of a filesystem, but it makes
-# more sense for my usages of symbolic links.
 alias cd='cd -P'
 
 alias gb='git branch -vv'
@@ -60,39 +89,30 @@ alias gdt='git difftool'
 alias '..'='cd ..'
 alias '...'='cd ../..'
 alias '....'='cd ../../..'
+alias '.....'='cd ../../../..'
 
-# Why does zsh reserve "time" as a keyword?
-# I want to use the command.
+alias strip-ansi="sed -r 's/\x1b\[[^@-~]*[@-~]//g'"
 alias time='/usr/bin/time'
 
-if which xset > /dev/null; then
-	# Increase the key repeat rate
-	# I don't like to wait
-	xset r rate 250 60
+if has_cmd rlwrap && has_cmd bb; then
+	alias bb='rlwrap bb'
+fi
 
-	# attempt to disable mouse acceleration
+# ─── X11 ──────────────────────────────────────────────────────────────────────
+
+if has_cmd xset; then
+	xset r rate 250 60
 	xset m 0 0
 fi
 
-if [[ "$(uname)" = 'Darwin' ]]
-then
-	APPLE_INTERFACE_STYLE=$(defaults read -g AppleInterfaceStyle 2>/dev/null)
-	if [[ $APPLE_INTERFACE_STYLE = 'Dark' ]]
-	then
-		export DARK_MODE=1
-	else
-		export DARK_MODE=0
-	fi
-else
-	# not on MacOS-- not sure how you detect dark theme on ubuntu
-	# default to dark
-	export DARK_MODE=1
+# ─── Greeting ─────────────────────────────────────────────────────────────────
+
+if has_cmd fk; then
+	fk greet
 fi
 
-"$HOME/dotfiles/tool/theme-switcher.clj"
+# ─── Local ────────────────────────────────────────────────────────────────────
 
-# Include local init script if it exists. This is for when the local computer
-# needs custom configuration that I don't want in my standard dotfiles.
 if [ -f "$HOME/.zshrc_local" ]; then
 	source "$HOME/.zshrc_local"
 fi

@@ -16,4 +16,4 @@ decorations = "none"
 startup_mode = "SimpleFullscreen"
 
 [general]
-import = ["~/dotfiles/vendor/alacritty-theme/themes/kanagawa_dragon.toml"]
+import = ["~/dotfiles/.config/alacritty/generated-theme.toml"]

@@ -2,6 +2,19 @@
 .clj-kondo/
 .cpcache/
 .lsp/
-.DS_Store
 .idea/
+
+.DS_Store
+
+# for WSL file metadata
+*:Zone.Identifier
+
+# Generated theme files
+.config/alacritty/generated-theme.toml
+.config/helix/themes/generated.toml
+.config/zellij/themes/generated.kdl
+.current-theme
+
+# Claude per-repo config
+.claude/
 

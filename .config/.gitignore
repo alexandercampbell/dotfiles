@@ -4,6 +4,8 @@
 !.gitignore
 !nvim/
 !alacritty/
+!helix/
+!zellij/
 !i3/
 !sway/
 

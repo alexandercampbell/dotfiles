@@ -31,6 +31,12 @@ else
 	export PROMPT='%F{blue}%~%f %F{yellow}λ%f '
 fi
 
+# ─── Colors ───────────────────────────────────────────────────────────────────
+
+if [ -f "$HOME/dotfiles/generated-ls-colors.zsh" ]; then
+	source "$HOME/dotfiles/generated-ls-colors.zsh"
+fi
+
 # ─── Shell Options ────────────────────────────────────────────────────────────
 
 autoload -U select-word-style

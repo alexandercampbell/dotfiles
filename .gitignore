@@ -13,6 +13,7 @@
 .config/alacritty/generated-theme.toml
 .config/helix/themes/generated.toml
 .config/zellij/themes/generated.kdl
+/generated-ls-colors.zsh
 .current-theme
 
 # Claude per-repo config

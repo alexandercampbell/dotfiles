@@ -88,7 +88,27 @@ alias dc='cd'
 
 alias cd='cd -P'
 
-alias gb='git branch -vv'
+# Local branches: sort by latest commit, show time; -D / -d / rename / copy go through `git branch -vv`
+# (antigen’s git bundle aliases `gb`; unalias so we can replace it with a function)
+unalias gb 2>/dev/null
+gb() {
+	if (( $@[(I)-D] + $@[(I)-d] )); then
+		git branch -vv "$@"
+		return
+	fi
+	case $1 in
+		-m | -M | -c | -C | -f)
+			git branch -vv "$@"
+			;;
+		--delete)
+			git branch -vv "$@"
+			;;
+		*)
+			git branch --sort=-committerdate --format="%(if)%(HEAD)%(then)*%(else) %(end)  %(refname:short)  %(objectname:short)  %(committerdate:iso8601)  %(contents:subject)  %(upstream:track)" \
+				"$@"
+			;;
+	esac
+}
 alias gs='gst'
 alias gdt='git difftool'
 

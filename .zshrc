@@ -104,8 +104,11 @@ gb() {
 			git branch -vv "$@"
 			;;
 		*)
-			git branch --sort=-committerdate --format="%(if)%(HEAD)%(then)*%(else) %(end)  %(refname:short)  %(objectname:short)  %(committerdate:iso8601)  %(contents:subject)  %(upstream:track)" \
-				"$@"
+			if has_cmd fk; then
+				fk git-branch-list "$@"
+			else
+				git branch -vv "$@"
+			fi
 			;;
 	esac
 }

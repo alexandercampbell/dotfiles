@@ -10,15 +10,10 @@ elif [ -d /opt/homebrew ]; then
 	eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-# ─── Antigen ──────────────────────────────────────────────────────────────────
+# ─── Git Aliases ──────────────────────────────────────────────────────────────
 
-if [ -f "$HOME/dotfiles/vendor/antigen.zsh" ]; then
-	source "$HOME/dotfiles/vendor/antigen.zsh"
-	antigen bundle 'git'
-	antigen bundle 'vi-mode'
-	antigen bundle 'zsh-users/zsh-autosuggestions'
-	antigen bundle 'zsh-users/zsh-syntax-highlighting'
-	antigen apply
+if [ -f "$HOME/dotfiles/vendor/git-aliases.zsh" ]; then
+	source "$HOME/dotfiles/vendor/git-aliases.zsh"
 fi
 
 # ─── Prompt ───────────────────────────────────────────────────────────────────
@@ -89,7 +84,7 @@ alias dc='cd'
 alias cd='cd -P'
 
 # Local branches: sort by latest commit, show time; -D / -d / rename / copy go through `git branch -vv`
-# (antigen’s git bundle aliases `gb`; unalias so we can replace it with a function)
+# (git-aliases.zsh aliases `gb` to `git branch`; unalias so we can replace it with a function)
 unalias gb 2>/dev/null
 gb() {
 	if (( $@[(I)-D] + $@[(I)-d] )); then

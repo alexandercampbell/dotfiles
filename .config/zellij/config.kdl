@@ -1,28 +1,32 @@
+// Zellij configuration.
+//
+// Reference: https://zellij.dev/documentation/configuration
+
 keybinds clear-defaults=true {
     normal {
     }
     locked {
-        bind "Ctrl g" { SwitchToMode "Normal"; }
+        bind "Ctrl g" { SwitchToMode "normal"; }
     }
     scroll {
-        bind "Ctrl s" { SwitchToMode "Normal"; }
-        bind "e" { EditScrollback; SwitchToMode "Normal"; }
-        bind "s" { SwitchToMode "EnterSearch"; SearchInput 0; }
-        bind "Ctrl c" { ScrollToBottom; SwitchToMode "Normal"; }
-        bind "j" "Down" { ScrollDown; }
-        bind "k" "Up" { ScrollUp; }
-        bind "Ctrl f" "PageDown" "Right" "l" { PageScrollDown; }
-        bind "Ctrl b" "PageUp" "Left" "h" { PageScrollUp; }
+        bind "Ctrl s" { SwitchToMode "normal"; }
+        bind "e" { EditScrollback; SwitchToMode "normal"; }
+        bind "s" { SwitchToMode "entersearch"; SearchInput 0; }
+        bind "Ctrl c" { ScrollToBottom; SwitchToMode "normal"; }
+        bind "j" "down" { ScrollDown; }
+        bind "k" "up" { ScrollUp; }
+        bind "Ctrl f" "PageDown" "right" "l" { PageScrollDown; }
+        bind "Ctrl b" "PageUp" "left" "h" { PageScrollUp; }
         bind "d" { HalfPageScrollDown; }
         bind "u" { HalfPageScrollUp; }
     }
     search {
-        bind "Ctrl s" { SwitchToMode "Normal"; }
-        bind "Ctrl c" { ScrollToBottom; SwitchToMode "Normal"; }
-        bind "j" "Down" { ScrollDown; }
-        bind "k" "Up" { ScrollUp; }
-        bind "Ctrl f" "PageDown" "Right" "l" { PageScrollDown; }
-        bind "Ctrl b" "PageUp" "Left" "h" { PageScrollUp; }
+        bind "Ctrl s" { SwitchToMode "normal"; }
+        bind "Ctrl c" { ScrollToBottom; SwitchToMode "normal"; }
+        bind "j" "down" { ScrollDown; }
+        bind "k" "up" { ScrollUp; }
+        bind "Ctrl f" "PageDown" "right" "l" { PageScrollDown; }
+        bind "Ctrl b" "PageUp" "left" "h" { PageScrollUp; }
         bind "d" { HalfPageScrollDown; }
         bind "u" { HalfPageScrollUp; }
         bind "n" { Search "down"; }
@@ -32,44 +36,46 @@ keybinds clear-defaults=true {
         bind "o" { SearchToggleOption "WholeWord"; }
     }
     entersearch {
-        bind "Ctrl c" "Esc" { SwitchToMode "Scroll"; }
-        bind "Enter" { SwitchToMode "Search"; }
+        bind "Ctrl c" "esc" { SwitchToMode "scroll"; }
+        bind "enter" { SwitchToMode "search"; }
     }
     tmux {
-        bind "[" { SwitchToMode "Scroll"; }
-        bind "Ctrl a" { SwitchToMode "Normal"; }
-        bind "Ctrl c" { SwitchToMode "Normal"; }
-        bind "s" { NewPane "Down"; SwitchToMode "Normal"; }
-        bind "v" { NewPane "Right"; SwitchToMode "Normal"; }
-        bind "z" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
-        bind "c" { NewTab; SwitchToMode "Normal"; }
-        bind "p" { GoToPreviousTab; SwitchToMode "Normal"; }
-        bind "n" { GoToNextTab; SwitchToMode "Normal"; }
-        bind "Left" { MoveFocus "Left"; SwitchToMode "Normal"; }
-        bind "Right" { MoveFocus "Right"; SwitchToMode "Normal"; }
-        bind "Down" { MoveFocus "Down"; SwitchToMode "Normal"; }
-        bind "Up" { MoveFocus "Up"; SwitchToMode "Normal"; }
-        bind "h" { MoveFocus "Left"; SwitchToMode "Normal"; }
-        bind "l" { MoveFocus "Right"; SwitchToMode "Normal"; }
-        bind "j" { MoveFocus "Down"; SwitchToMode "Normal"; }
-        bind "k" { MoveFocus "Up"; SwitchToMode "Normal"; }
+        bind "[" { SwitchToMode "scroll"; }
+        bind "Ctrl a" { SwitchToMode "normal"; }
+        bind "Ctrl c" { SwitchToMode "normal"; }
+        bind "s" { NewPane "down"; SwitchToMode "normal"; }
+        bind "v" { NewPane "right"; SwitchToMode "normal"; }
+        bind "z" { ToggleFocusFullscreen; SwitchToMode "normal"; }
+        bind "c" { NewTab; SwitchToMode "normal"; }
+        bind "p" { GoToPreviousTab; SwitchToMode "normal"; }
+        bind "n" { GoToNextTab; SwitchToMode "normal"; }
+        bind "left" { MoveFocus "left"; SwitchToMode "normal"; }
+        bind "right" { MoveFocus "right"; SwitchToMode "normal"; }
+        bind "down" { MoveFocus "down"; SwitchToMode "normal"; }
+        bind "up" { MoveFocus "up"; SwitchToMode "normal"; }
+        bind "h" { MoveFocus "left"; SwitchToMode "normal"; }
+        bind "l" { MoveFocus "right"; SwitchToMode "normal"; }
+        bind "j" { MoveFocus "down"; SwitchToMode "normal"; }
+        bind "k" { MoveFocus "up"; SwitchToMode "normal"; }
         bind "o" { FocusNextPane; }
         bind "d" { Detach; }
-        bind "Space" { NextSwapLayout; }
-        bind "x" { CloseFocus; SwitchToMode "Normal"; }
+        bind "space" { NextSwapLayout; }
+        bind "x" { CloseFocus; SwitchToMode "normal"; }
     }
     shared_except "tmux" "locked" {
-        bind "Ctrl a" { SwitchToMode "Tmux"; }
+        bind "Ctrl a" { SwitchToMode "tmux"; }
     }
 }
 
 plugins {
-    tab-bar { path "tab-bar"; }
-    status-bar { path "status-bar"; }
-    strider { path "strider"; }
-    compact-bar { path "compact-bar"; }
+    tab-bar location="zellij:tab-bar"
+    status-bar location="zellij:status-bar"
+    strider location="zellij:strider"
+    compact-bar location="zellij:compact-bar"
 }
 
 theme "generated"
 default_layout "compact"
 scroll_buffer_size 20000
+scrollback_editor "hx"
+show_startup_tips false

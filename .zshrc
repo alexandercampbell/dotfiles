@@ -129,12 +129,6 @@ if has_cmd xset; then
 	xset m 0 0
 fi
 
-# ─── Greeting ─────────────────────────────────────────────────────────────────
-
-if has_cmd fk; then
-	fk greet
-fi
-
 # ─── Local ────────────────────────────────────────────────────────────────────
 
 if [ -f "$HOME/.zshrc_local" ]; then

@@ -2,7 +2,7 @@
 	name = Alexander Campbell
 	email = alexanderhcampbell@gmail.com
 [core]
-	pager = "less -F -X"
+	pager = delta
 [commit]
 	verbose = true
 [pull]
@@ -11,3 +11,8 @@
 	defaultBranch = master
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	side-by-side = true

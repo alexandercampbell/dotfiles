@@ -62,6 +62,17 @@ fi
 [ -d "$HOME/.local/bin" ] && export PATH="$PATH:$HOME/.local/bin"
 [ -d "$HOME/.cargo/bin" ] && export PATH="$PATH:$HOME/.cargo/bin"
 
+# ─── fzf ──────────────────────────────────────────────────────────────────────
+
+if has_cmd fzf; then
+	if has_cmd fd; then
+		export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+		export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+		export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'
+	fi
+	source <(fzf --zsh)
+fi
+
 # ─── Go ───────────────────────────────────────────────────────────────────────
 
 if has_cmd go; then

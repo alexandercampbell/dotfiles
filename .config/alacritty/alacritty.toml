@@ -1,6 +1,8 @@
 [keyboard]
 bindings = [
-  { key = "Return", mods = "Command", action = "ToggleSimpleFullscreen" }
+  { key = "Return", mods = "Command", action = "ToggleSimpleFullscreen" },
+  # Unbind macOS default Cmd+K because I ~never want ClearHistory
+  { key = "K", mods = "Command", mode = "~Vi|~Search", action = "None" },
 ]
 
 [font.normal]

@@ -42,6 +42,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 export SAVEHIST=2000
 export HISTFILE=~/.zsh_history
 unsetopt share_history
+unsetopt equals
 
 # ─── Editor ───────────────────────────────────────────────────────────────────
 

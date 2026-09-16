@@ -6,12 +6,19 @@ bindings = [
 ]
 
 [font.normal]
+family = "Greybeard 13px" # greybeard sizes are 11,12,13,14,15,16,17,18,22
 # family = "Menlo"
 # family = "Monaco"
-family = "Iosevka Light"
+# family = "Iosevka Light"
+# family = "Space Mono"
+# family = "Monaspace Argon Var"
+# family = "Monaspace Krypton Var"
+# family = "Geist Mono"
 
 [font]
-size = 16
+size = 15
+# offset.x = -1
+# offset.y = -1
 
 [window]
 decorations = "none"

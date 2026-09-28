@@ -3,6 +3,10 @@ bindings = [
   { key = "Return", mods = "Command", action = "ToggleSimpleFullscreen" },
   # Unbind macOS default Cmd+K because I ~never want ClearHistory
   { key = "K", mods = "Command", mode = "~Vi|~Search", action = "None" },
+  # Alacritty does not seem to accept Shift+Enter by default on macOS.
+  # Add explicit bind.
+  { key = "Return", mods = "Shift", chars = "\u001b\r" },
+  { key = "Return", mods = "Alt", chars = "\u001b\r" },
 ]
 
 [font.normal]
